@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Game.Battle.Interfaces
 {
@@ -7,7 +8,7 @@ namespace Game.Battle.Interfaces
         public IEnumerator<IAttack> ChooseAttack();
         public bool IsDefeated();
         
-        public int RollDiceFor(EActionType action);
+        public Task<int> RollDiceFor(EActionType action);
         
     }
 

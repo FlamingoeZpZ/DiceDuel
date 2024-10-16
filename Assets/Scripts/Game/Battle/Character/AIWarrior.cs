@@ -1,16 +1,15 @@
+using System.Collections.Generic;
+using Game.Battle.Interfaces;
 using UnityEngine;
 
-public class AIWarrior : MonoBehaviour
+namespace Game.Battle.Character
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SelectionBase]
+    public class AIWarrior : BaseCharacter
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override IEnumerator<IAttack> ChooseAttack()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
