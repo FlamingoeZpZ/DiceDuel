@@ -13,6 +13,13 @@ namespace Managers
         [SerializeField] private Dice tenSidedDice;
         [SerializeField] private Dice twentySidedDice;
 
+        [SerializeField] private Transform diceSpawnPointLeft;
+        [SerializeField] private Transform diceSpawnPointRight;
+        
+        [SerializeField] private AudioClip diceSound;
+        [SerializeField] private AudioClip diceHitSound;
+        [SerializeField] private ParticleSystem diceClinkParticles;
+        
         private static DiceManager _instance;
 
         private readonly Dictionary<EDiceType, Queue<Dice>> _diceInstances = new Dictionary<EDiceType, Queue<Dice>>();
@@ -31,6 +38,7 @@ namespace Managers
             //Add each of the queues as empty by default.
             _diceInstances.Add(EDiceType.Four, new Queue<Dice>());
             _diceInstances.Add(EDiceType.Six, new Queue<Dice>());
+            _diceInstances.Add(EDiceType.Eight, new Queue<Dice>());
             _diceInstances.Add(EDiceType.Ten, new Queue<Dice>());
             _diceInstances.Add(EDiceType.Twenty, new Queue<Dice>());
 
@@ -61,6 +69,8 @@ namespace Managers
                 createdDice = _instance.AddDice(dice);
             }
 
+            if (direction.x < 0) createdDice.transform.position = _instance.diceSpawnPointLeft.position;
+            else createdDice.transform.position = _instance.diceSpawnPointRight.position;
             return createdDice.Roll(color, direction);
         }
 
@@ -79,6 +89,9 @@ namespace Managers
                 case EDiceType.Six:
                     createdDice = Instantiate(sixSidedDice, transform.GetChild(parent));
                     break;
+                case EDiceType.Eight:
+                    createdDice = Instantiate(eightSidedDice, transform.GetChild(parent));
+                    break;
                 case EDiceType.Ten:
                     createdDice = Instantiate(tenSidedDice, transform.GetChild(parent));
                     break;
@@ -87,7 +100,6 @@ namespace Managers
                     break;
             }
 
-            createdDice.Initialize(diceType);
             return createdDice;
         }
 
@@ -102,6 +114,7 @@ namespace Managers
     {
         Four,
         Six,
+        Eight,
         Ten,
         Twenty
     }
