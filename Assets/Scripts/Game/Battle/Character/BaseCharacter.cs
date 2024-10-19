@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Managers;
 using UnityEngine;
+using UniTask = Cysharp.Threading.Tasks.UniTask;
 
 namespace Game.Battle.Character
 {
@@ -31,7 +33,7 @@ namespace Game.Battle.Character
             return _currentHealth <= 0;
         }
 
-        public virtual async Task<int> RollDiceFor(EActionType action)
+        public virtual async UniTask<int> RollDiceFor(EActionType action)
         {
             //We use TryGetValue because it's the most optimized way to both check if we're allowed and get the list.
             if (!_diceSet.TryGetValue(action, out List<EDiceType> die))
@@ -41,7 +43,7 @@ namespace Game.Battle.Character
             }
 
             //Create an array to store each dice roll process required
-            Task<int>[] tasks = new Task<int>[die.Count];
+            UniTask<int>[] tasks = new UniTask<int>[die.Count];
             for (int index = 0; index < die.Count; index++)
             {
                 EDiceType dice = die[index];
@@ -50,7 +52,7 @@ namespace Game.Battle.Character
             }
             
             //Wait for each dice roll to end
-            int [] results = await Task.WhenAll(tasks);
+            int [] results = await UniTask.WhenAll(tasks);
 
             int sum = 0;
             

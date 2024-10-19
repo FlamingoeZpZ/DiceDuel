@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Game.Battle.Attacks;
 using UnityEngine;
 
@@ -16,9 +16,9 @@ namespace Managers
         [SerializeField] private Transform diceSpawnPointLeft;
         [SerializeField] private Transform diceSpawnPointRight;
         
-        [SerializeField] private AudioClip diceSound;
-        [SerializeField] private AudioClip diceHitSound;
-        [SerializeField] private ParticleSystem diceClinkParticles;
+
+        
+
         
         private static DiceManager _instance;
 
@@ -61,7 +61,7 @@ namespace Managers
         }
 
         //Idea of a factory design pattern, single place to create our objects where we hide creation
-        public static Task<int> CreateDice(EDiceType dice, Color color, Vector2 direction)
+        public static UniTask<int> CreateDice(EDiceType dice, Color color, Vector2 direction)
         {
             //Just grab the dice, no need to check if it's valid.
             if (!_instance._diceInstances[dice].TryDequeue(out Dice createdDice))
@@ -107,7 +107,10 @@ namespace Managers
         private void AddDiceBack(EDiceType type, Dice dice)
         {
             _diceInstances[type].Enqueue(dice);
+            
         }
+
+       
     }
 
     public enum EDiceType

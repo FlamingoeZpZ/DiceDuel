@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 namespace Game.Battle.Interfaces
 {
@@ -8,7 +8,7 @@ namespace Game.Battle.Interfaces
         public IEnumerator<IAttack> ChooseAttack();
         public bool IsDefeated();
         
-        public Task<int> RollDiceFor(EActionType action);
+        public UniTask<int> RollDiceFor(EActionType action);
         
     }
 
