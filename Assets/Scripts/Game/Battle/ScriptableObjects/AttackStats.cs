@@ -5,8 +5,8 @@ namespace Game.Battle.ScriptableObjects
     [CreateAssetMenu(fileName = "AttackStats", menuName = "Scriptable Objects/AttackStats")]
     public class AttackStats : ScriptableObject
     {
-        [SerializeField] private float baseSpeed;
+        [SerializeField] private int baseSpeed;
         
-        public float BaseSpeed => baseSpeed;
+        public int BaseSpeed => baseSpeed;
     }
 }

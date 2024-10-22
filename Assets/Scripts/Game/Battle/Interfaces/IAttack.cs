@@ -1,4 +1,5 @@
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using Game.Battle.ScriptableObjects;
 
 namespace Game.Battle.Interfaces
@@ -6,6 +7,6 @@ namespace Game.Battle.Interfaces
     public interface IAttack
     {
         AttackStats GetAttackStats();
-        IEnumerator PlayAttack(IWarrior user, IWarrior opponent);
+        UniTask PlayAttack(IWarrior user, IWarrior opponent);
     }
 }

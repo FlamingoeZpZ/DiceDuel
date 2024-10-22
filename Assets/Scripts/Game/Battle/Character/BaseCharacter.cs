@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
@@ -26,7 +27,25 @@ namespace Game.Battle.Character
         
         private readonly Dictionary<EActionType, List<EDiceType>> _diceSet = new Dictionary<EActionType, List<EDiceType>>();
         
-        public abstract IEnumerator<IAttack> ChooseAttack();
+        
+        public abstract UniTask<IAttack> ChooseAttack();
+
+        public TemporaryDice[] dice;
+
+        private void Awake()
+        {
+            foreach (TemporaryDice d in dice)
+            {
+                if (!_diceSet.TryGetValue(d.Type, out List<EDiceType> list))
+                {
+                    list  = new List<EDiceType>();
+                    _diceSet.Add(d.Type, list);
+                }
+                list.Add(d.DiceType);
+            }
+
+            _currentHealth = baseStats.GetHealth(myStats);
+        }
 
         public virtual bool IsDefeated()
         {
@@ -66,5 +85,12 @@ namespace Game.Battle.Character
             //Return the result
             return sum;
         }
+    }
+
+    [Serializable]
+    public struct TemporaryDice
+    {
+        public EActionType Type;
+        public EDiceType DiceType;
     }
 }

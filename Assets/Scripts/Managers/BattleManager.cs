@@ -1,6 +1,7 @@
 using System.Collections;
 using Game.Battle;
 using Game.Battle.Interfaces;
+using UnityEngine;
 
 namespace Managers
 {
@@ -36,35 +37,41 @@ namespace Managers
             _warriorA = warriorA;
             _warriorB = warriorB;
         }
-
-        public IEnumerator StartBattle()
+        
+        public async void StartBattle()
         {
+            Debug.Log("Starting Battle");
             while (!HasFightConcluded())
             {
                 //First we choose the attacks
-                yield return _warriorA.ChooseAttack();
-                yield return _warriorB.ChooseAttack();
-                
-                IAttack attackA = _warriorA.ChooseAttack().Current;
-                IAttack attackB = _warriorB.ChooseAttack().Current;
+                Debug.Log("Player A has fight");
+                IAttack attackA = await  _warriorA.ChooseAttack();
+                Debug.Log("Player B has fight");
+                IAttack attackB = await _warriorB.ChooseAttack();
                 
                 //Then we must decide which attack to execute first,
                 //We must roll for speed 
-                if (attackA.GetAttackStats().BaseSpeed >= attackB.GetAttackStats().BaseSpeed)
+                //We should ideally roll both at the same time and wait for the numbers to Accumlate instead
+                Debug.Log("Player A Roll");
+                int aSpeed = (await _warriorA.RollDiceFor(EActionType.Speed)) + attackA.GetAttackStats().BaseSpeed;
+                Debug.Log("Player B Roll");
+                int bSpeed = (await _warriorB.RollDiceFor(EActionType.Speed)) + attackB.GetAttackStats().BaseSpeed;
+                
+                if (aSpeed >= bSpeed)
                 {
-                    yield return attackA.PlayAttack(_warriorA, _warriorB);
-                    if (!HasFightConcluded()) yield return attackB.PlayAttack(_warriorB, _warriorA);
+                    await attackA.PlayAttack(_warriorA, _warriorB);
+                    if (!HasFightConcluded()) await attackB.PlayAttack(_warriorB, _warriorA);
                 }
                 else
                 {
-                    yield return attackB.PlayAttack(_warriorB, _warriorA);
-                    if (!HasFightConcluded()) yield return attackA.PlayAttack(_warriorA, _warriorB);
+                    await attackB.PlayAttack(_warriorB, _warriorA);
+                    if (!HasFightConcluded()) await attackA.PlayAttack(_warriorA, _warriorB);
                 }
-
-
+                
                 //We should only play the attack if we are still fighting
                
             }
+            Debug.Log("Concluding Battle");
         }
 
         private bool HasFightConcluded()

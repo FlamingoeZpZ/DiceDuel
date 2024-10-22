@@ -45,16 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d446734bcf044cd7afaf9c5c4350260a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fourSidedDice: {fileID: 0}
-  sixSidedDice: {fileID: 9027822433295089391, guid: d15e7bb68e206f442b0f3bae0f2272f4, type: 3}
-  eightSidedDice: {fileID: 0}
-  tenSidedDice: {fileID: 0}
-  twentySidedDice: {fileID: 0}
+  fourSidedDice: {fileID: 8198798150869177644, guid: cfacdc1a95a40fe488f4caf37aae76c3, type: 3}
+  sixSidedDice: {fileID: 5278350257402535224, guid: 743f08286e2770c45bb27eda565bdfbf, type: 3}
+  eightSidedDice: {fileID: 7922522013078172434, guid: b50c0f81a78ea954eac04123c0fbc6f8, type: 3}
+  tenSidedDice: {fileID: 4745202732978418091, guid: 2fdc2c5cafeaa6945bbac6c4b854dd64, type: 3}
+  twentySidedDice: {fileID: 1441155393011300129, guid: 77aed9cf5dac6c04589b10307a4b0539, type: 3}
   diceSpawnPointLeft: {fileID: 6268150811111954245}
   diceSpawnPointRight: {fileID: 557551913516871823}
-  diceSound: {fileID: 0}
-  diceHitSound: {fileID: 0}
-  diceClinkParticles: {fileID: 0}
 --- !u!1 &4511131920737689303
 GameObject:
   m_ObjectHideFlags: 0

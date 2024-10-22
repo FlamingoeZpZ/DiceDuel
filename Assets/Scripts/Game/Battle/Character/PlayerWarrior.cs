@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
 using UnityEngine;
 
@@ -12,9 +12,12 @@ namespace Game.Battle.Character
        //A player has a set of attacks
        private IAttack[] _attacks;
 
-       public override IEnumerator<IAttack> ChooseAttack()
+       public SwordAttack temp;
+
+       public override async UniTask<IAttack> ChooseAttack()
        {
-           throw new System.NotImplementedException();
+           await UniTask.Delay(100);
+           return temp;
        }
     }
 }
