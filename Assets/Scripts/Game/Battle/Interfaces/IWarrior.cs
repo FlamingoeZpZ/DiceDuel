@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Game.Battle.Interfaces
 {
@@ -7,9 +7,10 @@ namespace Game.Battle.Interfaces
     {
         public UniTask<IAttack> ChooseAttack();
         public bool IsDefeated();
-        
         public UniTask<int> RollDiceFor(EActionType action);
-        
+
+        public Color GetTeamColor();
+
     }
 
     public enum EActionType

@@ -15,9 +15,6 @@ namespace Managers
 
         [SerializeField] private Transform diceSpawnPointLeft;
         [SerializeField] private Transform diceSpawnPointRight;
-        
-
-        
 
         
         private static DiceManager _instance;
@@ -61,7 +58,7 @@ namespace Managers
         }
 
         //Idea of a factory design pattern, single place to create our objects where we hide creation
-        public static UniTask<int> CreateDice(EDiceType dice, Color color, Vector2 direction)
+        public static async UniTask<int> CreateDice(EDiceType dice, Color color, Vector2 direction)
         {
             //Just grab the dice, no need to check if it's valid.
             if (!_instance._diceInstances[dice].TryDequeue(out Dice createdDice))
@@ -71,7 +68,9 @@ namespace Managers
 
             if (direction.x < 0) createdDice.transform.position = _instance.diceSpawnPointLeft.position;
             else createdDice.transform.position = _instance.diceSpawnPointRight.position;
-            return createdDice.Roll(color, direction);
+            int val = await createdDice.Roll(color, direction);
+
+            return val;
         }
 
 

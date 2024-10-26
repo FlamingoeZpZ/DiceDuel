@@ -1,6 +1,9 @@
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using Game.Battle;
 using Game.Battle.Interfaces;
+using UI;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace Managers
@@ -45,6 +48,9 @@ namespace Managers
             {
                 //First we choose the attacks
                 Debug.Log("Player A has fight");
+                
+                GameHud.ResetHUD();
+                
                 IAttack attackA = await  _warriorA.ChooseAttack();
                 Debug.Log("Player B has fight");
                 IAttack attackB = await _warriorB.ChooseAttack();
@@ -52,10 +58,16 @@ namespace Managers
                 //Then we must decide which attack to execute first,
                 //We must roll for speed 
                 //We should ideally roll both at the same time and wait for the numbers to Accumlate instead
-                Debug.Log("Player A Roll");
-                int aSpeed = (await _warriorA.RollDiceFor(EActionType.Speed)) + attackA.GetAttackStats().BaseSpeed;
-                Debug.Log("Player B Roll");
-                int bSpeed = (await _warriorB.RollDiceFor(EActionType.Speed)) + attackB.GetAttackStats().BaseSpeed;
+                GameHud.DisplayDefaults(_warriorA.GetTeamColor(), attackA.GetAttackStats().BaseSpeed, _warriorB.GetTeamColor(), attackB.GetAttackStats().BaseSpeed);
+
+                
+                Debug.Log("Rolling Dice");
+                (int aSpeed, int bSpeed) = await UniTask.WhenAll(_warriorA.RollDiceFor(EActionType.Speed), _warriorB.RollDiceFor(EActionType.Speed));
+                aSpeed += attackA.GetAttackStats().BaseSpeed;
+                bSpeed += attackB.GetAttackStats().BaseSpeed;
+                
+                await GameHud.SendDice();
+                
                 
                 if (aSpeed >= bSpeed)
                 {
@@ -69,7 +81,8 @@ namespace Managers
                 }
                 
                 //We should only play the attack if we are still fighting
-               
+                await UniTask.Delay(5000);
+
             }
             Debug.Log("Concluding Battle");
         }

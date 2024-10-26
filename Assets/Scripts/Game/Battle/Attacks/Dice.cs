@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Game.Battle.Interfaces;
 using Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -20,7 +21,7 @@ namespace Game.Battle.Attacks
         [SerializeField] private float minSpeed=5;
         [SerializeField] private float maxSpeed=10;
         [SerializeField] private EDiceType myType;
-        [SerializeField, ColorUsage(false, true)] private Color myColor;
+        private Color _myColor;
 
         
         //private SpriteRenderer _spriteRenderer;
@@ -30,17 +31,23 @@ namespace Game.Battle.Attacks
         
         private int _highestRoll;
         private int _currentValue;
+        private bool _isLeftSide;
         
         public int CurrentValue => _currentValue;
         public int HighestRoll => _highestRoll;
         
+        public bool IsLeftSide => _isLeftSide;
+        public Color MyColor => _myColor;
+
+
         //We need to use UniTask to retrieve an int with low memory allocation, the alternatives will create lag or not work on webgl.
         public async UniTask<int> Roll(Color color, Vector2 direction)
         {
-            gameObject.SetActive(true);
             color.a = 1;
-            myColor = color;
+            gameObject.SetActive(true);
+            _myColor = color / Mathf.Max(color.r, color.g, color.b) * 5;
             _material.SetColor(Color1, color);
+            _isLeftSide = direction.x < 0; // Throwing right
             _rigidbody.AddForce(direction * Random.Range(minSpeed, maxSpeed), ForceMode.Impulse);
             _rigidbody.AddTorque(Random.insideUnitSphere * Random.Range(minSpeed, maxSpeed), ForceMode.Impulse);
 
@@ -96,24 +103,12 @@ namespace Game.Battle.Attacks
             if (otherRigidbody && otherRigidbody.TryGetComponent(out Dice _))
             {
                 _rigidbody.AddForce(normal * Random.Range(minSpeed,maxSpeed), ForceMode.Impulse);
-                EffectManager.instance.PlaySparks(transform.position, Quaternion.LookRotation(normal), myColor);
+                EffectManager.instance.PlaySparks(transform.position, Quaternion.LookRotation(normal), _myColor);
             }
-
-            //This is our hit impact
-          
-         
-            //An audiomanager and particle manager would be nice, but probably too much work
-           // AudioSource.PlayClipAtPoint(diceSound, transform.position, 0.2f);
-            
-            //Destroy the object after 3 secodns
-           // Destroy(Instantiate(diceClinkParticles, transform.position, Quaternion.LookRotation(normal, Vector3.forward)).gameObject, 1);
-
-           // _rigidbody.linearVelocity = normal * _rigidbody.linearVelocity * collisionSpeedLoss;
-
         }
 
 
-        private async void Awake()
+        private void Awake()
         {
             //_spriteRenderer = GetComponent<SpriteRenderer>();
             _rigidbody = GetComponent<Rigidbody>();
@@ -137,14 +132,15 @@ namespace Game.Battle.Attacks
                     _highestRoll = 20;
                     break;
             }
-            int value = await Roll(myColor, Vector2.right);
-            Debug.Log(value, gameObject);
         }
 
         private void OnDisable()
         {
             //The ? is null assertion and should be removed for release builds... Or use preprocess
-            EffectManager.instance?.PlayDissolve(transform.position, transform.rotation, _mesh, myColor);
+            EffectManager.instance?.PlayDissolve(transform.position, transform.rotation, _mesh, _myColor);
+            
+            //Reenable the rigidbody for future usage
+            _rigidbody.isKinematic = false;
         }
     }
 }

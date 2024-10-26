@@ -20,7 +20,7 @@ namespace Game.Battle.Character
         private float _currentHealth;
         private float _currentMana;
 
-        private Color _combatColor;
+        [SerializeField, ColorUsage(false, true)] private Color combatColor;
         private Vector2 _combatDirection;
         
         //These store our dicesets
@@ -45,6 +45,8 @@ namespace Game.Battle.Character
             }
 
             _currentHealth = baseStats.GetHealth(myStats);
+            
+            _combatDirection = ((Vector2)transform.position-Vector2.zero).normalized;
         }
 
         public virtual bool IsDefeated()
@@ -67,7 +69,7 @@ namespace Game.Battle.Character
             {
                 EDiceType dice = die[index];
                 //Create and roll the dice
-                tasks[index] = DiceManager.CreateDice(dice, _combatColor, _combatDirection);
+                tasks[index] = DiceManager.CreateDice(dice, GetTeamColor(), _combatDirection);
             }
             
             //Wait for each dice roll to end
@@ -84,6 +86,11 @@ namespace Game.Battle.Character
 
             //Return the result
             return sum;
+        }
+
+        public Color GetTeamColor()
+        {
+            return combatColor;
         }
     }
 
