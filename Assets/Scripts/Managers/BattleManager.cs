@@ -1,9 +1,6 @@
-using System.Collections;
 using Cysharp.Threading.Tasks;
-using Game.Battle;
 using Game.Battle.Interfaces;
 using UI;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace Managers
@@ -62,6 +59,7 @@ namespace Managers
 
                 
                 Debug.Log("Rolling Dice");
+                
                 (int aSpeed, int bSpeed) = await UniTask.WhenAll(_warriorA.RollDiceFor(EActionType.Speed), _warriorB.RollDiceFor(EActionType.Speed));
                 aSpeed += attackA.GetAttackStats().BaseSpeed;
                 bSpeed += attackB.GetAttackStats().BaseSpeed;

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Managers;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UniTask = Cysharp.Threading.Tasks.UniTask;
 
 namespace Game.Battle.Character
@@ -15,20 +15,20 @@ namespace Game.Battle.Character
         //These are our stats, base and upgraded
         [SerializeField] private CharacterStats baseStats;
         [SerializeField] private CharacterStatsData myStats;
+        [SerializeField, ColorUsage(false, true)] private Color combatColor;
 
         //These are our current values
         private float _currentHealth;
         private float _currentMana;
 
-        [SerializeField, ColorUsage(false, true)] private Color combatColor;
-        private Vector2 _combatDirection;
         
         //These store our dicesets
-        
         private readonly Dictionary<EActionType, List<EDiceType>> _diceSet = new Dictionary<EActionType, List<EDiceType>>();
-        
+        bool _isLeftSide;
         
         public abstract UniTask<IAttack> ChooseAttack();
+        
+        
 
         public TemporaryDice[] dice;
 
@@ -36,17 +36,18 @@ namespace Game.Battle.Character
         {
             foreach (TemporaryDice d in dice)
             {
-                if (!_diceSet.TryGetValue(d.Type, out List<EDiceType> list))
+                if (!_diceSet.TryGetValue(d.type, out List<EDiceType> list))
                 {
                     list  = new List<EDiceType>();
-                    _diceSet.Add(d.Type, list);
+                    _diceSet.Add(d.type, list);
                 }
-                list.Add(d.DiceType);
+                list.Add(d.diceType);
             }
 
             _currentHealth = baseStats.GetHealth(myStats);
             
-            _combatDirection = ((Vector2)transform.position-Vector2.zero).normalized;
+            //If we're throwing right, we must be on the left side
+            _isLeftSide = (Vector2.zero-(Vector2)transform.position).x > 0;
         }
 
         public virtual bool IsDefeated()
@@ -62,14 +63,21 @@ namespace Game.Battle.Character
                 Debug.LogError("The item does not exist");
                 return 0;
             }
+            
 
             //Create an array to store each dice roll process required
             UniTask<int>[] tasks = new UniTask<int>[die.Count];
             for (int index = 0; index < die.Count; index++)
             {
-                EDiceType dice = die[index];
+                EffectManager.instance.PlayDiceDeploySound();
+                
+                EDiceType eDiceType = die[index];
                 //Create and roll the dice
-                tasks[index] = DiceManager.CreateDice(dice, GetTeamColor(), _combatDirection);
+                tasks[index] = DiceManager.CreateDice(eDiceType, GetTeamColor(), _isLeftSide);
+
+                //wait 0.1 seconds before throwing the next dice
+                await UniTask.Delay(200);
+
             }
             
             //Wait for each dice roll to end
@@ -97,7 +105,7 @@ namespace Game.Battle.Character
     [Serializable]
     public struct TemporaryDice
     {
-        public EActionType Type;
-        public EDiceType DiceType;
+        public EActionType type;
+        public EDiceType diceType;
     }
 }

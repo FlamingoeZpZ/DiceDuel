@@ -47,7 +47,7 @@ namespace Game.Battle.Attacks
             gameObject.SetActive(true);
             _myColor = color / Mathf.Max(color.r, color.g, color.b) * 5;
             _material.SetColor(Color1, color);
-            _isLeftSide = direction.x < 0; // Throwing right
+            _isLeftSide = direction.x > 0; // Throwing right
             _rigidbody.AddForce(direction * Random.Range(minSpeed, maxSpeed), ForceMode.Impulse);
             _rigidbody.AddTorque(Random.insideUnitSphere * Random.Range(minSpeed, maxSpeed), ForceMode.Impulse);
 
@@ -102,9 +102,11 @@ namespace Game.Battle.Attacks
             //Bounce off other dice
             if (otherRigidbody && otherRigidbody.TryGetComponent(out Dice _))
             {
+                EffectManager.instance.PlayDiceHitSound(0.1f);
                 _rigidbody.AddForce(normal * Random.Range(minSpeed,maxSpeed), ForceMode.Impulse);
                 EffectManager.instance.PlaySparks(transform.position, Quaternion.LookRotation(normal), _myColor);
             }
+            
         }
 
 

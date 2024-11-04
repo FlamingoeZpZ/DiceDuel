@@ -47,8 +47,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eded693689800874e85db9d6f51b88c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceSound: {fileID: 0}
-  diceHitSound: {fileID: 0}
+  diceDeploySound:
+  - {fileID: 8300000, guid: dc896a43f4b84b54a8077602d1b8daef, type: 3}
+  - {fileID: 8300000, guid: 9a00cf7969cc3bb47b76b98eafa32ed0, type: 3}
+  - {fileID: 8300000, guid: 79c5fcadbb6c8c8459a03d8a6943e2a8, type: 3}
+  - {fileID: 8300000, guid: 3547d92c6e27fca428beb8be87e6da96, type: 3}
+  - {fileID: 8300000, guid: d1c6719012e86054994f5389ec6aea34, type: 3}
+  - {fileID: 8300000, guid: f88f1ce159e46ca4a8c26179070ca18d, type: 3}
+  - {fileID: 8300000, guid: 5bdf40c8321e38346bc8c91b6f658933, type: 3}
+  - {fileID: 8300000, guid: 2488fbd2886e35140b579bc1de92d283, type: 3}
+  - {fileID: 8300000, guid: af69991079a966c40984f368289aa9df, type: 3}
+  diceHitSound: {fileID: 8300000, guid: 3e2c81c5acad9474081697cd70ea9a8d, type: 3}
   sparkParticles: {fileID: 7814317341696415394}
   diceDissolveParticles: {fileID: 5595798166431849849}
 --- !u!82 &7218306128490282145
@@ -70,7 +79,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -1,19 +1,14 @@
-using Cysharp.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class EffectManager : MonoBehaviour
 {
-    
-    [SerializeField] private AudioClip diceSound;
+
+    [SerializeField] private AudioClip[] diceDeploySound;
     [SerializeField] private AudioClip diceHitSound;
-    
+
     [SerializeField] private ParticleSystem sparkParticles;
     [SerializeField] private ParticleSystem diceDissolveParticles;
-    
-  
-    
     public static EffectManager instance { get; private set; }
 
     private AudioSource _source;
@@ -31,7 +26,21 @@ public class EffectManager : MonoBehaviour
         _source = GetComponent<AudioSource>();
     }
 
-    public void PlayDissolve(Vector3 position, Quaternion rotation, Mesh mesh, Color color)
+    public void PlayDiceHitSound(float pitchShift = 0)
+    {
+        _source.pitch =  1 + Random.Range(-pitchShift, pitchShift);
+        _source.PlayOneShot(diceHitSound);
+        
+        
+    }
+
+    public void PlayDiceDeploySound()
+    {
+        _source.pitch =1;
+        _source.PlayOneShot(diceDeploySound[Random.Range(0, diceDeploySound.Length)]);
+    }
+
+public void PlayDissolve(Vector3 position, Quaternion rotation, Mesh mesh, Color color)
     {
         // Set the particle system's transform position and rotation
         diceDissolveParticles.transform.SetPositionAndRotation(position, rotation);

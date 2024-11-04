@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Game.Battle.Attacks;
 using Managers;
@@ -26,27 +23,32 @@ namespace UI
         [SerializeField] private TextMeshProUGUI leftScore;
         [SerializeField] private TextMeshProUGUI rightScore;
 
-        private float textSize;
+        private float _textSize;
 
         private readonly Quaternion _cachedRotation = Quaternion.LookRotation(Vector3.down);
     
         private static GameHud _instance;
         
-        private List<ItemData> items = new();
+        private readonly List<ItemData> _items = new();
+
+        private AudioSource _source;
+        
+        int _leftCounter;
+        int _rightCounter;
+        
+        [SerializeField] private AudioClip escalationClip;
         
         void Awake()
         {
-            print("Awake");
             if (_instance != null && _instance != this)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            textSize = leftScore.fontSize;
+            _textSize = leftScore.fontSize;
             _instance = this;
-            print("Instance is not null");
-
+            _source = GetComponent<AudioSource>();
             Dice.OnDiceRolled += OnDiceRolled;
 
         }
@@ -68,9 +70,7 @@ namespace UI
             c.a = 1;
             popup.color = c;
             
-            Debug.Log("Popup color: " + dice.MyColor);
-            
-            items.Add(new ItemData
+            _items.Add(new ItemData
             {
                 Value = value,
                 Location = location,
@@ -78,7 +78,6 @@ namespace UI
                 Target = dice.IsLeftSide ? _instance.leftScore : _instance.rightScore,
                 IsLeft = dice.IsLeftSide
             });
-            
             await BubbleText(popup, popup.fontSize);
             
 
@@ -94,7 +93,6 @@ namespace UI
             {
                 life += Time.deltaTime;
                 tr.position = Vector3.Slerp(item.Location, target, curve.Evaluate(life / duration));
-                Debug.Log("Moving");
                 await UniTask.Yield();
             }
 
@@ -114,8 +112,13 @@ namespace UI
             target.y -= item.Target.rectTransform.rect.center.y;
             Vector3 loc = Camera.main.ScreenToWorldPoint(target);
             EffectManager.instance.PlaySparks(loc, _cachedRotation, Color.white);
-        
-             await BubbleText(item.Target, textSize);
+
+            int side = item.IsLeft ? _leftCounter++ : _rightCounter++;
+
+            _source.pitch = Mathf.Sqrt(side/3f);
+            _source.Play();
+            
+             await BubbleText(item.Target, _textSize);
         }
 
         private async UniTask BubbleText(TextMeshProUGUI target, float originalScale)
@@ -143,6 +146,8 @@ namespace UI
 
         public static async void DisplayDefaults(Color leftColor, int leftInitialValue, Color rightColor, int rightInitialValue)
         {
+            _instance._leftCounter = 0;
+            _instance._rightCounter = 0;
             leftColor/= Mathf.Max(leftColor.r,leftColor.g, leftColor.b);
             rightColor/= Mathf.Max(rightColor.r,rightColor.g, rightColor.b);
             leftColor.a = 1;
@@ -154,21 +159,21 @@ namespace UI
             _instance._leftVal = leftInitialValue;
             _instance._rightVal = rightInitialValue;
             //Play them simultaniously
-            await UniTask.WhenAll(_instance.BubbleText(_instance.leftScore, _instance.textSize), _instance.BubbleText(_instance.rightScore, _instance.textSize));
+            await UniTask.WhenAll(_instance.BubbleText(_instance.leftScore, _instance._textSize), _instance.BubbleText(_instance.rightScore, _instance._textSize));
         }
 
         public static async UniTask SendDice()
         {
-            UniTask[] tasks = new UniTask[_instance.items.Count];
-            for (int i = 0; i < _instance.items.Count; i++)
+            UniTask[] tasks = new UniTask[_instance._items.Count];
+            for (int i = 0; i < _instance._items.Count; i++)
             {
-                ItemData item = _instance.items[i];
+                ItemData item = _instance._items[i];
                //Send each task to begin with a deviation on a log curve  
                tasks[i]= _instance.CreateAndHandlePopup(item, (int)(Mathf.Sqrt(i) * 750));
             }
             //Wait for all tasks to finish
             await UniTask.WhenAll(tasks); //The last one
-            _instance.items.Clear();
+            _instance._items.Clear();
         }
 
         public static void ResetHUD()
