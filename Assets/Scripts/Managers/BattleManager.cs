@@ -43,30 +43,25 @@ namespace Managers
             Debug.Log("Starting Battle");
             while (!HasFightConcluded())
             {
-                //First we choose the attacks
-                Debug.Log("Player A has fight");
-                
+                //Reset any old hud information
                 GameHud.ResetHUD();
                 
+                //Both players / AI will choose attacks
                 IAttack attackA = await  _warriorA.ChooseAttack();
-                Debug.Log("Player B has fight");
                 IAttack attackB = await _warriorB.ChooseAttack();
                 
-                //Then we must decide which attack to execute first,
-                //We must roll for speed 
-                //We should ideally roll both at the same time and wait for the numbers to Accumlate instead
+                //Set the default display information
                 GameHud.DisplayDefaults(_warriorA.GetTeamColor(), attackA.GetAttackStats().BaseSpeed, _warriorB.GetTeamColor(), attackB.GetAttackStats().BaseSpeed);
 
-                
-                Debug.Log("Rolling Dice");
-                
+                //Wait for each attack to process
                 (int aSpeed, int bSpeed) = await UniTask.WhenAll(_warriorA.RollDiceFor(EActionType.Speed), _warriorB.RollDiceFor(EActionType.Speed));
                 aSpeed += attackA.GetAttackStats().BaseSpeed;
                 bSpeed += attackB.GetAttackStats().BaseSpeed;
                 
+                //Wait for the numbers to be tallied
                 await GameHud.SendDice();
                 
-                
+                //Choose the player with the higher speed to attack first
                 if (aSpeed >= bSpeed)
                 {
                     await attackA.PlayAttack(_warriorA, _warriorB);
@@ -78,7 +73,7 @@ namespace Managers
                     if (!HasFightConcluded()) await attackA.PlayAttack(_warriorA, _warriorB);
                 }
                 
-                //We should only play the attack if we are still fighting
+                //Temporary delay to repeat the battle forever once the loop ends
                 await UniTask.Delay(5000);
 
             }

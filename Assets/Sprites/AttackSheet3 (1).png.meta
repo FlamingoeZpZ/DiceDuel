@@ -1,0 +1,6643 @@
+fileFormatVersion: 2
+guid: 2fc452b0a3744ce4aa100a7358df54b0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -905752281244424788
+    second: AttackSheet3 (1)_0
+  - first:
+      213: 4562737861481222890
+    second: AttackSheet3 (1)_1
+  - first:
+      213: 3025860861435674480
+    second: AttackSheet3 (1)_2
+  - first:
+      213: -1969069131756371460
+    second: AttackSheet3 (1)_3
+  - first:
+      213: 3488948989583196188
+    second: AttackSheet3 (1)_4
+  - first:
+      213: 8453646278640840206
+    second: AttackSheet3 (1)_5
+  - first:
+      213: -7460192520520138903
+    second: AttackSheet3 (1)_6
+  - first:
+      213: -8960585886643964712
+    second: AttackSheet3 (1)_7
+  - first:
+      213: -7719884688949653616
+    second: AttackSheet3 (1)_8
+  - first:
+      213: -3499879588401811776
+    second: AttackSheet3 (1)_9
+  - first:
+      213: 1225289139268159714
+    second: AttackSheet3 (1)_10
+  - first:
+      213: 549590936053876036
+    second: AttackSheet3 (1)_11
+  - first:
+      213: 5065171261345537491
+    second: AttackSheet3 (1)_12
+  - first:
+      213: 6468078446508950667
+    second: AttackSheet3 (1)_13
+  - first:
+      213: -7293845078227185123
+    second: AttackSheet3 (1)_14
+  - first:
+      213: 3651580145288272402
+    second: AttackSheet3 (1)_15
+  - first:
+      213: 8328299317122496475
+    second: AttackSheet3 (1)_16
+  - first:
+      213: -2743444255152669460
+    second: AttackSheet3 (1)_17
+  - first:
+      213: 6974571176155479955
+    second: AttackSheet3 (1)_18
+  - first:
+      213: 3301607546307986496
+    second: AttackSheet3 (1)_19
+  - first:
+      213: -2633828986976797304
+    second: AttackSheet3 (1)_20
+  - first:
+      213: 1965564338329420993
+    second: AttackSheet3 (1)_21
+  - first:
+      213: -5564737605619105439
+    second: AttackSheet3 (1)_22
+  - first:
+      213: -3906611847926403183
+    second: AttackSheet3 (1)_23
+  - first:
+      213: 3315227614449168853
+    second: AttackSheet3 (1)_24
+  - first:
+      213: -1402857079402673708
+    second: AttackSheet3 (1)_25
+  - first:
+      213: -1955739883237871277
+    second: AttackSheet3 (1)_26
+  - first:
+      213: -7774016520525947165
+    second: AttackSheet3 (1)_27
+  - first:
+      213: -87664361506391434
+    second: AttackSheet3 (1)_28
+  - first:
+      213: 4583817023538849592
+    second: AttackSheet3 (1)_29
+  - first:
+      213: -341080406510503749
+    second: AttackSheet3 (1)_30
+  - first:
+      213: 7971745385820427927
+    second: AttackSheet3 (1)_31
+  - first:
+      213: -5602292708600558895
+    second: AttackSheet3 (1)_32
+  - first:
+      213: -9012349568340406599
+    second: AttackSheet3 (1)_33
+  - first:
+      213: -9000131495925910978
+    second: AttackSheet3 (1)_34
+  - first:
+      213: -6626805319334280329
+    second: AttackSheet3 (1)_35
+  - first:
+      213: -6754932156433413828
+    second: AttackSheet3 (1)_36
+  - first:
+      213: 7729366789849848315
+    second: AttackSheet3 (1)_37
+  - first:
+      213: -5929898192198957353
+    second: AttackSheet3 (1)_38
+  - first:
+      213: -3884601605322946016
+    second: AttackSheet3 (1)_39
+  - first:
+      213: 1485227888746690102
+    second: AttackSheet3 (1)_40
+  - first:
+      213: 1630000521370038091
+    second: AttackSheet3 (1)_41
+  - first:
+      213: 1152266792209606780
+    second: AttackSheet3 (1)_42
+  - first:
+      213: 828519397618405207
+    second: AttackSheet3 (1)_43
+  - first:
+      213: 6388700276152904376
+    second: AttackSheet3 (1)_44
+  - first:
+      213: 5635439482898790477
+    second: AttackSheet3 (1)_45
+  - first:
+      213: -3552274250612157705
+    second: AttackSheet3 (1)_46
+  - first:
+      213: 7095134126991453665
+    second: AttackSheet3 (1)_47
+  - first:
+      213: 7076159596172583580
+    second: AttackSheet3 (1)_48
+  - first:
+      213: -2620430734442240961
+    second: AttackSheet3 (1)_49
+  - first:
+      213: 4272488785960756956
+    second: AttackSheet3 (1)_50
+  - first:
+      213: 6151109510755557911
+    second: AttackSheet3 (1)_51
+  - first:
+      213: 9216043039351898735
+    second: AttackSheet3 (1)_52
+  - first:
+      213: 6447768194141872449
+    second: AttackSheet3 (1)_53
+  - first:
+      213: 5891170337675139380
+    second: AttackSheet3 (1)_54
+  - first:
+      213: -1957570667657470669
+    second: AttackSheet3 (1)_55
+  - first:
+      213: -3337838485415054025
+    second: AttackSheet3 (1)_56
+  - first:
+      213: 5527056550551178422
+    second: AttackSheet3 (1)_57
+  - first:
+      213: -8278479662934165406
+    second: AttackSheet3 (1)_58
+  - first:
+      213: -9040474279908980896
+    second: AttackSheet3 (1)_59
+  - first:
+      213: -3952785006043563428
+    second: AttackSheet3 (1)_60
+  - first:
+      213: 88054956665152447
+    second: AttackSheet3 (1)_61
+  - first:
+      213: -4426213563063061812
+    second: AttackSheet3 (1)_62
+  - first:
+      213: -6994130966595987040
+    second: AttackSheet3 (1)_63
+  - first:
+      213: -3232560526529519581
+    second: AttackSheet3 (1)_64
+  - first:
+      213: 5504991932903516282
+    second: AttackSheet3 (1)_65
+  - first:
+      213: -4941179092695564785
+    second: AttackSheet3 (1)_66
+  - first:
+      213: -6785765024734327845
+    second: AttackSheet3 (1)_67
+  - first:
+      213: 2328305620682048546
+    second: AttackSheet3 (1)_68
+  - first:
+      213: -5320365107465197508
+    second: AttackSheet3 (1)_69
+  - first:
+      213: -8086633411402659470
+    second: AttackSheet3 (1)_70
+  - first:
+      213: 6883260077844970830
+    second: AttackSheet3 (1)_71
+  - first:
+      213: -9043717673559231245
+    second: AttackSheet3 (1)_72
+  - first:
+      213: -7998204100730276075
+    second: AttackSheet3 (1)_73
+  - first:
+      213: -2918598981481228688
+    second: AttackSheet3 (1)_74
+  - first:
+      213: -7008822035851856047
+    second: AttackSheet3 (1)_75
+  - first:
+      213: 1313819347598004288
+    second: AttackSheet3 (1)_76
+  - first:
+      213: 7074250396148403054
+    second: AttackSheet3 (1)_77
+  - first:
+      213: -4932096374917792327
+    second: AttackSheet3 (1)_78
+  - first:
+      213: 2612279733495247509
+    second: AttackSheet3 (1)_79
+  - first:
+      213: -8400117321650356875
+    second: AttackSheet3 (1)_80
+  - first:
+      213: 1934799656323116080
+    second: AttackSheet3 (1)_81
+  - first:
+      213: -8506461555482462269
+    second: AttackSheet3 (1)_82
+  - first:
+      213: 3867388235105445986
+    second: AttackSheet3 (1)_83
+  - first:
+      213: 4661632500901532596
+    second: AttackSheet3 (1)_84
+  - first:
+      213: -6662106505996030946
+    second: AttackSheet3 (1)_85
+  - first:
+      213: -8281306146389857053
+    second: AttackSheet3 (1)_86
+  - first:
+      213: -2974263309189679771
+    second: AttackSheet3 (1)_87
+  - first:
+      213: 928747092981139791
+    second: AttackSheet3 (1)_88
+  - first:
+      213: 9098737807969380872
+    second: AttackSheet3 (1)_89
+  - first:
+      213: 4077676195936048781
+    second: AttackSheet3 (1)_90
+  - first:
+      213: -6496899954180408135
+    second: AttackSheet3 (1)_91
+  - first:
+      213: 3941232913073386555
+    second: AttackSheet3 (1)_92
+  - first:
+      213: 5891126878493060397
+    second: AttackSheet3 (1)_93
+  - first:
+      213: 7505637563004736031
+    second: AttackSheet3 (1)_94
+  - first:
+      213: -6549221269069359917
+    second: AttackSheet3 (1)_95
+  - first:
+      213: 481874440008337405
+    second: AttackSheet3 (1)_96
+  - first:
+      213: 8379049084828006598
+    second: AttackSheet3 (1)_97
+  - first:
+      213: 7694450555077346789
+    second: AttackSheet3 (1)_98
+  - first:
+      213: -6338958990802258366
+    second: AttackSheet3 (1)_99
+  - first:
+      213: -1707410020795636616
+    second: AttackSheet3 (1)_100
+  - first:
+      213: 6130893885996615262
+    second: AttackSheet3 (1)_101
+  - first:
+      213: 3797464141298042985
+    second: AttackSheet3 (1)_102
+  - first:
+      213: 8444829972901556117
+    second: AttackSheet3 (1)_103
+  - first:
+      213: 4524267434833609543
+    second: AttackSheet3 (1)_104
+  - first:
+      213: 8514397189205670746
+    second: AttackSheet3 (1)_105
+  - first:
+      213: 7343730372788791726
+    second: AttackSheet3 (1)_106
+  - first:
+      213: -1740000872436686280
+    second: AttackSheet3 (1)_107
+  - first:
+      213: 2725054323077734653
+    second: AttackSheet3 (1)_108
+  - first:
+      213: 5063262388383358389
+    second: AttackSheet3 (1)_109
+  - first:
+      213: -1498920328183459563
+    second: AttackSheet3 (1)_110
+  - first:
+      213: -7918414883916868620
+    second: AttackSheet3 (1)_111
+  - first:
+      213: -8176441565833511284
+    second: AttackSheet3 (1)_112
+  - first:
+      213: -3411915310834226203
+    second: AttackSheet3 (1)_113
+  - first:
+      213: -5498874194934226877
+    second: AttackSheet3 (1)_114
+  - first:
+      213: 8290155112203480870
+    second: AttackSheet3 (1)_115
+  - first:
+      213: -6576438463225334039
+    second: AttackSheet3 (1)_116
+  - first:
+      213: 5467439839252291855
+    second: AttackSheet3 (1)_117
+  - first:
+      213: -2962614138133429663
+    second: AttackSheet3 (1)_118
+  - first:
+      213: -4512942776229653648
+    second: AttackSheet3 (1)_119
+  - first:
+      213: 7611270787660777411
+    second: AttackSheet3 (1)_120
+  - first:
+      213: 6436106669236324783
+    second: AttackSheet3 (1)_121
+  - first:
+      213: 5264298293888237314
+    second: AttackSheet3 (1)_122
+  - first:
+      213: -770754742244437573
+    second: AttackSheet3 (1)_123
+  - first:
+      213: 6352693341887073320
+    second: AttackSheet3 (1)_124
+  - first:
+      213: 8365465336900237090
+    second: AttackSheet3 (1)_125
+  - first:
+      213: 9181552832629378089
+    second: AttackSheet3 (1)_126
+  - first:
+      213: -245159329559795897
+    second: AttackSheet3 (1)_127
+  - first:
+      213: 2768311348752165140
+    second: AttackSheet3 (1)_128
+  - first:
+      213: 5619538002342851226
+    second: AttackSheet3 (1)_129
+  - first:
+      213: 2065308871552384185
+    second: AttackSheet3 (1)_130
+  - first:
+      213: -4354436929184260836
+    second: AttackSheet3 (1)_131
+  - first:
+      213: -405388708866116506
+    second: AttackSheet3 (1)_132
+  - first:
+      213: 6611940717781274895
+    second: AttackSheet3 (1)_133
+  - first:
+      213: -7481399133749492856
+    second: AttackSheet3 (1)_134
+  - first:
+      213: -6830836289368076659
+    second: AttackSheet3 (1)_135
+  - first:
+      213: 1715443038868297461
+    second: AttackSheet3 (1)_136
+  - first:
+      213: -5005453294966910844
+    second: AttackSheet3 (1)_137
+  - first:
+      213: -7030561382242669516
+    second: AttackSheet3 (1)_138
+  - first:
+      213: -2805878523695906470
+    second: AttackSheet3 (1)_139
+  - first:
+      213: 9204873781888934924
+    second: AttackSheet3 (1)_140
+  - first:
+      213: 4594284302853417460
+    second: AttackSheet3 (1)_141
+  - first:
+      213: 648316574368880206
+    second: AttackSheet3 (1)_142
+  - first:
+      213: 1362374196637341534
+    second: AttackSheet3 (1)_143
+  - first:
+      213: 3452437628661303139
+    second: AttackSheet3 (1)_144
+  - first:
+      213: 196356178607358805
+    second: AttackSheet3 (1)_145
+  - first:
+      213: 5261693947544460785
+    second: AttackSheet3 (1)_146
+  - first:
+      213: 2362527054743760614
+    second: AttackSheet3 (1)_147
+  - first:
+      213: 6374264484177468561
+    second: AttackSheet3 (1)_148
+  - first:
+      213: 1567706816889486393
+    second: AttackSheet3 (1)_149
+  - first:
+      213: -5782729679136809640
+    second: AttackSheet3 (1)_150
+  - first:
+      213: -8845542323385109245
+    second: AttackSheet3 (1)_151
+  - first:
+      213: -4507797049338213331
+    second: AttackSheet3 (1)_152
+  - first:
+      213: 4609933909775160712
+    second: AttackSheet3 (1)_153
+  - first:
+      213: -1112734364810050193
+    second: AttackSheet3 (1)_154
+  - first:
+      213: 2550458566149074827
+    second: AttackSheet3 (1)_155
+  - first:
+      213: -5603063889674923444
+    second: AttackSheet3 (1)_156
+  - first:
+      213: -3162448635489418821
+    second: AttackSheet3 (1)_157
+  - first:
+      213: 8936962097045910490
+    second: AttackSheet3 (1)_158
+  - first:
+      213: -1110481591205880734
+    second: AttackSheet3 (1)_159
+  - first:
+      213: 7640776773913154488
+    second: AttackSheet3 (1)_160
+  - first:
+      213: -5634006037452275676
+    second: AttackSheet3 (1)_161
+  - first:
+      213: -1366826697368664865
+    second: AttackSheet3 (1)_162
+  - first:
+      213: 2386279875133789956
+    second: AttackSheet3 (1)_163
+  - first:
+      213: 2819637964417468956
+    second: AttackSheet3 (1)_164
+  - first:
+      213: -5493757067488168104
+    second: AttackSheet3 (1)_165
+  - first:
+      213: 8408786777452709565
+    second: AttackSheet3 (1)_166
+  - first:
+      213: -3480011311511229854
+    second: AttackSheet3 (1)_167
+  - first:
+      213: -7103849818928097624
+    second: AttackSheet3 (1)_168
+  - first:
+      213: -9195844634316193099
+    second: AttackSheet3 (1)_169
+  - first:
+      213: -273968048520694138
+    second: AttackSheet3 (1)_170
+  - first:
+      213: -6601491280767695485
+    second: AttackSheet3 (1)_171
+  - first:
+      213: 5411882608419931482
+    second: AttackSheet3 (1)_172
+  - first:
+      213: -3951165900993613828
+    second: AttackSheet3 (1)_173
+  - first:
+      213: -2818988796153091501
+    second: AttackSheet3 (1)_174
+  - first:
+      213: 8984956458332239870
+    second: AttackSheet3 (1)_175
+  - first:
+      213: -8387385979172730830
+    second: AttackSheet3 (1)_176
+  - first:
+      213: 7343739055322812117
+    second: AttackSheet3 (1)_177
+  - first:
+      213: 2005280621875525806
+    second: AttackSheet3 (1)_178
+  - first:
+      213: -5281014533541008603
+    second: AttackSheet3 (1)_179
+  - first:
+      213: -6775539131228036790
+    second: AttackSheet3 (1)_180
+  - first:
+      213: -7500963964335036324
+    second: AttackSheet3 (1)_181
+  - first:
+      213: -5301460535106715667
+    second: AttackSheet3 (1)_182
+  - first:
+      213: -4798249911207333616
+    second: AttackSheet3 (1)_183
+  - first:
+      213: -4880136121904489573
+    second: AttackSheet3 (1)_184
+  - first:
+      213: -7091858555051712173
+    second: AttackSheet3 (1)_185
+  - first:
+      213: 5272662499881975777
+    second: AttackSheet3 (1)_186
+  - first:
+      213: -8381438392732622255
+    second: AttackSheet3 (1)_187
+  - first:
+      213: 8008331026741871799
+    second: AttackSheet3 (1)_188
+  - first:
+      213: -7260813143766425406
+    second: AttackSheet3 (1)_189
+  - first:
+      213: -4019390310971225140
+    second: AttackSheet3 (1)_190
+  - first:
+      213: 8819650259459379034
+    second: AttackSheet3 (1)_191
+  - first:
+      213: -5580606049935853900
+    second: AttackSheet3 (1)_192
+  - first:
+      213: -3828304436087911550
+    second: AttackSheet3 (1)_193
+  - first:
+      213: -7575634705359268401
+    second: AttackSheet3 (1)_194
+  - first:
+      213: -6085934114164274778
+    second: AttackSheet3 (1)_195
+  - first:
+      213: -9191193022080441305
+    second: AttackSheet3 (1)_196
+  - first:
+      213: 239144954689582041
+    second: AttackSheet3 (1)_197
+  - first:
+      213: 3908924794858243710
+    second: AttackSheet3 (1)_198
+  - first:
+      213: 6751523227278366169
+    second: AttackSheet3 (1)_199
+  - first:
+      213: -6858501935373295334
+    second: AttackSheet3 (1)_200
+  - first:
+      213: -7682721191184968587
+    second: AttackSheet3 (1)_201
+  - first:
+      213: -5623155475517668674
+    second: AttackSheet3 (1)_202
+  - first:
+      213: 859839190657020170
+    second: AttackSheet3 (1)_203
+  - first:
+      213: 6682441683485202886
+    second: AttackSheet3 (1)_204
+  - first:
+      213: 1844750626171971519
+    second: AttackSheet3 (1)_205
+  - first:
+      213: -6169839477955380299
+    second: AttackSheet3 (1)_206
+  - first:
+      213: 3391452797427784113
+    second: AttackSheet3 (1)_207
+  - first:
+      213: -8079632453197384816
+    second: AttackSheet3 (1)_208
+  - first:
+      213: 2975336830178588247
+    second: AttackSheet3 (1)_209
+  - first:
+      213: -4461771530058639711
+    second: AttackSheet3 (1)_210
+  - first:
+      213: 4466832888481336939
+    second: AttackSheet3 (1)_211
+  - first:
+      213: -5957734282377583844
+    second: AttackSheet3 (1)_212
+  - first:
+      213: -5488862030143005735
+    second: AttackSheet3 (1)_213
+  - first:
+      213: 2116553947580689248
+    second: AttackSheet3 (1)_214
+  - first:
+      213: 8196390780443841285
+    second: AttackSheet3 (1)_215
+  - first:
+      213: -7052170265524527429
+    second: AttackSheet3 (1)_216
+  - first:
+      213: 2856334372650392919
+    second: AttackSheet3 (1)_217
+  - first:
+      213: -3973165201128366826
+    second: AttackSheet3 (1)_218
+  - first:
+      213: -6773289177298515034
+    second: AttackSheet3 (1)_219
+  - first:
+      213: 5270292937489315049
+    second: AttackSheet3 (1)_220
+  - first:
+      213: 8652472782898163749
+    second: AttackSheet3 (1)_221
+  - first:
+      213: 4306198810803197096
+    second: AttackSheet3 (1)_222
+  - first:
+      213: -1024438408242227664
+    second: AttackSheet3 (1)_223
+  - first:
+      213: -3717656964074046498
+    second: AttackSheet3 (1)_224
+  - first:
+      213: -3134691699430244249
+    second: AttackSheet3 (1)_225
+  - first:
+      213: -6356007016715905406
+    second: AttackSheet3 (1)_226
+  - first:
+      213: 6979495233140328987
+    second: AttackSheet3 (1)_227
+  - first:
+      213: 6591247031648125614
+    second: AttackSheet3 (1)_228
+  - first:
+      213: -6220353404300235941
+    second: AttackSheet3 (1)_229
+  - first:
+      213: -4340313743178993295
+    second: AttackSheet3 (1)_230
+  - first:
+      213: -1819247426084106901
+    second: AttackSheet3 (1)_231
+  - first:
+      213: 5860428326300003517
+    second: AttackSheet3 (1)_232
+  - first:
+      213: -5226536515999019477
+    second: AttackSheet3 (1)_233
+  - first:
+      213: -7274130657352177932
+    second: AttackSheet3 (1)_234
+  - first:
+      213: -5380365494597857552
+    second: AttackSheet3 (1)_235
+  - first:
+      213: -4824803302886412219
+    second: AttackSheet3 (1)_236
+  - first:
+      213: -7164781159497090955
+    second: AttackSheet3 (1)_237
+  - first:
+      213: -9191343493416766568
+    second: AttackSheet3 (1)_238
+  - first:
+      213: -6074607182064828704
+    second: AttackSheet3 (1)_239
+  - first:
+      213: 1767907114889236794
+    second: AttackSheet3 (1)_240
+  - first:
+      213: -8733499014205442470
+    second: AttackSheet3 (1)_241
+  - first:
+      213: 5698905015594740806
+    second: AttackSheet3 (1)_242
+  - first:
+      213: -792695540833046438
+    second: AttackSheet3 (1)_243
+  - first:
+      213: 7277311152924976351
+    second: AttackSheet3 (1)_244
+  - first:
+      213: 138838503204242879
+    second: AttackSheet3 (1)_245
+  - first:
+      213: 2849989965426597707
+    second: AttackSheet3 (1)_246
+  - first:
+      213: -6264712543271258645
+    second: AttackSheet3 (1)_247
+  - first:
+      213: 8836908098196824419
+    second: AttackSheet3 (1)_248
+  - first:
+      213: -7134216843958713932
+    second: AttackSheet3 (1)_249
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_0
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 3883
+        width: 41
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca52ded591f1e63f0800000000000000
+      internalID: -905752281244424788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 3889
+        width: 42
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae250dc19e9125f30800000000000000
+      internalID: 4562737861481222890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_2
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 3904
+        width: 45
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f71a9fb640ef920800000000000000
+      internalID: 3025860861435674480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_3
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 3901
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf18977ae067ca4e0800000000000000
+      internalID: -1969069131756371460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_4
+      rect:
+        serializedVersion: 2
+        x: 2159
+        y: 3894
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c10809bee9c3b6030800000000000000
+      internalID: 3488948989583196188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_5
+      rect:
+        serializedVersion: 2
+        x: 2906
+        y: 3904
+        width: 45
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ea0374082615570800000000000000
+      internalID: 8453646278640840206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_6
+      rect:
+        serializedVersion: 2
+        x: 2968
+        y: 3901
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ffe5aad62187890800000000000000
+      internalID: -7460192520520138903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_7
+      rect:
+        serializedVersion: 2
+        x: 2983
+        y: 3894
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d4353f7c9a95a380800000000000000
+      internalID: -8960585886643964712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_8
+      rect:
+        serializedVersion: 2
+        x: 3730
+        y: 3904
+        width: 45
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09fcd20f6c57dd490800000000000000
+      internalID: -7719884688949653616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_9
+      rect:
+        serializedVersion: 2
+        x: 3792
+        y: 3901
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce6ba8be0eed6fc0800000000000000
+      internalID: -3499879588401811776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_10
+      rect:
+        serializedVersion: 2
+        x: 3806
+        y: 3894
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e80935faf9110110800000000000000
+      internalID: 1225289139268159714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_11
+      rect:
+        serializedVersion: 2
+        x: 4554
+        y: 3904
+        width: 45
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44504436b0a80a700800000000000000
+      internalID: 549590936053876036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_12
+      rect:
+        serializedVersion: 2
+        x: 4615
+        y: 3901
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd940ffc6a1b4640800000000000000
+      internalID: 5065171261345537491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_13
+      rect:
+        serializedVersion: 2
+        x: 4630
+        y: 3894
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84c687e31b33c950800000000000000
+      internalID: 6468078446508950667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_14
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 3862
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d129989bb8e07ca90800000000000000
+      internalID: -7293845078227185123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_15
+      rect:
+        serializedVersion: 2
+        x: 2085
+        y: 3851
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ad6c49bc40da230800000000000000
+      internalID: 3651580145288272402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_16
+      rect:
+        serializedVersion: 2
+        x: 2909
+        y: 3851
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7f63c8a10149370800000000000000
+      internalID: 8328299317122496475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_17
+      rect:
+        serializedVersion: 2
+        x: 3732
+        y: 3851
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cecf98e3cf35de9d0800000000000000
+      internalID: -2743444255152669460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_18
+      rect:
+        serializedVersion: 2
+        x: 4556
+        y: 3851
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ffc672887aac060800000000000000
+      internalID: 6974571176155479955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_19
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 3837
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 044cf69129aa1dd20800000000000000
+      internalID: 3301607546307986496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_20
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 3842
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88dfe10bd72c27bd0800000000000000
+      internalID: -2633828986976797304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_21
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 3835
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c40d490a56174b10800000000000000
+      internalID: 1965564338329420993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_22
+      rect:
+        serializedVersion: 2
+        x: 2077
+        y: 3839
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 161c0d481a416c2b0800000000000000
+      internalID: -5564737605619105439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_23
+      rect:
+        serializedVersion: 2
+        x: 2901
+        y: 3839
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19fa301f83de8c9c0800000000000000
+      internalID: -3906611847926403183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_24
+      rect:
+        serializedVersion: 2
+        x: 3725
+        y: 3839
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d1fec453fd020e20800000000000000
+      internalID: 3315227614449168853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_25
+      rect:
+        serializedVersion: 2
+        x: 4548
+        y: 3839
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9cf8f3bec088ce0800000000000000
+      internalID: -1402857079402673708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_26
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 3823
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 351fa8a20f0dbd4e0800000000000000
+      internalID: -1955739883237871277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_27
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 3820
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee5800c9252d1490800000000000000
+      internalID: -7774016520525947165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_28
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 3827
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a33f84abd88cef0800000000000000
+      internalID: -87664361506391434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_29
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 3819
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 837eb6bfb4dfc9f30800000000000000
+      internalID: 4583817023538849592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_30
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 3824
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb8781a6d2d344bf0800000000000000
+      internalID: -341080406510503749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_31
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 3824
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7969fa9313451ae60800000000000000
+      internalID: 7971745385820427927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_32
+      rect:
+        serializedVersion: 2
+        x: 3740
+        y: 3824
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da4a18b678a042b0800000000000000
+      internalID: -5602292708600558895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_33
+      rect:
+        serializedVersion: 2
+        x: 4564
+        y: 3824
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9becc6b21d3bde280800000000000000
+      internalID: -9012349568340406599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_34
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 3797
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e32f785d61c191380800000000000000
+      internalID: -9000131495925910978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_35
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 3802
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77349612cabd804a0800000000000000
+      internalID: -6626805319334280329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_36
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 3679
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c394ced2ef8a142a0800000000000000
+      internalID: -6754932156433413828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_37
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 3688
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf993b7b42a344b60800000000000000
+      internalID: 7729366789849848315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_38
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 3651
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d600cb1305c4bda0800000000000000
+      internalID: -5929898192198957353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_39
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 3687
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a40d4eb6f171ac0800000000000000
+      internalID: -3884601605322946016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_40
+      rect:
+        serializedVersion: 2
+        x: 2780
+        y: 3687
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 636ff3f45e69c9410800000000000000
+      internalID: 1485227888746690102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_41
+      rect:
+        serializedVersion: 2
+        x: 3604
+        y: 3687
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f66fb86dcee9610800000000000000
+      internalID: 1630000521370038091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_42
+      rect:
+        serializedVersion: 2
+        x: 4428
+        y: 3687
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78e124ea8cadff00800000000000000
+      internalID: 1152266792209606780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_43
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 3651
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75fc090a00e7f7b00800000000000000
+      internalID: 828519397618405207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_44
+      rect:
+        serializedVersion: 2
+        x: 2109
+        y: 3651
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8baa8886d0939a850800000000000000
+      internalID: 6388700276152904376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_45
+      rect:
+        serializedVersion: 2
+        x: 2932
+        y: 3651
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48b4631a5a153e40800000000000000
+      internalID: 5635439482898790477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_46
+      rect:
+        serializedVersion: 2
+        x: 3756
+        y: 3651
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f2de7bc369c3bec0800000000000000
+      internalID: -3552274250612157705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_47
+      rect:
+        serializedVersion: 2
+        x: 4580
+        y: 3651
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eda31995eaf67260800000000000000
+      internalID: 7095134126991453665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_48
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 3378
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c92a6df59a1933260800000000000000
+      internalID: 7076159596172583580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_49
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 3385
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34ed03712c52abd0800000000000000
+      internalID: -2620430734442240961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_50
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 3362
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6e70a0aedea4b30800000000000000
+      internalID: 4272488785960756956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_51
+      rect:
+        serializedVersion: 2
+        x: 2084
+        y: 3398
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 712ac1392812d5550800000000000000
+      internalID: 6151109510755557911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_52
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 3358
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62084bc056f5ef70800000000000000
+      internalID: 9216043039351898735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_53
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 3384
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14163e5c2031b7950800000000000000
+      internalID: 6447768194141872449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_54
+      rect:
+        serializedVersion: 2
+        x: 2143
+        y: 3369
+        width: 65
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 439d1789534a1c150800000000000000
+      internalID: 5891170337675139380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_55
+      rect:
+        serializedVersion: 2
+        x: 2907
+        y: 3398
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d5d8379df45d4e0800000000000000
+      internalID: -1957570667657470669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_56
+      rect:
+        serializedVersion: 2
+        x: 2927
+        y: 3358
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7353537059d9da1d0800000000000000
+      internalID: -3337838485415054025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_57
+      rect:
+        serializedVersion: 2
+        x: 2954
+        y: 3384
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc491d26ac04bc40800000000000000
+      internalID: 5527056550551178422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_58
+      rect:
+        serializedVersion: 2
+        x: 2972
+        y: 3387
+        width: 60
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268738a9b9eec1d80800000000000000
+      internalID: -8278479662934165406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_59
+      rect:
+        serializedVersion: 2
+        x: 3731
+        y: 3398
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06748f87a88c98280800000000000000
+      internalID: -9040474279908980896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_60
+      rect:
+        serializedVersion: 2
+        x: 3751
+        y: 3358
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5a7841daf2e429c0800000000000000
+      internalID: -3952785006043563428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_61
+      rect:
+        serializedVersion: 2
+        x: 3778
+        y: 3384
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb32dbc3485d83100800000000000000
+      internalID: 88054956665152447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_62
+      rect:
+        serializedVersion: 2
+        x: 3796
+        y: 3387
+        width: 59
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc23c99273ee292c0800000000000000
+      internalID: -4426213563063061812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_63
+      rect:
+        serializedVersion: 2
+        x: 4555
+        y: 3398
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a99c7f31fadfee90800000000000000
+      internalID: -6994130966595987040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_64
+      rect:
+        serializedVersion: 2
+        x: 4574
+        y: 3358
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3202245f353a323d0800000000000000
+      internalID: -3232560526529519581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_65
+      rect:
+        serializedVersion: 2
+        x: 4601
+        y: 3384
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a78ea1c0ff8a56c40800000000000000
+      internalID: 5504991932903516282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_66
+      rect:
+        serializedVersion: 2
+        x: 4614
+        y: 3369
+        width: 65
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e3b407bc76d6bb0800000000000000
+      internalID: -4941179092695564785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_67
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 3352
+        width: 68
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdbc07b99ae14d1a0800000000000000
+      internalID: -6785765024734327845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_68
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 3349
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2248c4940adcf4020800000000000000
+      internalID: 2328305620682048546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_69
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 3360
+        width: 49
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38672e8f144a26b0800000000000000
+      internalID: -5320365107465197508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_70
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 3346
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2790a84d1c186cf80800000000000000
+      internalID: -8086633411402659470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_71
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 3293
+        width: 78
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4db39c5290468f50800000000000000
+      internalID: 6883260077844970830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_72
+      rect:
+        serializedVersion: 2
+        x: 2966
+        y: 3369
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f4749a01b24e7280800000000000000
+      internalID: -9043717673559231245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_73
+      rect:
+        serializedVersion: 2
+        x: 3790
+        y: 3369
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51736e62fbba00190800000000000000
+      internalID: -7998204100730276075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_74
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 3302
+        width: 79
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0769ef290bd0f77d0800000000000000
+      internalID: -2918598981481228688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_75
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 3301
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 157be132e79abbe90800000000000000
+      internalID: -7008822035851856047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_76
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 3324
+        width: 9
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0405d985cbf9b3210800000000000000
+      internalID: 1313819347598004288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_77
+      rect:
+        serializedVersion: 2
+        x: 2052
+        y: 3308
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b879a1149cc2260800000000000000
+      internalID: 7074250396148403054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_78
+      rect:
+        serializedVersion: 2
+        x: 2876
+        y: 3308
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd78077a7cad8bb0800000000000000
+      internalID: -4932096374917792327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_79
+      rect:
+        serializedVersion: 2
+        x: 3699
+        y: 3308
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 592bfe0c39ea04420800000000000000
+      internalID: 2612279733495247509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_80
+      rect:
+        serializedVersion: 2
+        x: 4523
+        y: 3308
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57dbc6b3dc9cc6b80800000000000000
+      internalID: -8400117321650356875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_81
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 3289
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03cefa2590ac9da10800000000000000
+      internalID: 1934799656323116080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_82
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 3286
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c773f1d84af2f980800000000000000
+      internalID: -8506461555482462269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_83
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 3222
+        width: 67
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2682cf90c19bba530800000000000000
+      internalID: 3867388235105445986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_84
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3296
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3d6a9af0271b040800000000000000
+      internalID: 4661632500901532596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_85
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 3289
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ca94e1e617b83a0800000000000000
+      internalID: -6662106505996030946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_86
+      rect:
+        serializedVersion: 2
+        x: 2871
+        y: 3289
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec6c24afe3e21d80800000000000000
+      internalID: -8281306146389857053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_87
+      rect:
+        serializedVersion: 2
+        x: 3694
+        y: 3289
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5657543574b49b6d0800000000000000
+      internalID: -2974263309189679771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_88
+      rect:
+        serializedVersion: 2
+        x: 4518
+        y: 3289
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4941537f8293ec00800000000000000
+      internalID: 928747092981139791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_89
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 3173
+        width: 53
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a6e6444d5354e70800000000000000
+      internalID: 9098737807969380872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_90
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 3164
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8695df45e0d69830800000000000000
+      internalID: 4077676195936048781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_91
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 3147
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc33d9e9ef56d5a0800000000000000
+      internalID: -6496899954180408135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_92
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 3182
+        width: 52
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3431d0f37212b630800000000000000
+      internalID: 3941232913073386555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_93
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 3164
+        width: 29
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2da557feac71c150800000000000000
+      internalID: 5891126878493060397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_94
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 3147
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12d9b3d891692860800000000000000
+      internalID: 7505637563004736031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_95
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 3181
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d410bd74fd7c15a0800000000000000
+      internalID: -6549221269069359917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_96
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 3164
+        width: 29
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df789070046ffa600800000000000000
+      internalID: 481874440008337405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_97
+      rect:
+        serializedVersion: 2
+        x: 2754
+        y: 3147
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c83cb0afbc584470800000000000000
+      internalID: 8379049084828006598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_98
+      rect:
+        serializedVersion: 2
+        x: 2786
+        y: 3181
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e5413d430e28ca60800000000000000
+      internalID: 7694450555077346789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_99
+      rect:
+        serializedVersion: 2
+        x: 2930
+        y: 3164
+        width: 30
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2467673126e7708a0800000000000000
+      internalID: -6338958990802258366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_100
+      rect:
+        serializedVersion: 2
+        x: 3577
+        y: 3147
+        width: 43
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874a880e1af0e48e0800000000000000
+      internalID: -1707410020795636616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_101
+      rect:
+        serializedVersion: 2
+        x: 3609
+        y: 3181
+        width: 57
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e564176a18f451550800000000000000
+      internalID: 6130893885996615262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_102
+      rect:
+        serializedVersion: 2
+        x: 3754
+        y: 3164
+        width: 29
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9688a55448d43b430800000000000000
+      internalID: 3797464141298042985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_103
+      rect:
+        serializedVersion: 2
+        x: 4401
+        y: 3147
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f6e532e10123570800000000000000
+      internalID: 8444829972901556117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_104
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 3181
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743002ae24d69ce30800000000000000
+      internalID: 4524267434833609543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_105
+      rect:
+        serializedVersion: 2
+        x: 4578
+        y: 3164
+        width: 29
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5b3033e127392670800000000000000
+      internalID: 8514397189205670746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_106
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 3145
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9a2548ddb2ae560800000000000000
+      internalID: 7343730372788791726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_107
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 3140
+        width: 51
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832aa89ec664ad7e0800000000000000
+      internalID: -1740000872436686280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_108
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 3140
+        width: 51
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df0e0b8087651d520800000000000000
+      internalID: 2725054323077734653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_109
+      rect:
+        serializedVersion: 2
+        x: 2111
+        y: 3140
+        width: 51
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd9f20e052544640800000000000000
+      internalID: 5063262388383358389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_110
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 3140
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511530437e3c23be0800000000000000
+      internalID: -1498920328183459563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_111
+      rect:
+        serializedVersion: 2
+        x: 3758
+        y: 3140
+        width: 51
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f318fbdd932c1290800000000000000
+      internalID: -7918414883916868620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_112
+      rect:
+        serializedVersion: 2
+        x: 4582
+        y: 3140
+        width: 51
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8e31cd67b1778e80800000000000000
+      internalID: -8176441565833511284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_113
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 2829
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb62061a1176a0d0800000000000000
+      internalID: -3411915310834226203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_114
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 2828
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3402262dd0310b3b0800000000000000
+      internalID: -5498874194934226877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_115
+      rect:
+        serializedVersion: 2
+        x: 2064
+        y: 2843
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62fe6c3c62c8c0370800000000000000
+      internalID: 8290155112203480870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_116
+      rect:
+        serializedVersion: 2
+        x: 2888
+        y: 2843
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e6fc38af0ccbb4a0800000000000000
+      internalID: -6576438463225334039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_117
+      rect:
+        serializedVersion: 2
+        x: 3711
+        y: 2843
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01a379e09f30eb40800000000000000
+      internalID: 5467439839252291855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_118
+      rect:
+        serializedVersion: 2
+        x: 4535
+        y: 2843
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 162c102532ea2e6d0800000000000000
+      internalID: -2962614138133429663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_119
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 2790
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0739a23a47ece51c0800000000000000
+      internalID: -4512942776229653648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_120
+      rect:
+        serializedVersion: 2
+        x: 2046
+        y: 2803
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c704d3847aa0a960800000000000000
+      internalID: 7611270787660777411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_121
+      rect:
+        serializedVersion: 2
+        x: 2081
+        y: 2793
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa98a5c6ae4a15950800000000000000
+      internalID: 6436106669236324783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_122
+      rect:
+        serializedVersion: 2
+        x: 2870
+        y: 2803
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f37e6286b8e0940800000000000000
+      internalID: 5264298293888237314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_123
+      rect:
+        serializedVersion: 2
+        x: 2905
+        y: 2793
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1929345aabd45f0800000000000000
+      internalID: -770754742244437573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_124
+      rect:
+        serializedVersion: 2
+        x: 3693
+        y: 2803
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82c0b2abfec492850800000000000000
+      internalID: 6352693341887073320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_125
+      rect:
+        serializedVersion: 2
+        x: 3729
+        y: 2793
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22738cad66a181470800000000000000
+      internalID: 8365465336900237090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_126
+      rect:
+        serializedVersion: 2
+        x: 4517
+        y: 2803
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92c0b53c7ad6b6f70800000000000000
+      internalID: 9181552832629378089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_127
+      rect:
+        serializedVersion: 2
+        x: 4552
+        y: 2793
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 747273083e4099cf0800000000000000
+      internalID: -245159329559795897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_128
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 2741
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4192e0a21840b6620800000000000000
+      internalID: 2768311348752165140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_129
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 2718
+        width: 55
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a92347f1a0c9cfd40800000000000000
+      internalID: 5619538002342851226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_130
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 2753
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcb758e97379ac10800000000000000
+      internalID: 2065308871552384185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_131
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 2723
+        width: 25
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d11270faee193c0800000000000000
+      internalID: -4354436929184260836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_132
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 2757
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664b41cfd15cf5af0800000000000000
+      internalID: -405388708866116506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_133
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 2754
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f015b4f1d0552cb50800000000000000
+      internalID: 6611940717781274895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_134
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 2716
+        width: 34
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88342f1402bbc2890800000000000000
+      internalID: -7481399133749492856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_135
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 2751
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8e4e5d069ef331a0800000000000000
+      internalID: -6830836289368076659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_136
+      rect:
+        serializedVersion: 2
+        x: 2901
+        y: 2735
+        width: 50
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f65924ea5a7ec710800000000000000
+      internalID: 1715443038868297461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_137
+      rect:
+        serializedVersion: 2
+        x: 3665
+        y: 2750
+        width: 29
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48050bd8fbe098ab0800000000000000
+      internalID: -5005453294966910844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_138
+      rect:
+        serializedVersion: 2
+        x: 3725
+        y: 2742
+        width: 60
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43ca8df1cad6e6e90800000000000000
+      internalID: -7030561382242669516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_139
+      rect:
+        serializedVersion: 2
+        x: 4488
+        y: 2750
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51453059548f09d0800000000000000
+      internalID: -2805878523695906470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_140
+      rect:
+        serializedVersion: 2
+        x: 4549
+        y: 2747
+        width: 64
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c04ebc36fe74ebf70800000000000000
+      internalID: 9204873781888934924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_141
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 2380
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f92bbc5b3d22cf30800000000000000
+      internalID: 4594284302853417460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_142
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 2386
+        width: 20
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e46514d4d784ff800800000000000000
+      internalID: 648316574368880206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_143
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 2361
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e571ab91d1028e210800000000000000
+      internalID: 1362374196637341534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_144
+      rect:
+        serializedVersion: 2
+        x: 1929
+        y: 2115
+        width: 255
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3678c814bb589ef20800000000000000
+      internalID: 3452437628661303139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_145
+      rect:
+        serializedVersion: 2
+        x: 2087
+        y: 2384
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 553485377e899b200800000000000000
+      internalID: 196356178607358805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_146
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 2375
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fdd53484ca450940800000000000000
+      internalID: 5261693947544460785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_147
+      rect:
+        serializedVersion: 2
+        x: 2173
+        y: 2375
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee604ec6d169c020800000000000000
+      internalID: 2362527054743760614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_148
+      rect:
+        serializedVersion: 2
+        x: 2183
+        y: 2382
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c59cba6cfe57850800000000000000
+      internalID: 6374264484177468561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_149
+      rect:
+        serializedVersion: 2
+        x: 2903
+        y: 2355
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93cf7ac3b0d91c510800000000000000
+      internalID: 1567706816889486393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_150
+      rect:
+        serializedVersion: 2
+        x: 2913
+        y: 2386
+        width: 30
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85d11fabefd9fbfa0800000000000000
+      internalID: -5782729679136809640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_151
+      rect:
+        serializedVersion: 2
+        x: 2972
+        y: 2375
+        width: 51
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30572f06f125e3580800000000000000
+      internalID: -8845542323385109245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_152
+      rect:
+        serializedVersion: 2
+        x: 3007
+        y: 2382
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2c44aa87761171c0800000000000000
+      internalID: -4507797049338213331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_153
+      rect:
+        serializedVersion: 2
+        x: 3684
+        y: 2265
+        width: 120
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8851d2a6776c9ff30800000000000000
+      internalID: 4609933909775160712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_154
+      rect:
+        serializedVersion: 2
+        x: 3737
+        y: 2386
+        width: 30
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f658020adf5ce80f0800000000000000
+      internalID: -1112734364810050193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_155
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 2375
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8feaa19d8c056320800000000000000
+      internalID: 2550458566149074827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_156
+      rect:
+        serializedVersion: 2
+        x: 3820
+        y: 2375
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c429b12241bed32b0800000000000000
+      internalID: -5603063889674923444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_157
+      rect:
+        serializedVersion: 2
+        x: 3830
+        y: 2382
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb10c3da8b9bc14d0800000000000000
+      internalID: -3162448635489418821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_158
+      rect:
+        serializedVersion: 2
+        x: 4507
+        y: 2265
+        width: 148
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad33d8d5da7760c70800000000000000
+      internalID: 8936962097045910490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_159
+      rect:
+        serializedVersion: 2
+        x: 4558
+        y: 2384
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26c109a50e6c690f0800000000000000
+      internalID: -1110481591205880734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_160
+      rect:
+        serializedVersion: 2
+        x: 4619
+        y: 2375
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b316294efd790a60800000000000000
+      internalID: 7640776773913154488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_161
+      rect:
+        serializedVersion: 2
+        x: 4644
+        y: 2375
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4204043fb5dffc1b0800000000000000
+      internalID: -5634006037452275676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_162
+      rect:
+        serializedVersion: 2
+        x: 4654
+        y: 2382
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd402d94c5e080de0800000000000000
+      internalID: -1366826697368664865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_163
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 2362
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 407530447e4cd1120800000000000000
+      internalID: 2386279875133789956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_164
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 2356
+        width: 6
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a0f402acd512720800000000000000
+      internalID: 2819637964417468956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_165
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 2358
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8577316ed0142c3b0800000000000000
+      internalID: -5493757067488168104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_166
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 2377
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db6021eb50302b470800000000000000
+      internalID: 8408786777452709565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_167
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 2373
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a280b662484bfc0800000000000000
+      internalID: -3480011311511229854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_168
+      rect:
+        serializedVersion: 2
+        x: 2860
+        y: 2265
+        width: 119
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a6511d3a3e0a6d90800000000000000
+      internalID: -7103849818928097624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_169
+      rect:
+        serializedVersion: 2
+        x: 2956
+        y: 2370
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2c6e9d60cc16080800000000000000
+      internalID: -9195844634316193099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_170
+      rect:
+        serializedVersion: 2
+        x: 2987
+        y: 2373
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686fd1ce28ba23cf0800000000000000
+      internalID: -273968048520694138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_171
+      rect:
+        serializedVersion: 2
+        x: 3810
+        y: 2373
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385c00608aac264a0800000000000000
+      internalID: -6601491280767695485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_172
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 2326
+        width: 89
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a550cf81f8eda1b40800000000000000
+      internalID: 5411882608419931482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_173
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 2348
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cffa3a61c83aa29c0800000000000000
+      internalID: -3951165900993613828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_174
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 2343
+        width: 39
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a2d7320a0f0e8d0800000000000000
+      internalID: -2818988796153091501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_175
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 2277
+        width: 113
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef7be356b4af0bc70800000000000000
+      internalID: 8984956458332239870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_176
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 2159
+        width: 177
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2384155e3e40a9b80800000000000000
+      internalID: -8387385979172730830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_177
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 2348
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5decda313c33ae560800000000000000
+      internalID: 7343739055322812117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_178
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 2357
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea87dd5e91034db10800000000000000
+      internalID: 2005280621875525806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_179
+      rect:
+        serializedVersion: 2
+        x: 2979
+        y: 2345
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52bec92034116b6b0800000000000000
+      internalID: -5281014533541008603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_180
+      rect:
+        serializedVersion: 2
+        x: 3801
+        y: 2357
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41e469fe0378f1a0800000000000000
+      internalID: -6775539131228036790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_181
+      rect:
+        serializedVersion: 2
+        x: 3802
+        y: 2345
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58edc8240937e790800000000000000
+      internalID: -7500963964335036324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_182
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2329
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: def363e4bbd6d66b0800000000000000
+      internalID: -5301460535106715667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_183
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 2338
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011ffe2c021396db0800000000000000
+      internalID: -4798249911207333616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_184
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 2292
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b945e9d06464cb0800000000000000
+      internalID: -4880136121904489573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_185
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 2304
+        width: 8
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 351e3dce738a49d90800000000000000
+      internalID: -7091858555051712173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_186
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 2115
+        width: 243
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1effcfd9b924c2940800000000000000
+      internalID: 5272662499881975777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_187
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 2291
+        width: 27
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152e95640362fab80800000000000000
+      internalID: -8381438392732622255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_188
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 2141
+        width: 55
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b440bc83ae432f60800000000000000
+      internalID: 8008331026741871799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_189
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 2190
+        width: 99
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c0a0594ae86c3b90800000000000000
+      internalID: -7260813143766425406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_190
+      rect:
+        serializedVersion: 2
+        x: 2930
+        y: 2115
+        width: 56
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccbc9eccec14838c0800000000000000
+      internalID: -4019390310971225140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_191
+      rect:
+        serializedVersion: 2
+        x: 3622
+        y: 2190
+        width: 98
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f0246be21b56a70800000000000000
+      internalID: 8819650259459379034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_192
+      rect:
+        serializedVersion: 2
+        x: 3754
+        y: 2115
+        width: 56
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b67d2a6d54bd82b0800000000000000
+      internalID: -5580606049935853900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_193
+      rect:
+        serializedVersion: 2
+        x: 4445
+        y: 2190
+        width: 99
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b8dea06612fdac0800000000000000
+      internalID: -3828304436087911550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_194
+      rect:
+        serializedVersion: 2
+        x: 4577
+        y: 2115
+        width: 57
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc590f67f50fdd690800000000000000
+      internalID: -7575634705359268401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_195
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 2122
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a98ec6fa2b6a8ba0800000000000000
+      internalID: -6085934114164274778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_196
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 2125
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724a8d8b4a2527080800000000000000
+      internalID: -9191193022080441305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_197
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 2115
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d3791ab11d915300800000000000000
+      internalID: 239144954689582041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_198
+      rect:
+        serializedVersion: 2
+        x: 2752
+        y: 2121
+        width: 63
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e760e3bf36a4f3630800000000000000
+      internalID: 3908924794858243710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_199
+      rect:
+        serializedVersion: 2
+        x: 3576
+        y: 2121
+        width: 63
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5d9b6aa9a32bd50800000000000000
+      internalID: 6751523227278366169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_200
+      rect:
+        serializedVersion: 2
+        x: 4400
+        y: 2121
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11eeb2e3d4b1d0a0800000000000000
+      internalID: -6858501935373295334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_201
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1602
+        width: 246
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 574dd0b08cd716590800000000000000
+      internalID: -7682721191184968587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_202
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 1602
+        width: 240
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb20af443e986f1b0800000000000000
+      internalID: -5623155475517668674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_203
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 1602
+        width: 287
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0132133033ceeb00800000000000000
+      internalID: 859839190657020170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_204
+      rect:
+        serializedVersion: 2
+        x: 2751
+        y: 1602
+        width: 287
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c916685e4dccbc50800000000000000
+      internalID: 6682441683485202886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_205
+      rect:
+        serializedVersion: 2
+        x: 3575
+        y: 1602
+        width: 287
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb7e82cabeed99910800000000000000
+      internalID: 1844750626171971519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_206
+      rect:
+        serializedVersion: 2
+        x: 4399
+        y: 1602
+        width: 287
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbb94b1fa3506aa0800000000000000
+      internalID: -6169839477955380299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_207
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1280
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b9103fb95cd01f20800000000000000
+      internalID: 3391452797427784113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_208
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 1295
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093b37f67116fdf80800000000000000
+      internalID: -8079632453197384816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_209
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 1295
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7567ee145158a4920800000000000000
+      internalID: 2975336830178588247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_210
+      rect:
+        serializedVersion: 2
+        x: 3747
+        y: 1295
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a657e1de6a9412c0800000000000000
+      internalID: -4461771530058639711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_211
+      rect:
+        serializedVersion: 2
+        x: 4571
+        y: 1295
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6e46f488d06dfd30800000000000000
+      internalID: 4466832888481336939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_212
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1258
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c13a7b05c30e15da0800000000000000
+      internalID: -5957734282377583844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_213
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 1255
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db52389015a3d3b0800000000000000
+      internalID: -5488862030143005735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_214
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 1252
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06b6f71f9928f5d10800000000000000
+      internalID: 2116553947580689248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_215
+      rect:
+        serializedVersion: 2
+        x: 2057
+        y: 1260
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50354ac0dfd6fb170800000000000000
+      internalID: 8196390780443841285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_216
+      rect:
+        serializedVersion: 2
+        x: 2881
+        y: 1260
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe96dbe188a12e90800000000000000
+      internalID: -7052170265524527429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_217
+      rect:
+        serializedVersion: 2
+        x: 3704
+        y: 1260
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75d90997afcb3a720800000000000000
+      internalID: 2856334372650392919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_218
+      rect:
+        serializedVersion: 2
+        x: 4528
+        y: 1260
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ddcc0ec4b7cd8c0800000000000000
+      internalID: -3973165201128366826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_219
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1172
+        width: 54
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6abcf1231617002a0800000000000000
+      internalID: -6773289177298515034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_220
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1169
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4fc41e087d32940800000000000000
+      internalID: 5270292937489315049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_221
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 1182
+        width: 61
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520716d3722c31870800000000000000
+      internalID: 8652472782898163749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_222
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1215
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a45222d001b2cb30800000000000000
+      internalID: 4306198810803197096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_223
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1173
+        width: 43
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036947602b678c1f0800000000000000
+      internalID: -1024438408242227664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_224
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 1185
+        width: 84
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edbfb9b20ba386cc0800000000000000
+      internalID: -3717656964074046498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_225
+      rect:
+        serializedVersion: 2
+        x: 2092
+        y: 1173
+        width: 38
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7604817f1865f74d0800000000000000
+      internalID: -3134691699430244249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_226
+      rect:
+        serializedVersion: 2
+        x: 2820
+        y: 1173
+        width: 134
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28612ca3b4deac7a0800000000000000
+      internalID: -6356007016715905406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_227
+      rect:
+        serializedVersion: 2
+        x: 3644
+        y: 1173
+        width: 134
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a8cd28fe52cd060800000000000000
+      internalID: 6979495233140328987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_228
+      rect:
+        serializedVersion: 2
+        x: 4467
+        y: 1173
+        width: 134
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea20c3cd040d87b50800000000000000
+      internalID: 6591247031648125614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_229
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 787
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5bea4f198ddca9a0800000000000000
+      internalID: -6220353404300235941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_230
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 746
+        width: 36
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 171f11485ab14c3c0800000000000000
+      internalID: -4340313743178993295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_231
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 751
+        width: 51
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6d86b1da1cb0c6e0800000000000000
+      internalID: -1819247426084106901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_232
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 788
+        width: 77
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbcafbc438c645150800000000000000
+      internalID: 5860428326300003517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_233
+      rect:
+        serializedVersion: 2
+        x: 2152
+        y: 818
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e4546eabc9777b0800000000000000
+      internalID: -5226536515999019477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_234
+      rect:
+        serializedVersion: 2
+        x: 2900
+        y: 788
+        width: 76
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f6aeb605b81d0b90800000000000000
+      internalID: -7274130657352177932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_235
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 818
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fec9bcc61a1555b0800000000000000
+      internalID: -5380365494597857552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_236
+      rect:
+        serializedVersion: 2
+        x: 3723
+        y: 788
+        width: 77
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 540f25c75fada0db0800000000000000
+      internalID: -4824803302886412219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_237
+      rect:
+        serializedVersion: 2
+        x: 3799
+        y: 818
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578b3cefe75919c90800000000000000
+      internalID: -7164781159497090955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_238
+      rect:
+        serializedVersion: 2
+        x: 4547
+        y: 788
+        width: 77
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 893bb426ac9c17080800000000000000
+      internalID: -9191343493416766568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_239
+      rect:
+        serializedVersion: 2
+        x: 4623
+        y: 818
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ee3dfad3f8a2bba0800000000000000
+      internalID: -6074607182064828704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_240
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 791
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31dbda772ed88810800000000000000
+      internalID: 1767907114889236794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_241
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 776
+        width: 62
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a567f0c2be06cc680800000000000000
+      internalID: -8733499014205442470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_242
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 772
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c6737eae3961f40800000000000000
+      internalID: 5698905015594740806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_243
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 731
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a503c910b97cff4f0800000000000000
+      internalID: -792695540833046438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_244
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 735
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4e41ecfe33ef460800000000000000
+      internalID: 7277311152924976351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_245
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 40
+        width: 653
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb5c2a012e04de100800000000000000
+      internalID: 138838503204242879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_246
+      rect:
+        serializedVersion: 2
+        x: 3039
+        y: 183
+        width: 242
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f1eae06c23d8720800000000000000
+      internalID: 2849989965426597707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_247
+      rect:
+        serializedVersion: 2
+        x: 3888
+        y: 375
+        width: 174
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be5f16e32254f09a0800000000000000
+      internalID: -6264712543271258645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_248
+      rect:
+        serializedVersion: 2
+        x: 3860
+        y: 358
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3616bc9681103aa70800000000000000
+      internalID: 8836908098196824419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSheet3 (1)_249
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 1
+        width: 303
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b18b31449b2efc90800000000000000
+      internalID: -7134216843958713932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AttackSheet3 (1)_0: -905752281244424788
+      AttackSheet3 (1)_1: 4562737861481222890
+      AttackSheet3 (1)_10: 1225289139268159714
+      AttackSheet3 (1)_100: -1707410020795636616
+      AttackSheet3 (1)_101: 6130893885996615262
+      AttackSheet3 (1)_102: 3797464141298042985
+      AttackSheet3 (1)_103: 8444829972901556117
+      AttackSheet3 (1)_104: 4524267434833609543
+      AttackSheet3 (1)_105: 8514397189205670746
+      AttackSheet3 (1)_106: 7343730372788791726
+      AttackSheet3 (1)_107: -1740000872436686280
+      AttackSheet3 (1)_108: 2725054323077734653
+      AttackSheet3 (1)_109: 5063262388383358389
+      AttackSheet3 (1)_11: 549590936053876036
+      AttackSheet3 (1)_110: -1498920328183459563
+      AttackSheet3 (1)_111: -7918414883916868620
+      AttackSheet3 (1)_112: -8176441565833511284
+      AttackSheet3 (1)_113: -3411915310834226203
+      AttackSheet3 (1)_114: -5498874194934226877
+      AttackSheet3 (1)_115: 8290155112203480870
+      AttackSheet3 (1)_116: -6576438463225334039
+      AttackSheet3 (1)_117: 5467439839252291855
+      AttackSheet3 (1)_118: -2962614138133429663
+      AttackSheet3 (1)_119: -4512942776229653648
+      AttackSheet3 (1)_12: 5065171261345537491
+      AttackSheet3 (1)_120: 7611270787660777411
+      AttackSheet3 (1)_121: 6436106669236324783
+      AttackSheet3 (1)_122: 5264298293888237314
+      AttackSheet3 (1)_123: -770754742244437573
+      AttackSheet3 (1)_124: 6352693341887073320
+      AttackSheet3 (1)_125: 8365465336900237090
+      AttackSheet3 (1)_126: 9181552832629378089
+      AttackSheet3 (1)_127: -245159329559795897
+      AttackSheet3 (1)_128: 2768311348752165140
+      AttackSheet3 (1)_129: 5619538002342851226
+      AttackSheet3 (1)_13: 6468078446508950667
+      AttackSheet3 (1)_130: 2065308871552384185
+      AttackSheet3 (1)_131: -4354436929184260836
+      AttackSheet3 (1)_132: -405388708866116506
+      AttackSheet3 (1)_133: 6611940717781274895
+      AttackSheet3 (1)_134: -7481399133749492856
+      AttackSheet3 (1)_135: -6830836289368076659
+      AttackSheet3 (1)_136: 1715443038868297461
+      AttackSheet3 (1)_137: -5005453294966910844
+      AttackSheet3 (1)_138: -7030561382242669516
+      AttackSheet3 (1)_139: -2805878523695906470
+      AttackSheet3 (1)_14: -7293845078227185123
+      AttackSheet3 (1)_140: 9204873781888934924
+      AttackSheet3 (1)_141: 4594284302853417460
+      AttackSheet3 (1)_142: 648316574368880206
+      AttackSheet3 (1)_143: 1362374196637341534
+      AttackSheet3 (1)_144: 3452437628661303139
+      AttackSheet3 (1)_145: 196356178607358805
+      AttackSheet3 (1)_146: 5261693947544460785
+      AttackSheet3 (1)_147: 2362527054743760614
+      AttackSheet3 (1)_148: 6374264484177468561
+      AttackSheet3 (1)_149: 1567706816889486393
+      AttackSheet3 (1)_15: 3651580145288272402
+      AttackSheet3 (1)_150: -5782729679136809640
+      AttackSheet3 (1)_151: -8845542323385109245
+      AttackSheet3 (1)_152: -4507797049338213331
+      AttackSheet3 (1)_153: 4609933909775160712
+      AttackSheet3 (1)_154: -1112734364810050193
+      AttackSheet3 (1)_155: 2550458566149074827
+      AttackSheet3 (1)_156: -5603063889674923444
+      AttackSheet3 (1)_157: -3162448635489418821
+      AttackSheet3 (1)_158: 8936962097045910490
+      AttackSheet3 (1)_159: -1110481591205880734
+      AttackSheet3 (1)_16: 8328299317122496475
+      AttackSheet3 (1)_160: 7640776773913154488
+      AttackSheet3 (1)_161: -5634006037452275676
+      AttackSheet3 (1)_162: -1366826697368664865
+      AttackSheet3 (1)_163: 2386279875133789956
+      AttackSheet3 (1)_164: 2819637964417468956
+      AttackSheet3 (1)_165: -5493757067488168104
+      AttackSheet3 (1)_166: 8408786777452709565
+      AttackSheet3 (1)_167: -3480011311511229854
+      AttackSheet3 (1)_168: -7103849818928097624
+      AttackSheet3 (1)_169: -9195844634316193099
+      AttackSheet3 (1)_17: -2743444255152669460
+      AttackSheet3 (1)_170: -273968048520694138
+      AttackSheet3 (1)_171: -6601491280767695485
+      AttackSheet3 (1)_172: 5411882608419931482
+      AttackSheet3 (1)_173: -3951165900993613828
+      AttackSheet3 (1)_174: -2818988796153091501
+      AttackSheet3 (1)_175: 8984956458332239870
+      AttackSheet3 (1)_176: -8387385979172730830
+      AttackSheet3 (1)_177: 7343739055322812117
+      AttackSheet3 (1)_178: 2005280621875525806
+      AttackSheet3 (1)_179: -5281014533541008603
+      AttackSheet3 (1)_18: 6974571176155479955
+      AttackSheet3 (1)_180: -6775539131228036790
+      AttackSheet3 (1)_181: -7500963964335036324
+      AttackSheet3 (1)_182: -5301460535106715667
+      AttackSheet3 (1)_183: -4798249911207333616
+      AttackSheet3 (1)_184: -4880136121904489573
+      AttackSheet3 (1)_185: -7091858555051712173
+      AttackSheet3 (1)_186: 5272662499881975777
+      AttackSheet3 (1)_187: -8381438392732622255
+      AttackSheet3 (1)_188: 8008331026741871799
+      AttackSheet3 (1)_189: -7260813143766425406
+      AttackSheet3 (1)_19: 3301607546307986496
+      AttackSheet3 (1)_190: -4019390310971225140
+      AttackSheet3 (1)_191: 8819650259459379034
+      AttackSheet3 (1)_192: -5580606049935853900
+      AttackSheet3 (1)_193: -3828304436087911550
+      AttackSheet3 (1)_194: -7575634705359268401
+      AttackSheet3 (1)_195: -6085934114164274778
+      AttackSheet3 (1)_196: -9191193022080441305
+      AttackSheet3 (1)_197: 239144954689582041
+      AttackSheet3 (1)_198: 3908924794858243710
+      AttackSheet3 (1)_199: 6751523227278366169
+      AttackSheet3 (1)_2: 3025860861435674480
+      AttackSheet3 (1)_20: -2633828986976797304
+      AttackSheet3 (1)_200: -6858501935373295334
+      AttackSheet3 (1)_201: -7682721191184968587
+      AttackSheet3 (1)_202: -5623155475517668674
+      AttackSheet3 (1)_203: 859839190657020170
+      AttackSheet3 (1)_204: 6682441683485202886
+      AttackSheet3 (1)_205: 1844750626171971519
+      AttackSheet3 (1)_206: -6169839477955380299
+      AttackSheet3 (1)_207: 3391452797427784113
+      AttackSheet3 (1)_208: -8079632453197384816
+      AttackSheet3 (1)_209: 2975336830178588247
+      AttackSheet3 (1)_21: 1965564338329420993
+      AttackSheet3 (1)_210: -4461771530058639711
+      AttackSheet3 (1)_211: 4466832888481336939
+      AttackSheet3 (1)_212: -5957734282377583844
+      AttackSheet3 (1)_213: -5488862030143005735
+      AttackSheet3 (1)_214: 2116553947580689248
+      AttackSheet3 (1)_215: 8196390780443841285
+      AttackSheet3 (1)_216: -7052170265524527429
+      AttackSheet3 (1)_217: 2856334372650392919
+      AttackSheet3 (1)_218: -3973165201128366826
+      AttackSheet3 (1)_219: -6773289177298515034
+      AttackSheet3 (1)_22: -5564737605619105439
+      AttackSheet3 (1)_220: 5270292937489315049
+      AttackSheet3 (1)_221: 8652472782898163749
+      AttackSheet3 (1)_222: 4306198810803197096
+      AttackSheet3 (1)_223: -1024438408242227664
+      AttackSheet3 (1)_224: -3717656964074046498
+      AttackSheet3 (1)_225: -3134691699430244249
+      AttackSheet3 (1)_226: -6356007016715905406
+      AttackSheet3 (1)_227: 6979495233140328987
+      AttackSheet3 (1)_228: 6591247031648125614
+      AttackSheet3 (1)_229: -6220353404300235941
+      AttackSheet3 (1)_23: -3906611847926403183
+      AttackSheet3 (1)_230: -4340313743178993295
+      AttackSheet3 (1)_231: -1819247426084106901
+      AttackSheet3 (1)_232: 5860428326300003517
+      AttackSheet3 (1)_233: -5226536515999019477
+      AttackSheet3 (1)_234: -7274130657352177932
+      AttackSheet3 (1)_235: -5380365494597857552
+      AttackSheet3 (1)_236: -4824803302886412219
+      AttackSheet3 (1)_237: -7164781159497090955
+      AttackSheet3 (1)_238: -9191343493416766568
+      AttackSheet3 (1)_239: -6074607182064828704
+      AttackSheet3 (1)_24: 3315227614449168853
+      AttackSheet3 (1)_240: 1767907114889236794
+      AttackSheet3 (1)_241: -8733499014205442470
+      AttackSheet3 (1)_242: 5698905015594740806
+      AttackSheet3 (1)_243: -792695540833046438
+      AttackSheet3 (1)_244: 7277311152924976351
+      AttackSheet3 (1)_245: 138838503204242879
+      AttackSheet3 (1)_246: 2849989965426597707
+      AttackSheet3 (1)_247: -6264712543271258645
+      AttackSheet3 (1)_248: 8836908098196824419
+      AttackSheet3 (1)_249: -7134216843958713932
+      AttackSheet3 (1)_25: -1402857079402673708
+      AttackSheet3 (1)_26: -1955739883237871277
+      AttackSheet3 (1)_27: -7774016520525947165
+      AttackSheet3 (1)_28: -87664361506391434
+      AttackSheet3 (1)_29: 4583817023538849592
+      AttackSheet3 (1)_3: -1969069131756371460
+      AttackSheet3 (1)_30: -341080406510503749
+      AttackSheet3 (1)_31: 7971745385820427927
+      AttackSheet3 (1)_32: -5602292708600558895
+      AttackSheet3 (1)_33: -9012349568340406599
+      AttackSheet3 (1)_34: -9000131495925910978
+      AttackSheet3 (1)_35: -6626805319334280329
+      AttackSheet3 (1)_36: -6754932156433413828
+      AttackSheet3 (1)_37: 7729366789849848315
+      AttackSheet3 (1)_38: -5929898192198957353
+      AttackSheet3 (1)_39: -3884601605322946016
+      AttackSheet3 (1)_4: 3488948989583196188
+      AttackSheet3 (1)_40: 1485227888746690102
+      AttackSheet3 (1)_41: 1630000521370038091
+      AttackSheet3 (1)_42: 1152266792209606780
+      AttackSheet3 (1)_43: 828519397618405207
+      AttackSheet3 (1)_44: 6388700276152904376
+      AttackSheet3 (1)_45: 5635439482898790477
+      AttackSheet3 (1)_46: -3552274250612157705
+      AttackSheet3 (1)_47: 7095134126991453665
+      AttackSheet3 (1)_48: 7076159596172583580
+      AttackSheet3 (1)_49: -2620430734442240961
+      AttackSheet3 (1)_5: 8453646278640840206
+      AttackSheet3 (1)_50: 4272488785960756956
+      AttackSheet3 (1)_51: 6151109510755557911
+      AttackSheet3 (1)_52: 9216043039351898735
+      AttackSheet3 (1)_53: 6447768194141872449
+      AttackSheet3 (1)_54: 5891170337675139380
+      AttackSheet3 (1)_55: -1957570667657470669
+      AttackSheet3 (1)_56: -3337838485415054025
+      AttackSheet3 (1)_57: 5527056550551178422
+      AttackSheet3 (1)_58: -8278479662934165406
+      AttackSheet3 (1)_59: -9040474279908980896
+      AttackSheet3 (1)_6: -7460192520520138903
+      AttackSheet3 (1)_60: -3952785006043563428
+      AttackSheet3 (1)_61: 88054956665152447
+      AttackSheet3 (1)_62: -4426213563063061812
+      AttackSheet3 (1)_63: -6994130966595987040
+      AttackSheet3 (1)_64: -3232560526529519581
+      AttackSheet3 (1)_65: 5504991932903516282
+      AttackSheet3 (1)_66: -4941179092695564785
+      AttackSheet3 (1)_67: -6785765024734327845
+      AttackSheet3 (1)_68: 2328305620682048546
+      AttackSheet3 (1)_69: -5320365107465197508
+      AttackSheet3 (1)_7: -8960585886643964712
+      AttackSheet3 (1)_70: -8086633411402659470
+      AttackSheet3 (1)_71: 6883260077844970830
+      AttackSheet3 (1)_72: -9043717673559231245
+      AttackSheet3 (1)_73: -7998204100730276075
+      AttackSheet3 (1)_74: -2918598981481228688
+      AttackSheet3 (1)_75: -7008822035851856047
+      AttackSheet3 (1)_76: 1313819347598004288
+      AttackSheet3 (1)_77: 7074250396148403054
+      AttackSheet3 (1)_78: -4932096374917792327
+      AttackSheet3 (1)_79: 2612279733495247509
+      AttackSheet3 (1)_8: -7719884688949653616
+      AttackSheet3 (1)_80: -8400117321650356875
+      AttackSheet3 (1)_81: 1934799656323116080
+      AttackSheet3 (1)_82: -8506461555482462269
+      AttackSheet3 (1)_83: 3867388235105445986
+      AttackSheet3 (1)_84: 4661632500901532596
+      AttackSheet3 (1)_85: -6662106505996030946
+      AttackSheet3 (1)_86: -8281306146389857053
+      AttackSheet3 (1)_87: -2974263309189679771
+      AttackSheet3 (1)_88: 928747092981139791
+      AttackSheet3 (1)_89: 9098737807969380872
+      AttackSheet3 (1)_9: -3499879588401811776
+      AttackSheet3 (1)_90: 4077676195936048781
+      AttackSheet3 (1)_91: -6496899954180408135
+      AttackSheet3 (1)_92: 3941232913073386555
+      AttackSheet3 (1)_93: 5891126878493060397
+      AttackSheet3 (1)_94: 7505637563004736031
+      AttackSheet3 (1)_95: -6549221269069359917
+      AttackSheet3 (1)_96: 481874440008337405
+      AttackSheet3 (1)_97: 8379049084828006598
+      AttackSheet3 (1)_98: 7694450555077346789
+      AttackSheet3 (1)_99: -6338958990802258366
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
