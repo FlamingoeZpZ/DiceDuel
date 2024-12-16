@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ArmorDroppings
+  m_Name: LightSaber
   m_Shader: {fileID: -6465566751694194690, guid: 818e0c4eb4878f54bb3e071e63f7fe20, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _ArmorColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ArmorColor: {r: 36.758343, g: 36.758343, b: 36.758343, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8662139340703766448

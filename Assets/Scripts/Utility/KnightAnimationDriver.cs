@@ -5,17 +5,21 @@ namespace Utility
 {
     public class KnightAnimationDriver : MonoBehaviour
     {
-        public void SetAnimation(int num)
+        //Unfortunate necessity because of how the anims are handled.
+        private SpriteRenderer[] _renderers;
+        
+        private void Awake()
         {
-            
+            _renderers = transform.GetChild(0).GetComponentsInChildren<SpriteRenderer>(true);
+        }
+
+        public void SetAllRenderersLayer(int layer)
+        {
+            foreach (SpriteRenderer rendering in _renderers)
+            {
+                rendering.sortingOrder = layer;
+            }
         }
     }
 
-    [Serializable]
-    public struct AnimationSheet
-    {
-        [SerializeField] private Texture2D textureAtlas;
-        [SerializeField] private int width;
-        [SerializeField] private bool swordInFront;
-    }
 }

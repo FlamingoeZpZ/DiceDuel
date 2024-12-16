@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Frame: 10.9
+    - _Frame: 0
     - _HasSword: 1
     - _LineHardness: 3
     - _Num: 7
