@@ -6,7 +6,7 @@ public class WeaponStats : ScriptableObject
 {
     [Header("Weapon")]
     [SerializeField, TextArea] private string description; 
-    [SerializeField] private AttackStats[] attacks;
+    [SerializeField] private AbilityStats[] attacks;
 
     [Header("Modifiers")]
     [SerializeField] private int offensiveModifier;

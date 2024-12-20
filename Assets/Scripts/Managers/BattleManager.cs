@@ -29,13 +29,16 @@ namespace Managers
     /// They'll probably be known in the GameManager, and then passed down to here.
     public class BattleManager
     {
-        private readonly IWarrior _warriorA;
-        private readonly IWarrior _warriorB;
+        private readonly IWarrior _leftWarrior;
+        private readonly IWarrior _rightWarrior;
         
-        public BattleManager(IWarrior warriorA, IWarrior warriorB)
+        public BattleManager(IWarrior leftWarrior, IWarrior rightWarrior)
         {
-            _warriorA = warriorA;
-            _warriorB = warriorB;
+            _leftWarrior = leftWarrior;
+            _rightWarrior = rightWarrior;
+            
+            _leftWarrior.Init(true);
+            _rightWarrior.Init(false);
         }
         
         public async void StartBattle()
@@ -47,33 +50,52 @@ namespace Managers
                 GameHud.ResetHUD();
                 
                 //Both players / AI will choose attacks
-                IAttack attackA = await  _warriorA.ChooseAttack();
-                IAttack attackB = await _warriorB.ChooseAttack();
+                IAbility abilityA = await  _leftWarrior.ChooseAttack();
+                IAbility abilityB = await _rightWarrior.ChooseAttack();
                 
                 //Set the default display information
-                GameHud.DisplayDefaults(_warriorA.GetTeamColor(), attackA.GetAttackStats().BaseSpeed, _warriorB.GetTeamColor(), attackB.GetAttackStats().BaseSpeed);
+                GameHud.DisplayDefaults(_leftWarrior.GetTeamColor(), abilityA.GetAttackStats().BaseValue, _rightWarrior.GetTeamColor(), abilityB.GetAttackStats().BaseValue);
 
                 //Wait for each attack to process
-                (int aSpeed, int bSpeed) = await UniTask.WhenAll(_warriorA.RollDiceFor(EActionType.Speed), _warriorB.RollDiceFor(EActionType.Speed));
-                aSpeed += attackA.GetAttackStats().BaseSpeed;
-                bSpeed += attackB.GetAttackStats().BaseSpeed;
+                (int leftValue, int rightValue) = await UniTask.WhenAll(_leftWarrior.RollDice(abilityA), _rightWarrior.RollDice(abilityB));
+                leftValue += abilityA.GetAttackStats().BaseValue;
+                rightValue += abilityB.GetAttackStats().BaseValue;
                 
                 //Wait for the numbers to be tallied
                 await GameHud.SendDice();
+
+                int atkA = (int)abilityA.GetAttackStats().AttackType;
+                int atkB = (int)abilityB.GetAttackStats().AttackType;
                 
-                //Choose the player with the higher speed to attack first
-                if (aSpeed >= bSpeed)
+                if (atkA == atkB) //if this is true, whoever got the lower roll should go first. [Optional rule]
                 {
-                    await attackA.PlayAttack(_warriorA, _warriorB);
-                    if (!HasFightConcluded()) await attackB.PlayAttack(_warriorB, _warriorA);
+                    if (rightValue < leftValue)
+                    {
+                        Debug.Log("Player B moves first");
+                        await abilityB.PlayAttack(_rightWarrior, _leftWarrior);
+                        if (!HasFightConcluded()) await abilityA.PlayAttack(_leftWarrior, _rightWarrior);
+                    }
+                    else
+                    {
+                        Debug.Log("Player A moves first");
+                        await abilityA.PlayAttack(_leftWarrior, _rightWarrior);
+                        if (!HasFightConcluded()) await abilityB.PlayAttack(_rightWarrior, _leftWarrior);
+                    }
                 }
-                else
+                else if (atkA < atkB)   //Defensive is 0, Offensive is 1, Support is 2, if this is true let player 2 go first
                 {
-                    await attackB.PlayAttack(_warriorB, _warriorA);
-                    if (!HasFightConcluded()) await attackA.PlayAttack(_warriorA, _warriorB);
+                    Debug.Log("Player B moves first");
+                    await abilityB.PlayAttack(_rightWarrior, _leftWarrior);
+                    if (!HasFightConcluded()) await abilityA.PlayAttack(_leftWarrior, _rightWarrior);
+                }
+                else //Either order doesn't matter, or player 1 should go first.
+                {
+                    Debug.Log("Player A moves first");
+                    await abilityA.PlayAttack(_leftWarrior, _rightWarrior);
+                    if (!HasFightConcluded()) await abilityB.PlayAttack(_rightWarrior, _leftWarrior);
                 }
                 
-                //Temporary delay to repeat the battle forever once the loop ends
+                //TODO: Temporary delay to repeat the battle forever once the loop ends
                 await UniTask.Delay(5000);
 
             }
@@ -82,7 +104,7 @@ namespace Managers
 
         private bool HasFightConcluded()
         {
-            return _warriorB.IsDefeated() || _warriorA.IsDefeated();
+            return _rightWarrior.IsDefeated() || _leftWarrior.IsDefeated();
         }
 
     }

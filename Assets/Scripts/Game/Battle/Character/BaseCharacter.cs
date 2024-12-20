@@ -5,46 +5,41 @@ using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UniTask = Cysharp.Threading.Tasks.UniTask;
 
 namespace Game.Battle.Character
 {
+    [SelectionBase]
+
     public abstract class BaseCharacter : MonoBehaviour, IWarrior
     {
-        //These are our stats, base and upgraded
         [SerializeField] private CharacterStats baseStats;
-        [SerializeField] private CharacterStatsData myStats;
-        [SerializeField, ColorUsage(false, true)] private Color combatColor;
-
+        
         //These are our current values
         private float _currentHealth;
-        private float _currentMana;
-
+        private float _currentStamina;
         
         //These store our dicesets
-        private readonly Dictionary<EActionType, List<EDiceType>> _diceSet = new Dictionary<EActionType, List<EDiceType>>();
+        
         bool _isLeftSide;
         
-        public abstract UniTask<IAttack> ChooseAttack();
+        public abstract UniTask<IAbility> ChooseAttack();
+
+        public void Init(bool isLeftSide)
+        {
+            _isLeftSide = isLeftSide;
+        }
+
+        public bool CanUseAbility(int staminaCost) => staminaCost < _currentStamina;
         
         
 
-        public TemporaryDice[] dice;
+        [SerializeField] protected AbilityStats[] defaultAbilities;
 
         private void Awake()
         {
-            foreach (TemporaryDice d in dice)
-            {
-                if (!_diceSet.TryGetValue(d.type, out List<EDiceType> list))
-                {
-                    list  = new List<EDiceType>();
-                    _diceSet.Add(d.type, list);
-                }
-                list.Add(d.diceType);
-            }
-
-            _currentHealth = baseStats.GetHealth(myStats);
+            _currentHealth = baseStats.MaxHealth;
+            _currentStamina = baseStats.MaxStamina;
             
             //If we're throwing right, we must be on the left side
             _isLeftSide = (Vector2.zero-(Vector2)transform.position).x > 0;
@@ -55,29 +50,23 @@ namespace Game.Battle.Character
             return _currentHealth <= 0;
         }
 
-        public virtual async UniTask<int> RollDiceFor(EActionType action)
+        public virtual async UniTask<int> RollDice(IAbility ability)
         {
-            //We use TryGetValue because it's the most optimized way to both check if we're allowed and get the list.
-            if (!_diceSet.TryGetValue(action, out List<EDiceType> die))
-            {
-                Debug.LogError("The item does not exist");
-                return 0;
-            }
+            //Cache variables to reduce CPU load, and make code more readable.
+            EDiceType[] dice = ability.GetAttackStats().Dice;
+            Color cacheColor = GetTeamColor();
+            EffectManager.instance.PlayDiceDeploySound();
             
-
             //Create an array to store each dice roll process required
-            UniTask<int>[] tasks = new UniTask<int>[die.Count];
-            for (int index = 0; index < die.Count; index++)
+            UniTask<int>[] tasks = new UniTask<int>[dice.Length];
+            
+            for (int index = 0; index < dice.Length; index++)
             {
-                EffectManager.instance.PlayDiceDeploySound();
-                
-                EDiceType eDiceType = die[index];
                 //Create and roll the dice
-                tasks[index] = DiceManager.CreateDice(eDiceType, GetTeamColor(), _isLeftSide);
+                tasks[index] = DiceManager.CreateDice(dice[index], cacheColor, _isLeftSide);
 
                 //wait 0.1 seconds before throwing the next dice
                 await UniTask.Delay(200);
-
             }
             
             //Wait for each dice roll to end
@@ -96,16 +85,11 @@ namespace Game.Battle.Character
             return sum;
         }
 
-        public Color GetTeamColor()
-        {
-            return combatColor;
-        }
-    }
+        //We can get the color for the player from the save info,
+        //We can get the color for the AI through the AiPool?
+        public abstract Color GetTeamColor();
+        
 
-    [Serializable]
-    public struct TemporaryDice
-    {
-        public EActionType type;
-        public EDiceType diceType;
+        
     }
 }

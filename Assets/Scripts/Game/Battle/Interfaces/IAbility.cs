@@ -1,12 +1,11 @@
-using System.Collections;
 using Cysharp.Threading.Tasks;
 using Game.Battle.ScriptableObjects;
 
 namespace Game.Battle.Interfaces
 {
-    public interface IAttack
+    public interface IAbility
     {
-        AttackStats GetAttackStats();
+        AbilityStats GetAttackStats();
         UniTask PlayAttack(IWarrior user, IWarrior opponent);
     }
 }

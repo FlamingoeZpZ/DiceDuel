@@ -8,12 +8,26 @@ namespace Game.Battle.Character
     [SelectionBase]
     public class AIWarrior : BaseCharacter
     {
-        public SwordAttack temp;
-
-        public override async UniTask<IAttack> ChooseAttack()
+        [SerializeField] private EAIType aiType;
+        
+        public SwordAbility temp;
+        
+        public override async UniTask<IAbility> ChooseAttack()
         {
             await UniTask.Delay(100);
             return temp;
         }
+
+        public override Color GetTeamColor()
+        {
+            return 
+        }
+    }
+    
+    public enum EAIType
+    {
+        Aggressive,
+        Defensive,
+        Balanced
     }
 }

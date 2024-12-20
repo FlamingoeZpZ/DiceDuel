@@ -2,10 +2,10 @@ using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;using UnityEngine;
 
-public class SwordAttack : MonoBehaviour, IAttack
+public class SwordAbility : MonoBehaviour, IAbility
 {
-    public AttackStats stats;
-    public AttackStats GetAttackStats()
+    public AbilityStats stats;
+    public AbilityStats GetAttackStats()
     {
         return stats;
     }

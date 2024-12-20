@@ -11,16 +11,16 @@ public class AbilityController : MonoBehaviour
     [SerializeField, Range(-6.28f, 6.28f)] private float startAngle = 1;
     
     private readonly List<AbilityUI> _abilities = new ();
-    private IAttack _selectedAttack = null;
+    private IAbility _selectedAbility = null;
     private int _numActiveAbilities = 0;
     
     //Get all the attacks the player has, spawn a UI for each and bind it choosing that ability.
     //Make the assumption that these abilities are 
-    public void SetAbilities(IAttack[] attacks)
+    public void SetAbilities(IAbility[] attacks)
     {
         for (int i = 0; i < attacks.Length; i++)
         {
-            IAttack attack = attacks[i];
+            IAbility ability = attacks[i];
           
             //Create it if we need to
             if (i == _abilities.Count)
@@ -40,25 +40,25 @@ public class AbilityController : MonoBehaviour
         }
     }
 
-    public void SetAttack(IAttack attack)
+    public void SetAttack(IAbility ability)
     {
-        _selectedAttack = attack;
+        _selectedAbility = ability;
     }
 
-    public async UniTask<IAttack> SelectAbility()
+    public async UniTask<IAbility> SelectAbility()
     {
-        _selectedAttack = null;
+        _selectedAbility = null;
         for (int i = 0; i < _numActiveAbilities; i++)
         {
             _abilities[i].gameObject.SetActive(true);
         }
         //Wait for something to modify our selected attack.
-        await UniTask.WaitUntil(() => _selectedAttack != null);
+        await UniTask.WaitUntil(() => _selectedAbility != null);
         for (int i = 0; i < _numActiveAbilities; i++)
         {
             _abilities[i].gameObject.SetActive(false);
         }
-        return _selectedAttack;
+        return _selectedAbility;
     }
 
     private void OnDrawGizmosSelected()

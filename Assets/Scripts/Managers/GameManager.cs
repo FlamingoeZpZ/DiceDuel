@@ -4,25 +4,25 @@ using UnityEngine;
 
 namespace Managers
 {
+    //Problem, how do we persist our player across scenes? 
     public class GameManager : MonoBehaviour
     {
-        private BattleManager battleManager;
-
-        [SerializeField] private BaseCharacter testA;
-        [SerializeField] private BaseCharacter testB;
+        private BattleManager _battleManager;
+        private BaseCharacter _leftWarrior;
+        private BaseCharacter _rightWarrior;
 
         [ContextMenu("Test Battle")]
         public void TestBattle()
         {
-            BeginBattle(testA, testB);
+            Debug.LogError("Make sure to assign left and right characters, AIpool, and player");
+            BeginBattle(_leftWarrior, _rightWarrior);
         }
 
         public void BeginBattle(IWarrior a, IWarrior b)
         {
-            battleManager = new BattleManager(a, b);
+            _battleManager = new BattleManager(a, b);
         
-            battleManager.StartBattle();
+            _battleManager.StartBattle();
         }
-
     }
 }

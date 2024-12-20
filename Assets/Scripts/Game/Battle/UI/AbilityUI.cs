@@ -15,16 +15,16 @@ public class AbilityUI : MonoBehaviour
     {
         _button = GetComponent<Button>();
     }
-    public void Bind(AbilityController controller, IAttack attack)
+    public void Bind(AbilityController controller, IAbility ability)
     {
         _button.onClick.RemoveAllListeners();
 
-        icon.sprite = attack.GetAttackStats().Icon;
-        backgroundImage.color = attack.GetAttackStats().GetColor();
+        icon.sprite = ability.GetAttackStats().Icon;
+        backgroundImage.color = ability.GetAttackStats().GetColor();
         
         _button.onClick.AddListener(() =>
         {
-            controller.SetAttack(attack);
+            controller.SetAttack(ability);
         });
     }
 }

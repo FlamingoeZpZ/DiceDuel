@@ -5,18 +5,12 @@ namespace Game.Battle.Interfaces
 {
     public interface IWarrior
     {
-        public UniTask<IAttack> ChooseAttack();
+        public UniTask<IAbility> ChooseAttack();
         public bool IsDefeated();
-        public UniTask<int> RollDiceFor(EActionType action);
+        public UniTask<int> RollDice(IAbility ability);
 
         public Color GetTeamColor();
 
-    }
-
-    public enum EActionType
-    {
-        Speed,
-        Damage,
-        Accuracy,
+        public void Init(bool isLeftSide);
     }
 }
