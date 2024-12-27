@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
+using Managers;
 using UnityEngine;
 
 namespace Game.Battle.Character
