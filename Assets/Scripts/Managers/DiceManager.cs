@@ -109,7 +109,28 @@ namespace Managers
             
         }
 
-       
+        public static readonly Dictionary<EDiceType, DiceValue> DiceValues =
+            new Dictionary<EDiceType, DiceValue>()
+            {
+                { EDiceType.Four, new DiceValue(1, 4) },
+                { EDiceType.Six, new DiceValue(1, 6) },
+                { EDiceType.Eight, new DiceValue(1, 8) },
+                { EDiceType.Ten, new DiceValue(1, 10) },
+                { EDiceType.Twenty, new DiceValue(1, 20) },
+            };
+
+        public readonly struct DiceValue
+        {
+            public readonly int Low;
+            public readonly int High;
+
+            public DiceValue(int low, int high)
+            {
+                Low = low;
+                High = high;
+            }
+        }
+
     }
 
     public enum EDiceType
@@ -119,5 +140,8 @@ namespace Managers
         Eight,
         Ten,
         Twenty
+        
     }
+    
+   
 }

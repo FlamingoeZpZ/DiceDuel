@@ -1,16 +1,25 @@
 using Cysharp.Threading.Tasks;
+using Game.Battle.ScriptableObjects;
 using UnityEngine;
 
 namespace Game.Battle.Interfaces
 {
     public interface IWarrior
     {
-        public UniTask<IAbility> ChooseAttack();
+        public UniTask<AbilityBaseStats> ChooseAttack();
         public bool IsDefeated();
-        public UniTask<int> RollDice(IAbility ability);
+        
+        //NOTE: We're oversharing here, truthfully we should seperate the object into smaller components, one for business one for appearance.
+        public UniTask<int> RollDice(AbilityBaseStats ability);
 
         public Color GetTeamColor();
 
         public void Init(bool isLeftSide);
+        
+        
+        public void PayStamina(int cost);
+        public void TakeDamage(int amount);
+        public void GainShield(int amount);
+        void BeginRound();
     }
 }

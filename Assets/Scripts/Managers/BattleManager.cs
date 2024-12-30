@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
+using Game.Battle.ScriptableObjects;
 using UI;
 using UnityEngine;
 
@@ -46,61 +47,87 @@ namespace Managers
             Debug.Log("Starting Battle");
             while (!HasFightConcluded())
             {
+                //We can add another one for "Begin round"
+                _leftWarrior.BeginRound();
+                _rightWarrior.BeginRound();
+                
                 //Reset any old hud information
                 GameHud.ResetHUD();
                 
                 //Both players / AI will choose attacks
-                IAbility abilityA = await  _leftWarrior.ChooseAttack();
-                IAbility abilityB = await _rightWarrior.ChooseAttack();
+                (AbilityBaseStats abilityA, AbilityBaseStats abilityB) = await  UniTask.WhenAll(_leftWarrior.ChooseAttack(),  _rightWarrior.ChooseAttack());
                 
                 //Set the default display information
-                GameHud.DisplayDefaults(_leftWarrior.GetTeamColor(), abilityA.GetAttackStats().BaseValue, _rightWarrior.GetTeamColor(), abilityB.GetAttackStats().BaseValue);
-
-                //Wait for each attack to process
-                (int leftValue, int rightValue) = await UniTask.WhenAll(_leftWarrior.RollDice(abilityA), _rightWarrior.RollDice(abilityB));
-                leftValue += abilityA.GetAttackStats().BaseValue;
-                rightValue += abilityB.GetAttackStats().BaseValue;
+                GameHud.DisplayDefaults(_leftWarrior.GetTeamColor(), abilityA.BaseValue, _rightWarrior.GetTeamColor(), abilityB.BaseValue);
                 
-                //Wait for the numbers to be tallied
-                await GameHud.SendDice();
-
-                int atkA = (int)abilityA.GetAttackStats().AttackType;
-                int atkB = (int)abilityB.GetAttackStats().AttackType;
-                
-                if (atkA == atkB) //if this is true, whoever got the lower roll should go first. [Optional rule]
-                {
-                    if (rightValue < leftValue)
-                    {
-                        Debug.Log("Player B moves first");
-                        await abilityB.PlayAttack(_rightWarrior, _leftWarrior);
-                        if (!HasFightConcluded()) await abilityA.PlayAttack(_leftWarrior, _rightWarrior);
-                    }
-                    else
-                    {
-                        Debug.Log("Player A moves first");
-                        await abilityA.PlayAttack(_leftWarrior, _rightWarrior);
-                        if (!HasFightConcluded()) await abilityB.PlayAttack(_rightWarrior, _leftWarrior);
-                    }
-                }
-                else if (atkA < atkB)   //Defensive is 0, Offensive is 1, Support is 2, if this is true let player 2 go first
-                {
-                    Debug.Log("Player B moves first");
-                    await abilityB.PlayAttack(_rightWarrior, _leftWarrior);
-                    if (!HasFightConcluded()) await abilityA.PlayAttack(_leftWarrior, _rightWarrior);
-                }
-                else //Either order doesn't matter, or player 1 should go first.
-                {
-                    Debug.Log("Player A moves first");
-                    await abilityA.PlayAttack(_leftWarrior, _rightWarrior);
-                    if (!HasFightConcluded()) await abilityB.PlayAttack(_rightWarrior, _leftWarrior);
-                }
-                
-                //TODO: Temporary delay to repeat the battle forever once the loop ends
-                await UniTask.Delay(5000);
-
+                //let's move this into another function for ease of reading.
+                await ResolveAbilities(abilityA, abilityB);
             }
             Debug.Log("Concluding Battle");
         }
+
+        private async UniTask ResolveAbilities(AbilityBaseStats leftAbility, AbilityBaseStats rightAbility)
+        {
+            //Get their typing information
+            EAbilityType atkA = leftAbility.AbilityType();
+            EAbilityType atkB = rightAbility.AbilityType();
+            
+            //Charge the players for using the ability
+            _leftWarrior.PayStamina(leftAbility.StaminaCost);
+            _rightWarrior.PayStamina(rightAbility.StaminaCost);
+            
+            //Next, we know at this point we want to roll our dice.
+            //Because rolling the dice takes a long time, and we want to physically roll the dice
+            //We should respect our users time and only roll dice once per ability instead of per each action
+            
+            //Wait for each attack to process
+            (int leftValue, int rightValue) = await UniTask.WhenAll(_leftWarrior.RollDice(leftAbility), _rightWarrior.RollDice(rightAbility));
+            leftValue += leftAbility.BaseValue;
+            rightValue += rightAbility.BaseValue;
+                
+            //Wait for the numbers to be tallied
+            await GameHud.SendDice();
+            
+            if (atkA == atkB)// If both actions are the same
+            {
+                //Optional rule (Who should go first), the user with the lowest value:
+                if (leftValue < rightValue)
+                {
+                    await ProcessAttack(leftAbility, _leftWarrior, leftValue, rightAbility, _rightWarrior,rightValue);
+                }
+                else
+                {
+                    await ProcessAttack(rightAbility, _rightWarrior,rightValue, leftAbility, _leftWarrior, leftValue);
+                }
+            }
+            else if (atkA < atkB) //Defensive is 0, Offensive is 1, Support is 2. If the left player is blocking (0), and the right player is attacking (1), let player 1 go first.
+            {
+                await ProcessAttack(leftAbility, _leftWarrior, leftValue, rightAbility, _rightWarrior,rightValue);
+            }
+            else //if the right player is blocking (0) and the left is attacking(1) let player 2 go first.
+            {
+                await ProcessAttack(rightAbility, _rightWarrior,rightValue, leftAbility, _leftWarrior, leftValue);
+            }
+        }
+
+        private async UniTask ProcessAttack(AbilityBaseStats firstAbility, IWarrior firstWarrior, int firstRoll, AbilityBaseStats secondAbility, IWarrior secondWarrior, int secondRoll)
+        {
+            /*
+             * How will playing an ability work?
+             * We want to cue up an animation of course. But animations need to send trigger when they do things.
+             * That's as easy as just placing a timeline node in the animator and a correlating receiver function in the base class.
+             * But the problem is, how do we handle blocking? How do we handle special abilities?
+             * Our Base character directly must need to know if they're blocking because they're directly responsible for the damage they're taking.
+             * Therefore we need a way to communicate when to START and STOP doing an action because we shouldn't remain blocked.
+             */
+            await firstAbility.StartAbility(firstWarrior, firstRoll, secondWarrior);
+            
+            if (!HasFightConcluded())
+            {
+                await secondAbility.StartAbility(secondWarrior, secondRoll, firstWarrior);
+            }
+        }
+
 
         private bool HasFightConcluded()
         {

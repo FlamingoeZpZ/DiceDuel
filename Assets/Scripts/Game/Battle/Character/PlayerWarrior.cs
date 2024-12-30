@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using Game.Battle.Interfaces;
+using Game.Battle.ScriptableObjects;
 using Managers;
 using UnityEngine;
 
@@ -17,28 +17,15 @@ namespace Game.Battle.Character
        //Start because we're talking about other objects, and we would have to override awake.
        private void Start()
        {
-
-           IAbility[] abilities = new IAbility[defaultAbilities.Length];
-
-           for (int i = 0; i < defaultAbilities.Length; i++)
-           {
-               abilities[i] = defaultAbilities[i].;
-           }
-
-           _attacks = new IAbility[]
-           {
-               temp,
-               temp,
-               temp,
-               temp,
-               temp,
-           };
            _abilityController = GetComponentInChildren<AbilityController>();
-           _abilityController.SetAbilities();
+           _abilityController.SetAbilities(abilities);
+           _abilityController.UpdateAbilities(_currentStamina);
+
        }
 
-       public override async UniTask<IAbility> ChooseAttack()
+       public override async UniTask<AbilityBaseStats> ChooseAttack()
        {
+           _abilityController.UpdateAbilities(_currentStamina);
            return await _abilityController.SelectAbility();
        }
 

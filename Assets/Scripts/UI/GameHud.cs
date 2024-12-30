@@ -144,23 +144,32 @@ namespace UI
             public TextMeshProUGUI Target;
         }
 
-        public static async void DisplayDefaults(Color leftColor, int leftInitialValue, Color rightColor, int rightInitialValue)
+        public static async UniTask DisplayLeft(Color leftColor, int leftInitialValue)
         {
             _instance._leftCounter = 0;
             _instance._rightCounter = 0;
             leftColor/= Mathf.Max(leftColor.r,leftColor.g, leftColor.b);
-            rightColor/= Mathf.Max(rightColor.r,rightColor.g, rightColor.b);
             leftColor.a = 1;
-            rightColor.a = 1;
             _instance.leftScore.text = leftInitialValue.ToString();
             _instance.leftScore.color = leftColor;
+            _instance._leftVal = leftInitialValue;
+            //Play them simultaniously
+            await _instance.BubbleText(_instance.leftScore, _instance._textSize);
+        }
+        
+        public static async UniTask DisplayRight(Color rightColor, int rightInitialValue)
+        {
+            _instance._leftCounter = 0;
+            _instance._rightCounter = 0;
+            rightColor/= Mathf.Max(rightColor.r,rightColor.g, rightColor.b);
+            rightColor.a = 1;
             _instance.rightScore.text = rightInitialValue.ToString();
             _instance.rightScore.color = rightColor;
-            _instance._leftVal = leftInitialValue;
             _instance._rightVal = rightInitialValue;
             //Play them simultaniously
-            await UniTask.WhenAll(_instance.BubbleText(_instance.leftScore, _instance._textSize), _instance.BubbleText(_instance.rightScore, _instance._textSize));
+            await _instance.BubbleText(_instance.rightScore, _instance._textSize);
         }
+
 
         public static async UniTask SendDice()
         {
@@ -180,6 +189,11 @@ namespace UI
         {
             _instance.leftScore.text = "";
             _instance.rightScore.text = "";
+        }
+
+        public void Hide()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

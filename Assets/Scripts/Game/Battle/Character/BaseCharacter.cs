@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Managers;
+using UI;
 using UnityEngine;
 using UniTask = Cysharp.Threading.Tasks.UniTask;
 
@@ -13,28 +12,55 @@ namespace Game.Battle.Character
 
     public abstract class BaseCharacter : MonoBehaviour, IWarrior
     {
+        [SerializeField] private GameHud diceHUD;
         [SerializeField] private CharacterStats baseStats;
+        [SerializeField] protected AbilityBaseStats[] defaultAbilities;
         
-        //These are our current values
-        private float _currentHealth;
-        private float _currentStamina;
-        
-        //These store our dicesets
-        
+        //Accessible to our child classes
+        protected AbilityBaseStats[] abilities;
+        protected Weapon weapon;
+        protected int _currentHealth;
+        protected int _currentStamina;
+        protected int _currentShield;
+
+        //Needed for visual purposes.
+        private Animator _characterAnimator;
         bool _isLeftSide;
         
-        public abstract UniTask<IAbility> ChooseAttack();
+        public abstract UniTask<AbilityBaseStats> ChooseAttack();
 
         public void Init(bool isLeftSide)
         {
             _isLeftSide = isLeftSide;
+            BindWeapon(GetComponentInChildren<Weapon>());
         }
 
-        public bool CanUseAbility(int staminaCost) => staminaCost < _currentStamina;
-        
-        
+        //We make this a separate function in case we need to bind a weapon from somewhere else at some point...
+        public void BindWeapon(Weapon newWeapon)
+        {
+            weapon = newWeapon;
+        }
 
-        [SerializeField] protected AbilityStats[] defaultAbilities;
+        public void PayStamina(int cost)
+        {
+            _currentStamina = Mathf.Clamp(_currentStamina +-cost, 0, baseStats.MaxStamina); 
+        }
+
+        public void TakeDamage(int amount)
+        {
+            
+        }
+
+        public void GainShield(int amount)
+        {
+            //Never go below 0
+            _currentShield = Mathf.Max(_currentShield + amount, 0);
+        }
+
+        public void BeginRound()
+        {
+            diceHUD.Hide();
+        }
 
         private void Awake()
         {
@@ -43,6 +69,22 @@ namespace Game.Battle.Character
             
             //If we're throwing right, we must be on the left side
             _isLeftSide = (Vector2.zero-(Vector2)transform.position).x > 0;
+            _characterAnimator = GetComponent<Animator>();
+            
+            int endOne = defaultAbilities.Length;
+            int endTwo = endOne + weapon.Stats.Attacks.Length;
+            
+            abilities = new AbilityBaseStats[endTwo];
+           
+            for (int i = 0; i < endOne; i++)
+            {
+                abilities[i] = defaultAbilities[i];
+            }
+
+            for (int i = endOne; i < endTwo; i++)
+            {
+                abilities[i] = weapon.Stats.Attacks[i];
+            }
         }
 
         public virtual bool IsDefeated()
@@ -50,10 +92,12 @@ namespace Game.Battle.Character
             return _currentHealth <= 0;
         }
 
-        public virtual async UniTask<int> RollDice(IAbility ability)
+        public async UniTask<int> RollDice(AbilityBaseStats ability)
         {
+            diceHUD.SetDisplay(ability);
+            
             //Cache variables to reduce CPU load, and make code more readable.
-            EDiceType[] dice = ability.GetAttackStats().Dice;
+            EDiceType[] dice = ability.Dice;
             Color cacheColor = GetTeamColor();
             EffectManager.instance.PlayDiceDeploySound();
             
@@ -88,8 +132,6 @@ namespace Game.Battle.Character
         //We can get the color for the player from the save info,
         //We can get the color for the AI through the AiPool?
         public abstract Color GetTeamColor();
-        
-
         
     }
 }

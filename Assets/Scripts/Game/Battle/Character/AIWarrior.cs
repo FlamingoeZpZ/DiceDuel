@@ -1,6 +1,5 @@
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Game.Battle.Interfaces;
+using Game.Battle.ScriptableObjects;
 using UnityEngine;
 
 namespace Game.Battle.Character
@@ -10,17 +9,18 @@ namespace Game.Battle.Character
     {
         [SerializeField] private EAIType aiType;
         
-        public SwordAbility temp;
+        public SwingAttackAbilityBase temp;
         
-        public override async UniTask<IAbility> ChooseAttack()
+        public override async UniTask<AbilityBaseStats> ChooseAttack()
         {
             await UniTask.Delay(100);
             return temp;
         }
 
+        //Will be generated directly from the AIPool in the future.
         public override Color GetTeamColor()
         {
-            return 
+            return Color.white;
         }
     }
     
