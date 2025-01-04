@@ -1,12 +1,19 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using Game.Battle.Interfaces;
-using Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Game.Battle.Attacks
 {
+    public enum EDiceType
+    {
+        Four,
+        Six,
+        Eight,
+        Ten,
+        Twenty
+    }
+    
     [SelectionBase]
     public class Dice : MonoBehaviour
     {
@@ -14,7 +21,7 @@ namespace Game.Battle.Attacks
 
         //An event action is an action that can only be called privately.
         //An action is something that we can observe and notify other files. For instance, allows us to notify the DiceManager when the dice is done being rolled.
-        public static event Action<EDiceType, Dice> OnDiceRolled;
+        public event Action<Dice> OnDiceRolled;
         
         //[SerializeField] private Sprite[] sprites;
 
@@ -28,17 +35,27 @@ namespace Game.Battle.Attacks
         private Rigidbody _rigidbody;
         private Material _material;
         private Mesh _mesh;
-        
-        private int _highestRoll;
         private int _currentValue;
-        private bool _isLeftSide;
+        
         
         public int CurrentValue => _currentValue;
-        public int HighestRoll => _highestRoll;
-        
-        public bool IsLeftSide => _isLeftSide;
-        public Color MyColor => _myColor;
+        public EDiceType Type => myType;
 
+        private void Awake()
+        {
+            //_spriteRenderer = GetComponent<SpriteRenderer>();
+            _rigidbody = GetComponent<Rigidbody>();
+            _material = GetComponentInChildren<MeshRenderer>().material;
+            _mesh = GetComponentInChildren<MeshFilter>().sharedMesh; // shared mesh to prevent duplicates
+        }
+
+        private void OnDisable()
+        {
+            EffectManager.instance.PlayDissolve(transform.position, transform.rotation, _mesh, _myColor);
+            
+            //Reenable the rigidbody for future usage
+            _rigidbody.isKinematic = false;
+        }
 
         //We need to use UniTask to retrieve an int with low memory allocation, the alternatives will create lag or not work on webgl.
         public async UniTask<int> Roll(Color color, Vector2 direction)
@@ -47,7 +64,6 @@ namespace Game.Battle.Attacks
             gameObject.SetActive(true);
             _myColor = color / Mathf.Max(color.r, color.g, color.b) * 5;
             _material.SetColor(Color1, color);
-            _isLeftSide = direction.x > 0; // Throwing right
             _rigidbody.AddForce(direction * Random.Range(minSpeed, maxSpeed), ForceMode.Impulse);
             _rigidbody.AddTorque(Random.insideUnitSphere * Random.Range(minSpeed, maxSpeed), ForceMode.Impulse);
 
@@ -84,7 +100,7 @@ namespace Game.Battle.Attacks
             _rigidbody.isKinematic = true; // Freeze the dice
 
             _currentValue += 1; // Adjust for your specific value range
-            OnDiceRolled?.Invoke(myType, this);
+            OnDiceRolled?.Invoke(this);
 
             gameObject.SetActive(false);
             
@@ -106,43 +122,7 @@ namespace Game.Battle.Attacks
                 _rigidbody.AddForce(normal * Random.Range(minSpeed,maxSpeed), ForceMode.Impulse);
                 EffectManager.instance.PlaySparks(transform.position, Quaternion.LookRotation(normal), _myColor);
             }
-            
         }
-
-
-        private void Awake()
-        {
-            //_spriteRenderer = GetComponent<SpriteRenderer>();
-            _rigidbody = GetComponent<Rigidbody>();
-            _material = GetComponentInChildren<MeshRenderer>().material;
-            _mesh = GetComponentInChildren<MeshFilter>().sharedMesh; // shared mesh to prevent duplicates
-            switch (myType)
-            {
-                case EDiceType.Four:
-                    _highestRoll = 4;
-                    break;
-                case EDiceType.Six:
-                    _highestRoll = 6;
-                    break;
-                case EDiceType.Eight:
-                    _highestRoll = 8;
-                    break;
-                case EDiceType.Ten:
-                    _highestRoll = 10;
-                    break;
-                case EDiceType.Twenty:
-                    _highestRoll = 20;
-                    break;
-            }
-        }
-
-        private void OnDisable()
-        {
-            //The ? is null assertion and should be removed for release builds... Or use preprocess
-            EffectManager.instance?.PlayDissolve(transform.position, transform.rotation, _mesh, _myColor);
-            
-            //Reenable the rigidbody for future usage
-            _rigidbody.isKinematic = false;
-        }
+        
     }
 }

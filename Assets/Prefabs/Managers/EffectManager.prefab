@@ -31,8 +31,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3846883124117250723}
   - {fileID: 7512904210777135592}
+  - {fileID: 6317381486864587610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7559057889563916978
@@ -58,8 +58,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2488fbd2886e35140b579bc1de92d283, type: 3}
   - {fileID: 8300000, guid: af69991079a966c40984f368289aa9df, type: 3}
   diceHitSound: {fileID: 8300000, guid: 3e2c81c5acad9474081697cd70ea9a8d, type: 3}
-  sparkParticles: {fileID: 7814317341696415394}
+  playBlockNoise: {fileID: 8300000, guid: af69991079a966c40984f368289aa9df, type: 3}
+  sparkParticles: {fileID: 2104336979802781046}
   diceDissolveParticles: {fileID: 5595798166431849849}
+  smokeParticles: {fileID: 0}
 --- !u!82 &7218306128490282145
 AudioSource:
   m_ObjectHideFlags: 0
@@ -165,6 +167,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2505083509672888126}
     m_Modifications:
+    - target: {fileID: 1484037191169887610, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4381614802885057199, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -205,6 +211,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6636249750236301802, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7001138190863766140, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
       propertyPath: m_Name
       value: Sparks
@@ -214,14 +224,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
---- !u!4 &3846883124117250723 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4381614802885057199, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
+--- !u!198 &2104336979802781046 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1484037191169887610, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
   m_PrefabInstance: {fileID: 697003111528183820}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &7814317341696415394 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7340384275164294830, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
+--- !u!4 &6317381486864587610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6775551697634452310, guid: 6642f53d37c9eb54e84a8b3f070bfc32, type: 3}
   m_PrefabInstance: {fileID: 697003111528183820}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1509174897290843861

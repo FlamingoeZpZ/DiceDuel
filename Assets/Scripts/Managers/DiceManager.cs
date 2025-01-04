@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using Game.Battle.Attacks;
 using UnityEngine;
 
@@ -16,21 +15,21 @@ namespace Managers
         [SerializeField] private Transform diceSpawnPointLeft;
         [SerializeField] private Transform diceSpawnPointRight;
 
-        
-        private static DiceManager _instance;
+
+        public static DiceManager Instance { get; private set; }
 
         private readonly Dictionary<EDiceType, Queue<Dice>> _diceInstances = new Dictionary<EDiceType, Queue<Dice>>();
 
         //Singleton Design Pattern
         private void Awake()
         {
-            if (_instance != null && _instance != this)
+            if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            _instance = this;
+            Instance = this;
 
             //Add each of the queues as empty by default.
             _diceInstances.Add(EDiceType.Four, new Queue<Dice>());
@@ -46,31 +45,23 @@ namespace Managers
                 GameObject go = new GameObject(pair.ToString());
                 go.transform.parent = transform;
             }
-
-            //Static Observer
-            Dice.OnDiceRolled += AddDiceBack;
         }
 
-        private void OnDestroy()
-        {
-            //Make sure to unsubscribe on destroy to stop observing.
-            Dice.OnDiceRolled -= AddDiceBack;
-        }
+
 
         //Idea of a factory design pattern, single place to create our objects where we hide creation
-        public static async UniTask<int> CreateDice(EDiceType dice, Color color, bool isLeft)
+        public Dice CreateDice(EDiceType dice, bool isLeft)
         {
             //Just grab the dice, no need to check if it's valid.
-            if (!_instance._diceInstances[dice].TryDequeue(out Dice createdDice))
+            if (!_diceInstances[dice].TryDequeue(out Dice createdDice))
             {
-                createdDice = _instance.AddDice(dice);
+                createdDice = AddDice(dice);
             }
 
-            Transform tr = isLeft ? _instance.diceSpawnPointLeft : _instance.diceSpawnPointRight;
+            Transform tr = isLeft ? diceSpawnPointLeft : diceSpawnPointRight;
             createdDice.transform.position =tr.position;
-            int val = await createdDice.Roll(color, tr.forward);
-
-            return val;
+            createdDice.transform.forward = tr.forward;
+            return createdDice;
         }
 
 
@@ -99,14 +90,14 @@ namespace Managers
                     break;
             }
 
+            createdDice.OnDiceRolled += ReturnDice;
+            
             return createdDice;
         }
-
-
-        private void AddDiceBack(EDiceType type, Dice dice)
+        
+        public void ReturnDice(Dice dice)
         {
-            _diceInstances[type].Enqueue(dice);
-            
+            _diceInstances[dice.Type].Enqueue(dice);
         }
 
         public static readonly Dictionary<EDiceType, DiceValue> DiceValues =
@@ -130,18 +121,5 @@ namespace Managers
                 High = high;
             }
         }
-
     }
-
-    public enum EDiceType
-    {
-        Four,
-        Six,
-        Eight,
-        Ten,
-        Twenty
-        
-    }
-    
-   
 }

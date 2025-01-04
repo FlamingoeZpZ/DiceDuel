@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   description: 
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 9d573359964a5b64f9b78f72ea091904, type: 2}
+  - {fileID: 11400000, guid: b9e264d5cfb4ebc49aea35a0efd0a10b, type: 2}
+  - {fileID: 11400000, guid: 3e48ae189c31c6e4392c0ee5fe092f55, type: 2}
   offensiveModifier: 2
   defensiveModifier: 0
   staminaModifier: 1

@@ -18,3 +18,8 @@ MonoBehaviour:
   icon: {fileID: 3426575931898778663, guid: d1e85c0549bc64745ab86c77e8943e95, type: 3}
   canBeNegative: 0
   canBeBlocked: 0
+  minRollValue: 2
+  maxRollValue: 16
+  summativeMinRollValue: 6
+  summativeMaxRollValue: 20
+  particle: {fileID: 6374185648792829834, guid: 6d0360bdb1bacfe4f908165d0ffd5047, type: 3}

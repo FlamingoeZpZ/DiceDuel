@@ -1,7 +1,5 @@
 using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
-using Game.Battle.ScriptableObjects;
-using UI;
 using UnityEngine;
 
 namespace Managers
@@ -37,13 +35,14 @@ namespace Managers
         {
             _leftWarrior = leftWarrior;
             _rightWarrior = rightWarrior;
-            
-            _leftWarrior.Init(true);
-            _rightWarrior.Init(false);
         }
         
         public async void StartBattle()
         {
+            
+            _leftWarrior.Init(true);
+            _rightWarrior.Init(false);
+            
             Debug.Log("Starting Battle");
             while (!HasFightConcluded())
             {
@@ -52,18 +51,17 @@ namespace Managers
                 _rightWarrior.BeginRound();
                 
                 //Reset any old hud information
-                GameHud.ResetHUD();
                 
                 //Both players / AI will choose attacks
                 (AbilityBaseStats abilityA, AbilityBaseStats abilityB) = await  UniTask.WhenAll(_leftWarrior.ChooseAttack(),  _rightWarrior.ChooseAttack());
                 
-                //Set the default display information
-                GameHud.DisplayDefaults(_leftWarrior.GetTeamColor(), abilityA.BaseValue, _rightWarrior.GetTeamColor(), abilityB.BaseValue);
-                
                 //let's move this into another function for ease of reading.
                 await ResolveAbilities(abilityA, abilityB);
+                
+                _leftWarrior.EndRound();
+                _rightWarrior.EndRound();
             }
-            Debug.Log("Concluding Battle");
+            Debug.Log("Concluding Battle, left lost " +_leftWarrior.IsDefeated() + " , right lost " + _rightWarrior.IsDefeated() + " !");
         }
 
         private async UniTask ResolveAbilities(AbilityBaseStats leftAbility, AbilityBaseStats rightAbility)
@@ -82,12 +80,7 @@ namespace Managers
             
             //Wait for each attack to process
             (int leftValue, int rightValue) = await UniTask.WhenAll(_leftWarrior.RollDice(leftAbility), _rightWarrior.RollDice(rightAbility));
-            leftValue += leftAbility.BaseValue;
-            rightValue += rightAbility.BaseValue;
                 
-            //Wait for the numbers to be tallied
-            await GameHud.SendDice();
-            
             if (atkA == atkB)// If both actions are the same
             {
                 //Optional rule (Who should go first), the user with the lowest value:
@@ -121,6 +114,8 @@ namespace Managers
              * Therefore we need a way to communicate when to START and STOP doing an action because we shouldn't remain blocked.
              */
             await firstAbility.StartAbility(firstWarrior, firstRoll, secondWarrior);
+
+            
             
             if (!HasFightConcluded())
             {

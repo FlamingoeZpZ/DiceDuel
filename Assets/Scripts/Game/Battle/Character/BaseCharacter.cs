@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using Game.Battle.Attacks;
 using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Managers;
@@ -12,16 +13,44 @@ namespace Game.Battle.Character
 
     public abstract class BaseCharacter : MonoBehaviour, IWarrior
     {
+        private static readonly int Block = Animator.StringToHash("Block");
+        private static readonly int OnHurt = Animator.StringToHash("OnHurt");
         [SerializeField] private GameHud diceHUD;
+        [SerializeField] private SliderText healthBar;
+        [SerializeField] private SliderText staminaBar;
         [SerializeField] private CharacterStats baseStats;
         [SerializeField] protected AbilityBaseStats[] defaultAbilities;
         
         //Accessible to our child classes
         protected AbilityBaseStats[] abilities;
         protected Weapon weapon;
-        protected int _currentHealth;
-        protected int _currentStamina;
+        private int _currentHealth;
+        private int _currentStamina;
         protected int _currentShield;
+        private Vector3 _startLocation;
+        
+        
+        //Auto integration:
+        protected int CurrentHealth
+        {
+            get => _currentHealth;
+            set
+            {
+                healthBar.UpdateCurrent(value);
+                _currentHealth = value;
+            }
+        }
+        
+        protected int CurrentStamina
+        {
+            get => _currentStamina;
+            set
+            {
+                staminaBar.UpdateCurrent(value);
+                _currentStamina = value;
+            }
+        }
+
 
         //Needed for visual purposes.
         private Animator _characterAnimator;
@@ -32,7 +61,6 @@ namespace Game.Battle.Character
         public void Init(bool isLeftSide)
         {
             _isLeftSide = isLeftSide;
-            BindWeapon(GetComponentInChildren<Weapon>());
         }
 
         //We make this a separate function in case we need to bind a weapon from somewhere else at some point...
@@ -43,12 +71,38 @@ namespace Game.Battle.Character
 
         public void PayStamina(int cost)
         {
-            _currentStamina = Mathf.Clamp(_currentStamina +-cost, 0, baseStats.MaxStamina); 
+            CurrentStamina = Mathf.Clamp(CurrentStamina -cost, 0, baseStats.MaxStamina);
         }
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(int amount, bool canBeBlocked)
         {
-            
+            Debug.Log("I've been hit for" + amount +". I have shields: " + _currentShield +". Is the attack blockable? " + canBeBlocked, gameObject);
+            int remainder = amount;
+            if (canBeBlocked)
+            {
+                if (_currentShield > 0)
+                {
+                    remainder = amount - _currentShield;
+                    _currentShield = Mathf.Max(0, _currentShield - amount); //Can't drop below 0
+                    EffectManager.instance.PlayBlockNoise(0.1f);
+                    EffectManager.instance.PlaySparks(transform.position,
+                        Quaternion.LookRotation(transform.right, Vector3.up), GetTeamColor());
+                }
+                if (remainder < 0)
+                {
+                    _characterAnimator.SetTrigger(Block);
+                }
+                else
+                {
+                    CurrentHealth -= remainder;
+                    _characterAnimator.SetTrigger(OnHurt);
+                }
+            }
+            else
+            {
+                CurrentHealth -= remainder;
+                _characterAnimator.SetTrigger(OnHurt);
+            }
         }
 
         public void GainShield(int amount)
@@ -62,20 +116,31 @@ namespace Game.Battle.Character
             diceHUD.Hide();
         }
 
+        public void EndRound()
+        {
+            transform.position = _startLocation;
+        }
+
         private void Awake()
         {
-            _currentHealth = baseStats.MaxHealth;
-            _currentStamina = baseStats.MaxStamina;
-            
+            BindWeapon(GetComponentInChildren<Weapon>());
+            _startLocation = transform.position;
+
+            healthBar.UpdateMax(baseStats.MaxHealth);
+            staminaBar.UpdateMax(baseStats.MaxStamina);
+
+            CurrentHealth = baseStats.MaxHealth;
+            CurrentStamina = baseStats.MaxStamina;
+
             //If we're throwing right, we must be on the left side
-            _isLeftSide = (Vector2.zero-(Vector2)transform.position).x > 0;
-            _characterAnimator = GetComponent<Animator>();
-            
+            _isLeftSide = (Vector2.zero - (Vector2)transform.position).x > 0;
+            _characterAnimator = GetComponentInChildren<Animator>();
+
             int endOne = defaultAbilities.Length;
             int endTwo = endOne + weapon.Stats.Attacks.Length;
-            
+
             abilities = new AbilityBaseStats[endTwo];
-           
+
             for (int i = 0; i < endOne; i++)
             {
                 abilities[i] = defaultAbilities[i];
@@ -83,18 +148,21 @@ namespace Game.Battle.Character
 
             for (int i = endOne; i < endTwo; i++)
             {
-                abilities[i] = weapon.Stats.Attacks[i];
+                abilities[i] = weapon.Stats.Attacks[i - endOne];
             }
+
+            diceHUD.SetColor(GetTeamColor());
         }
 
         public virtual bool IsDefeated()
         {
-            return _currentHealth <= 0;
+            return CurrentHealth <= 0;
         }
 
         public async UniTask<int> RollDice(AbilityBaseStats ability)
         {
-            diceHUD.SetDisplay(ability);
+            int sum = ability.BaseValue;
+            await diceHUD.Display(sum);
             
             //Cache variables to reduce CPU load, and make code more readable.
             EDiceType[] dice = ability.Dice;
@@ -107,16 +175,20 @@ namespace Game.Battle.Character
             for (int index = 0; index < dice.Length; index++)
             {
                 //Create and roll the dice
-                tasks[index] = DiceManager.CreateDice(dice[index], cacheColor, _isLeftSide);
+                Dice createdDice = DiceManager.Instance.CreateDice(dice[index], _isLeftSide);
+                
+                tasks[index] = createdDice.Roll(cacheColor, createdDice.transform.forward);
 
-                //wait 0.1 seconds before throwing the next dice
+                createdDice.OnDiceRolled += OnMyDiceRolled;
+                
+                //wait 0.2 seconds before throwing the next dice
                 await UniTask.Delay(200);
             }
             
             //Wait for each dice roll to end
             int [] results = await UniTask.WhenAll(tasks);
+            
 
-            int sum = 0;
             
             //Students should be confident enough to do this solo
             foreach (var result in results)
@@ -125,10 +197,18 @@ namespace Game.Battle.Character
                 sum += result;
             }
 
+            await diceHUD.AllDisabled();
+            
             //Return the result
             return sum;
         }
 
+        private void OnMyDiceRolled(Dice dice)
+        {
+            diceHUD.GeneratePopup(dice.CurrentValue, dice.transform.position);
+            dice.OnDiceRolled -= OnMyDiceRolled; // Auto unsubscribe
+        }
+        
         //We can get the color for the player from the save info,
         //We can get the color for the AI through the AiPool?
         public abstract Color GetTeamColor();

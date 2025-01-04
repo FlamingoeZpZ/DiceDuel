@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: Medium Attack
   m_EditorClassIdentifier: 
   staminaCost: 12
-  baseValue: 4
+  baseValue: 3
   dice: 020000000000000000000000
   icon: {fileID: 21300000, guid: dd6f4b41939562e48aff32ed7b038eaa, type: 3}
   canBeNegative: 0
   canBeBlocked: 1
-  attackType: 1
+  minRollValue: 3
+  maxRollValue: 16
+  summativeMinRollValue: 8
+  summativeMaxRollValue: 29
+  animationID: Attack2
+  eventIndex: 1
+  attackCombo: {fileID: 11400000, guid: d675c455150dc00478620cac80df04c1, type: 2}
+  referencedClip: {fileID: 7400000, guid: 9cb03408da0b3b4499dffb34a50a33e4, type: 2}

@@ -41,8 +41,8 @@ public class AbilityUI : MonoBehaviour
 
         
         //It's possible to do fancy colour text / increase the size via rich text. 
-        //For funsies, you can give these FUNCTIONS to students which is chatGPT generated.
-        effectiveRange.text = GenerateFancyText(ability.MinRollValue, ability.MaxRollValue);
+        //For funsies, you can give these FUNCTIONS to students which is chatGPT generated. (GenerateFancyText)
+        effectiveRange.text = GenerateFancyText(ability.SummativeMinRollValue, ability.SummativeMaxRollValue);
         
         _button.onClick.AddListener(() =>
         {
@@ -52,8 +52,10 @@ public class AbilityUI : MonoBehaviour
 
     #region GPTFancyText
 
-    private const int ModerateValue = 25;
-    private const int HighValue = 100;
+    private const int ModerateValue = 15;
+    private const int HighValue = 50;
+    private const float MinFontSize = 0.4f;
+    private const float MaxFontSize = 0.8f;
     
     private static readonly Color HighNegativeValueColor = new Color(0.5f, 0f, 0f); // Dark Red (High Negative)
     private static readonly Color NegativeValueColor = new Color(1f, 0.6f, 0.6f); // Pale Red (Negative)
@@ -108,18 +110,24 @@ public class AbilityUI : MonoBehaviour
     }
 
     // Helper method to determine the font size based on the value
-    int GetFontSize(int value)
+    float GetFontSize(int value)
     {
         // Scale font size: 6 for value 0, up to 15 for value 100
-        float size = Mathf.Lerp(6f, 15f, Mathf.Clamp01((float)Mathf.Abs(value) / HighValue));
-        return Mathf.RoundToInt(size); // Round the value to get an integer font size
+        float size = Mathf.Lerp(MinFontSize, MaxFontSize, Mathf.Clamp01((float)Mathf.Abs(value) / HighValue));
+        return size;
     }
 
     // Method to format the value with the appropriate color and font size for TMP
     string Format(int value)
     {
-        // Apply size and color to the value
-        return $"<size={GetFontSize(value)}><color={GetColor(value)}>{value}</color></size>";
+        // Calculate font size
+        float fontSize = GetFontSize(value);
+
+        // Calculate a vertical offset to center smaller text
+        float verticalOffset = 0.5f * (1.0f - fontSize); // Adjust offset based on font size
+
+        // Apply size, color, and vertical offset to the value
+        return $"<align=center><voffset={verticalOffset}em><size={fontSize}><color={GetColor(value)}>{value}</color></size></voffset></align>";
     }
 
     private string ColorToHex(Color color)

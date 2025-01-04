@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Game.Battle.Attacks;
 using Game.Battle.Interfaces;
 using Managers;
 using UnityEngine;
@@ -10,17 +11,24 @@ using UnityEngine;
         [SerializeField] private EDiceType[] dice;
         [SerializeField] private Sprite icon;
         
-        [SerializeField] private bool canBeNegative;
-        [SerializeField] private bool canBeBlocked; //When an animation is played, we call the take damage function
+        [SerializeField] protected bool canBeNegative;
+        [SerializeField] protected bool canBeBlocked; //When an animation is played, we call the take damage function
 
         //This data will be saved (SerializeField), but it will not be visible
-        [SerializeField, HideInInspector] protected int minRollValue;
-        [SerializeField, HideInInspector] protected int maxRollValue;
+        //protected internal :/ because we need to edit them.
+        [SerializeField, HideInInspector] private int minRollValue;
+        [SerializeField, HideInInspector] private  int maxRollValue;
+        
+        [SerializeField, HideInInspector] protected internal int summativeMinRollValue;
+        [SerializeField, HideInInspector] protected internal int summativeMaxRollValue;
         
         public int StaminaCost => staminaCost;
+        public int BaseValue => baseValue;
+        public  int SummativeMinRollValue => summativeMinRollValue;
+        public int SummativeMaxRollValue => summativeMaxRollValue;
         public Sprite Icon => icon;
+        public EDiceType[] Dice => dice;
         public Color GetColor => AttackColors[(int)AbilityType()];
-        
         public int MinRollValue => minRollValue;
         public int MaxRollValue => maxRollValue;
         
@@ -39,8 +47,9 @@ using UnityEngine;
 
         protected virtual void CalculateMinMax()
         {
-            minRollValue = baseValue;
-            maxRollValue = baseValue;
+            minRollValue = 0;
+            maxRollValue = 0;
+            
             
             foreach (EDiceType d in dice)
             {
@@ -48,6 +57,9 @@ using UnityEngine;
                 minRollValue += values.Low;
                 maxRollValue += values.High;
             }
+
+            summativeMinRollValue = minRollValue + baseValue;
+            summativeMaxRollValue = maxRollValue + baseValue;
         }
 
         //static readonly is effectively run-time constant. Not as good as constant,
@@ -60,11 +72,15 @@ using UnityEngine;
         };
         
         public abstract EAbilityType AbilityType();
-        public abstract UniTask StartAbility(IWarrior user, int diceValue, IWarrior opponent);
+        protected abstract UniTask StartAbilityImplementation(IWarrior user, int diceValue, IWarrior opponent);
 
-
-
-
+        public UniTask StartAbility(IWarrior user, int diceValue, IWarrior opponent)
+        {
+            Debug.Log("Dice value: " + diceValue + ", Adding BaseValue " + (diceValue + BaseValue));
+            //Drive logic that MUST ALWAYS happen... So we can do some data tracking here, or play some sounds.
+            GraphManager.Instance.RegisterRoll(this, diceValue);
+            return StartAbilityImplementation(user, diceValue , opponent);
+        }
 
     }
  

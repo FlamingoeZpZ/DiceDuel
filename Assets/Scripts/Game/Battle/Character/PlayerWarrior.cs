@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using Game.Battle.ScriptableObjects;
 using Managers;
 using UnityEngine;
 
@@ -19,13 +18,13 @@ namespace Game.Battle.Character
        {
            _abilityController = GetComponentInChildren<AbilityController>();
            _abilityController.SetAbilities(abilities);
-           _abilityController.UpdateAbilities(_currentStamina);
+           _abilityController.UpdateAbilities(CurrentStamina);
 
        }
 
        public override async UniTask<AbilityBaseStats> ChooseAttack()
        {
-           _abilityController.UpdateAbilities(_currentStamina);
+           _abilityController.UpdateAbilities(CurrentStamina);
            return await _abilityController.SelectAbility();
        }
 

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   description: 
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: d675c455150dc00478620cac80df04c1, type: 2}
+  - {fileID: 11400000, guid: b9e264d5cfb4ebc49aea35a0efd0a10b, type: 2}
+  - {fileID: 11400000, guid: 3e48ae189c31c6e4392c0ee5fe092f55, type: 2}
   offensiveModifier: -1
   defensiveModifier: 4
   staminaModifier: 0

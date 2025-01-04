@@ -13,7 +13,7 @@ namespace Managers
         public static SaveData SaveData { get; private set; }
 
         private static readonly string Path = Application.persistentDataPath +"/Saves";
-        private static readonly string FileName = Application.persistentDataPath + "/Game";
+        private static readonly string FileName = "/Game";
         private static readonly string Extension = ".txt"; //Anything will work
     
         private static string GetPath(int saveSlot) => Path + FileName + saveSlot + Extension;

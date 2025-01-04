@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using Game.Battle.ScriptableObjects;
 using UnityEngine;
 
 namespace Game.Battle.Interfaces
@@ -18,8 +17,9 @@ namespace Game.Battle.Interfaces
         
         
         public void PayStamina(int cost);
-        public void TakeDamage(int amount);
+        public void TakeDamage(int amount, bool canBeBlocked);
         public void GainShield(int amount);
         void BeginRound();
+        void EndRound();
     }
 }

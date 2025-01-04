@@ -15,6 +15,11 @@ MonoBehaviour:
   staminaCost: 0
   baseValue: 10
   dice: 0000000000000000000000000000000000000000
-  icon: {fileID: 0}
+  icon: {fileID: -2654608406652433671, guid: d1e85c0549bc64745ab86c77e8943e95, type: 3}
   canBeNegative: 0
   canBeBlocked: 0
+  minRollValue: 5
+  maxRollValue: 20
+  summativeMinRollValue: 15
+  summativeMaxRollValue: 30
+  particle: {fileID: 3233229968029264604, guid: 603e870b90d876349b6851df3c7116a6, type: 3}

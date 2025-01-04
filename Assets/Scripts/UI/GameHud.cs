@@ -1,16 +1,13 @@
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Game.Battle.Attacks;
-using Managers;
 using TMPro;
 using UnityEngine;
 
 namespace UI
 {
+    [RequireComponent(typeof(AudioSource))]
     public class GameHud : MonoBehaviour
     {
-        private int _leftVal;
-        private int _rightVal;
+        private int _val;
 
         [Header("Prefabs")] 
         [SerializeField] private TextMeshProUGUI diceScorePopup;
@@ -20,180 +17,136 @@ namespace UI
         [SerializeField] private float bubbleDuration = 0.4f;
     
         [Header("UI Elements")] 
-        [SerializeField] private TextMeshProUGUI leftScore;
-        [SerializeField] private TextMeshProUGUI rightScore;
+        [SerializeField] private TextMeshProUGUI score;
+        [SerializeField] private AudioClip escalationClip;
 
         private float _textSize;
-
         private readonly Quaternion _cachedRotation = Quaternion.LookRotation(Vector3.down);
-    
-        private static GameHud _instance;
-        
-        private readonly List<ItemData> _items = new();
-
         private AudioSource _source;
         
-        int _leftCounter;
-        int _rightCounter;
+        int _counter;
+        private int _numCreated;
+
+        private const int SemiTones = 1;
+        private static readonly double PitchMultiplier = 1/Mathf.Pow(2f, SemiTones / 12f); // 2^(semitoneIncrease / 12)
         
-        [SerializeField] private AudioClip escalationClip;
         
         void Awake()
         {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            _textSize = leftScore.fontSize;
-            _instance = this;
+            _textSize = score.fontSize;
             _source = GetComponent<AudioSource>();
-            Dice.OnDiceRolled += OnDiceRolled;
 
         }
 
-        private void OnDestroy()
+
+        public async void GeneratePopup(int value, Vector3 location)
         {
-            Dice.OnDiceRolled -= OnDiceRolled;
-        }
-
-
-
-        private async void OnDiceRolled(EDiceType type, Dice dice)
-        {
-            int value = dice.CurrentValue;
-            Vector3 location = Camera.main!.WorldToScreenPoint(dice.transform.position);
             TextMeshProUGUI popup = Instantiate(diceScorePopup, location, Quaternion.identity, transform);
             popup.text = value.ToString();
-            Color c =dice.MyColor / Mathf.Max(dice.MyColor.r, dice.MyColor.g, dice.MyColor.b);
-            c.a = 1;
-            popup.color = c;
-            
-            _items.Add(new ItemData
-            {
-                Value = value,
-                Location = location,
-                Popup = popup,
-                Target = dice.IsLeftSide ? _instance.leftScore : _instance.rightScore,
-                IsLeft = dice.IsLeftSide
-            });
-            await BubbleText(popup, popup.fontSize);
-            
+            popup.color = score.color;
 
+            _numCreated += 1;
+            await BubbleText(popup, popup.fontSize, bubbleTextScale, bubbleDuration);
+            await CreateAndHandlePopup(value, location, popup);
+            _numCreated -= 1;
         }
 
-        private async UniTask CreateAndHandlePopup(ItemData item, int addedDelay)
+        private async UniTask CreateAndHandlePopup(int value, Vector3 location, TextMeshProUGUI popup)
         {
-            await UniTask.Delay(addedDelay);
+            await UniTask.Delay((int)(_counter++ * _source.clip.length*1000 * PitchMultiplier)); //Half of the clip length
             float life = 0;
-            Vector3 target = item.Target.rectTransform.rect.center + (Vector2)item.Target.transform.position;
-            Transform tr = item.Popup.transform; // yes this does optimize
+            Vector3 target = score.rectTransform.rect.center + (Vector2)score.transform.position;
+            Transform tr = popup.transform; // yes this does optimize
             while (life < duration)
             {
                 life += Time.deltaTime;
-                tr.position = Vector3.Slerp(item.Location, target, curve.Evaluate(life / duration));
+                tr.position = Vector3.Slerp(location, target, curve.Evaluate(life / duration));
                 await UniTask.Yield();
             }
-
-            if (item.IsLeft)
-            {
-                _leftVal += item.Value;
-                item.Target.text = _leftVal.ToString();
-            }
-            else
-            {
-                _rightVal += item.Value;
-                item.Target.text = _rightVal.ToString();
-            }
+            _val += value;
+            score.text = _val.ToString();
             
-            Destroy(item.Popup.gameObject);
+            Destroy(popup.gameObject);
 
-            target.y -= item.Target.rectTransform.rect.center.y;
-            Vector3 loc = Camera.main.ScreenToWorldPoint(target);
+            target.y -=  score.rectTransform.rect.center.y;
+            Vector3 loc = Camera.main!.ScreenToWorldPoint(target);
             EffectManager.instance.PlaySparks(loc, _cachedRotation, Color.white);
-
-            int side = item.IsLeft ? _leftCounter++ : _rightCounter++;
-
-            _source.pitch = Mathf.Sqrt(side/3f);
+            
+            _source.pitch = (float)(1 + (_counter * PitchMultiplier));
             _source.Play();
             
-             await BubbleText(item.Target, _textSize);
+             await BubbleText(score, _textSize, bubbleTextScale, bubbleDuration);
         }
 
-        private async UniTask BubbleText(TextMeshProUGUI target, float originalScale)
+        public void SetColor(Color color)
         {
-            
+            score.color = color;
+        }
+
+        public async UniTask Display(int initialValue)
+        {
+            score.text = initialValue.ToString();
+            score.gameObject.SetActive(true);
+            _val = initialValue;
+            await BubbleText(score, _textSize,  bubbleTextScale, bubbleDuration);
+        }
+        
+        public async void Hide(float length = 0.3f)
+        {
+            _counter = 0;
+            await FadeAwayAndDisable(score, length);
+        }
+
+       
+
+        #region Should be in a UtilityFile
+        //GPT generated cus lazy
+        private async UniTask FadeAwayAndDisable(TextMeshProUGUI target, float length)
+        {
+            if (target == null) return;
+
+            // Get the current color of the text
+            Color originalColor = target.color;
+
+            // Gradually fade out the alpha channel
+            float elapsedTime = 0f;
+            while (elapsedTime < length)
+            {
+                elapsedTime += Time.deltaTime;
+                float alpha = Mathf.Lerp(1f, 0f, elapsedTime / length);
+                target.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+                // Wait until the next frame
+                await UniTask.Yield();
+            }
+
+            // Reset Alpha
+            target.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1f);
+
+            // Optionally disable the GameObject or component
+            target.gameObject.SetActive(false);
+        }
+        
+        private async UniTask BubbleText(TextMeshProUGUI target, float originalScale, AnimationCurve scaleCurve, float length)
+        {
             float life = 0;
             target.fontSize = originalScale;
-            while (life < bubbleDuration)
+            while (life < length)
             {
                 life += Time.deltaTime;
-                target.fontSize = originalScale * bubbleTextScale.Evaluate(life / bubbleDuration);
+                target.fontSize = originalScale * scaleCurve.Evaluate(life / length);
                 await UniTask.Yield();
             }
             target.fontSize = originalScale;
         }
+        #endregion
 
-        private struct ItemData
+        public UniTask AllDisabled()
         {
-            public bool IsLeft;
-            public Vector3 Location;
-            public int Value;
-            public TextMeshProUGUI Popup;
-            public TextMeshProUGUI Target;
-        }
-
-        public static async UniTask DisplayLeft(Color leftColor, int leftInitialValue)
-        {
-            _instance._leftCounter = 0;
-            _instance._rightCounter = 0;
-            leftColor/= Mathf.Max(leftColor.r,leftColor.g, leftColor.b);
-            leftColor.a = 1;
-            _instance.leftScore.text = leftInitialValue.ToString();
-            _instance.leftScore.color = leftColor;
-            _instance._leftVal = leftInitialValue;
-            //Play them simultaniously
-            await _instance.BubbleText(_instance.leftScore, _instance._textSize);
-        }
-        
-        public static async UniTask DisplayRight(Color rightColor, int rightInitialValue)
-        {
-            _instance._leftCounter = 0;
-            _instance._rightCounter = 0;
-            rightColor/= Mathf.Max(rightColor.r,rightColor.g, rightColor.b);
-            rightColor.a = 1;
-            _instance.rightScore.text = rightInitialValue.ToString();
-            _instance.rightScore.color = rightColor;
-            _instance._rightVal = rightInitialValue;
-            //Play them simultaniously
-            await _instance.BubbleText(_instance.rightScore, _instance._textSize);
-        }
-
-
-        public static async UniTask SendDice()
-        {
-            UniTask[] tasks = new UniTask[_instance._items.Count];
-            for (int i = 0; i < _instance._items.Count; i++)
-            {
-                ItemData item = _instance._items[i];
-               //Send each task to begin with a deviation on a log curve  
-               tasks[i]= _instance.CreateAndHandlePopup(item, (int)(Mathf.Sqrt(i) * 750));
-            }
-            //Wait for all tasks to finish
-            await UniTask.WhenAll(tasks); //The last one
-            _instance._items.Clear();
-        }
-
-        public static void ResetHUD()
-        {
-            _instance.leftScore.text = "";
-            _instance.rightScore.text = "";
-        }
-
-        public void Hide()
-        {
-            throw new System.NotImplementedException();
+            return UniTask.WaitUntil(() => _numCreated == 0);
         }
     }
 }
+
+
+

@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf16f090ce43f9840b2ac345b1a8eb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diceHUD: {fileID: 5122823331469309935}
+  healthBar: {fileID: 0}
+  staminaBar: {fileID: 0}
   baseStats: {fileID: 11400000, guid: 9d9faa9f50e58ab4dae2656d3e0173da, type: 2}
   defaultAbilities:
   - {fileID: 11400000, guid: dee1352540b502e44b92ecc253b8a53a, type: 2}
@@ -245,6 +248,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ad021c2ab7a5fe4aa3c87fd6cee8b99, type: 3}
+--- !u!114 &5122823331469309935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3113707029070722291, guid: 6ad021c2ab7a5fe4aa3c87fd6cee8b99, type: 3}
+  m_PrefabInstance: {fileID: 7791773426840634140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405c911e91c535e43ac79f82b627270d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7070441483193623392 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1026453166232379516, guid: 6ad021c2ab7a5fe4aa3c87fd6cee8b99, type: 3}

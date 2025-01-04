@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d47c8ea24e4a7469de33fb97afd2f8, type: 3}
-  m_Name: Light Attack
+  m_Name: Slice
   m_EditorClassIdentifier: 
-  staminaCost: 5
-  baseValue: 0
-  dice: 0100000000000000
+  staminaCost: 0
+  baseValue: -2
+  dice: 0000000000000000
   icon: {fileID: 21300000, guid: 9cb5f96bf84de724c96b97e6ac394a2d, type: 3}
   canBeNegative: 0
   canBeBlocked: 1
-  minRollValue: 2
-  maxRollValue: 10
-  summativeMinRollValue: 2
-  summativeMaxRollValue: 10
+  minRollValue: 4
+  maxRollValue: 26
   animationID: Attack1
-  eventIndex: 1
-  attackCombo: {fileID: 0}
+  eventIndex: 2
   referencedClip: {fileID: 7400000, guid: ec5c0d72368a9bf4ea94460718a2f964, type: 2}
+  attackCombo: {fileID: 11400000, guid: 868be1cae3aca994a891a75d71e70ebd, type: 2}

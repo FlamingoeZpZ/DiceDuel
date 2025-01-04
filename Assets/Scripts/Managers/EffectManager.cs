@@ -6,9 +6,11 @@ public class EffectManager : MonoBehaviour
 
     [SerializeField] private AudioClip[] diceDeploySound;
     [SerializeField] private AudioClip diceHitSound;
+    [SerializeField] private AudioClip playBlockNoise;
 
     [SerializeField] private ParticleSystem sparkParticles;
     [SerializeField] private ParticleSystem diceDissolveParticles;
+    [SerializeField] private ParticleSystem smokeParticles;
     public static EffectManager instance { get; private set; }
 
     private AudioSource _source;
@@ -30,8 +32,12 @@ public class EffectManager : MonoBehaviour
     {
         _source.pitch =  1 + Random.Range(-pitchShift, pitchShift);
         _source.PlayOneShot(diceHitSound);
-        
-        
+    }
+
+    public void PlayBlockNoise(float pitchShift = 0)
+    {
+        _source.pitch =  1 + Random.Range(-pitchShift, pitchShift);
+        _source.PlayOneShot(playBlockNoise);
     }
 
     public void PlayDiceDeploySound()
