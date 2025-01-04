@@ -121,6 +121,11 @@ namespace Game.Battle.Character
             transform.position = _startLocation;
         }
 
+        public string GetName()
+        {
+            return name;
+        }
+
         private void Awake()
         {
             BindWeapon(GetComponentInChildren<Weapon>(false));

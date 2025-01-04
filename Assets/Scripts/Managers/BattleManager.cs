@@ -37,7 +37,7 @@ namespace Managers
             _rightWarrior = rightWarrior;
         }
         
-        public async void StartBattle()
+        public async UniTask StartBattle()
         {
             
             _leftWarrior.Init(true);

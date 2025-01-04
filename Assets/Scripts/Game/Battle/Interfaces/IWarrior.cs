@@ -21,5 +21,6 @@ namespace Game.Battle.Interfaces
         public void GainShield(int amount);
         void BeginRound();
         void EndRound();
+        string GetName();
     }
 }
