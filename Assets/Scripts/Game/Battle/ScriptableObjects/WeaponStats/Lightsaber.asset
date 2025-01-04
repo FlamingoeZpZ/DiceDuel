@@ -16,7 +16,8 @@ MonoBehaviour:
   attacks:
   - {fileID: 11400000, guid: d675c455150dc00478620cac80df04c1, type: 2}
   - {fileID: 11400000, guid: d053265dbb7483448bbc98d3ed74b830, type: 2}
-  - {fileID: 11400000, guid: bfce501074fa50a48bdfe92d88d83ca0, type: 2}
+  - {fileID: 11400000, guid: 365e0db1de0e24142a51e7789c41553f, type: 2}
+  - {fileID: 11400000, guid: dea54fed54ea68943b3599d1e41a7f3c, type: 2}
   offensiveModifier: 5
   defensiveModifier: 2
   staminaModifier: 2

@@ -123,7 +123,7 @@ namespace Game.Battle.Character
 
         private void Awake()
         {
-            BindWeapon(GetComponentInChildren<Weapon>());
+            BindWeapon(GetComponentInChildren<Weapon>(false));
             _startLocation = transform.position;
 
             healthBar.UpdateMax(baseStats.MaxHealth);
