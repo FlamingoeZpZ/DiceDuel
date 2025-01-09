@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Game.Battle.ScriptableObjects;
 using UnityEngine;
 
 public class AbilityController : MonoBehaviour
