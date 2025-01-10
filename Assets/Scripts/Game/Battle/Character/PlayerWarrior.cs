@@ -1,6 +1,6 @@
-using Cysharp.Threading.Tasks;
 using Managers;
 using UnityEngine;
+using UniTask = Cysharp.Threading.Tasks.UniTask;
 
 namespace Game.Battle.Character
 {
@@ -14,23 +14,33 @@ namespace Game.Battle.Character
 
 
        //Start because we're talking about other objects, and we would have to override awake.
-       private void Start()
+       protected override void Awake()
        {
+           base.Awake();
            _abilityController = GetComponentInChildren<AbilityController>();
            _abilityController.SetAbilities(abilities);
-           _abilityController.UpdateAbilities(CurrentStamina);
+           _abilityController.BuildDiceSet(baseStats.dice);
 
        }
 
-       public override async UniTask<AbilityBaseStats> ChooseAttack()
+       public override async UniTask ChooseAttacks()
        {
-           _abilityController.UpdateAbilities(CurrentStamina);
-           return await _abilityController.SelectAbility();
+           await UniTask.WaitUntil(_abilityController.IsReady);
+
+           DiceSets = _abilityController.DiceValues();
+
+           _abilityController.DisableDice();
        }
 
        public override Color GetTeamColor()
        {
            return SaveManager.SaveData.DiceColor;
+       }
+
+       public override async void EndRound()
+       {
+           base.EndRound();
+           await _abilityController.ReturnDice();
        }
     }
 }

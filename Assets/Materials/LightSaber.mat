@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _ArmorColor: {r: 36.758343, g: 36.758343, b: 36.758343, a: 1}
+    - _ArmorColor: {r: 0.74901974, g: 0.74901974, b: 0.74901974, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8662139340703766448

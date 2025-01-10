@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using Game.Battle.ScriptableObjects;
 using UnityEngine;
 
 namespace Game.Battle.Character
@@ -9,15 +8,21 @@ namespace Game.Battle.Character
     {
         [SerializeField] private EAIType aiType;
         
-        public SwingAttackAbilityBase temp;
-        
-        public override async UniTask<AbilityBaseStats> ChooseAttack()
+        public override async UniTask ChooseAttacks()
         {
             await UniTask.Delay(100);
-            return temp;
+
+            for (int i = 0; i < DiceSets.Length; i++)
+            {
+                DiceSets[i] = new EDiceType[]
+                {
+                    EDiceType.Six,
+                    EDiceType.Six
+                };
+            }
+            Debug.LogWarning("AIWarrior ChooseAttacks needs to be completed");
         }
 
-        //Will be generated directly from the AIPool in the future.
         public override Color GetTeamColor()
         {
             return Color.white;

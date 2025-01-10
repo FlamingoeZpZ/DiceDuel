@@ -12,16 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d47c8ea24e4a7469de33fb97afd2f8, type: 3}
   m_Name: Heavy Attack
   m_EditorClassIdentifier: 
-  staminaCost: 25
-  baseValue: 8
-  dice: 030000000300000001000000
-  icon: {fileID: 21300000, guid: 67a7922a4dca2c94cb84f10bb3ff0376, type: 3}
-  canBeNegative: 0
-  canBeBlocked: 1
-  minRollValue: 6
-  maxRollValue: 42
-  summativeBaseValue: 11
+  icon: {fileID: 21300000, guid: 5e196cd77208214408d5f4092c6ac9e1, type: 3}
   animationID: Attack3
   eventIndex: 1
-  referencedClip: {fileID: 7400000, guid: ca177ae54531f6f48a5fc3c7ab370ea5, type: 2}
+  comboThreshold: 0
   attackCombo: {fileID: 11400000, guid: b9e264d5cfb4ebc49aea35a0efd0a10b, type: 2}
+  referencedClip: {fileID: 7400000, guid: ca177ae54531f6f48a5fc3c7ab370ea5, type: 2}

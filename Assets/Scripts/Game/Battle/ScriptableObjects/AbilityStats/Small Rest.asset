@@ -12,14 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61bb63ddcb45e18a0b31a8bf6b22de, type: 3}
   m_Name: Small Rest
   m_EditorClassIdentifier: 
-  staminaCost: 0
-  baseValue: 2
-  dice: 0300000002000000
-  icon: {fileID: -3815485560780563298, guid: d1e85c0549bc64745ab86c77e8943e95, type: 3}
-  canBeNegative: 0
-  canBeBlocked: 0
-  minRollValue: 2
-  maxRollValue: 18
-  summativeMinRollValue: 4
-  summativeMaxRollValue: 20
+  icon: {fileID: 21300000, guid: 5f5de99a123dbcb41aa99ee72912c00e, type: 3}
   particle: {fileID: 3233229968029264604, guid: 603e870b90d876349b6851df3c7116a6, type: 3}

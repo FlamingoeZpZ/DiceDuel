@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using Utility;
 
 namespace UI.DragAndDrop
 {
@@ -33,7 +31,6 @@ namespace UI.DragAndDrop
                 //Inverse
                 if (!RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, _dragTransform.position))
                 {
-                    Debug.Log("Stopped Overlapping", gameObject);
                     _current = null;
                     _dragAndDropObject.UnmarkTarget();
                 }
@@ -42,9 +39,8 @@ namespace UI.DragAndDrop
             {
                 if (RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, _dragTransform.position))
                 {
-                    Debug.Log("Overlapping", gameObject);
                     _current = this;
-                    _dragAndDropObject.MarkTarget(_rectTransform);
+                    _dragAndDropObject.MarkTarget(this);
                 }
             }
         }

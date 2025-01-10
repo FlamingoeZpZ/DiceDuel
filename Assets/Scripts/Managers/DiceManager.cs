@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Game.Battle.Attacks;
+using Game.Battle.Character;
 using UnityEngine;
 
 namespace Managers
@@ -50,7 +50,7 @@ namespace Managers
 
 
         //Idea of a factory design pattern, single place to create our objects where we hide creation
-        public Dice CreateDice(EDiceType dice, bool isLeft)
+        public Dice CreateDice(EDiceType dice, bool isLeft, Color glowColor, Color numberColor)
         {
             //Just grab the dice, no need to check if it's valid.
             if (!_diceInstances[dice].TryDequeue(out Dice createdDice))
@@ -61,6 +61,7 @@ namespace Managers
             Transform tr = isLeft ? diceSpawnPointLeft : diceSpawnPointRight;
             createdDice.transform.position =tr.position;
             createdDice.transform.forward = tr.forward;
+            createdDice.SetColor(glowColor, numberColor);
             return createdDice;
         }
 
@@ -68,7 +69,7 @@ namespace Managers
         //Object pooling
         private Dice AddDice(EDiceType diceType)
         {
-            int parent = (int)diceType; // We can do this because enum are really just counters.
+            int parent = (int)diceType + 1; // We can do this because enum are really just counters.
             Dice createdDice;
 
             switch (diceType)

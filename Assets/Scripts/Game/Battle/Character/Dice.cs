@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Game.Battle.Attacks
+namespace Game.Battle.Character
 {
     public enum EDiceType
     {
@@ -17,11 +17,11 @@ namespace Game.Battle.Attacks
     [SelectionBase]
     public class Dice : MonoBehaviour
     {
-        private static readonly int Color1 = Shader.PropertyToID("_Color");
+        private static readonly int ColorID = Shader.PropertyToID("_Color");
 
         //An event action is an action that can only be called privately.
         //An action is something that we can observe and notify other files. For instance, allows us to notify the DiceManager when the dice is done being rolled.
-        public event Action<Dice> OnDiceRolled;
+        public Action<Dice> OnDiceRolled;
         
         //[SerializeField] private Sprite[] sprites;
 
@@ -34,6 +34,7 @@ namespace Game.Battle.Attacks
         //private SpriteRenderer _spriteRenderer;
         private Rigidbody _rigidbody;
         private Material _material;
+        private Material _sharedMaterial;
         private Mesh _mesh;
         private int _currentValue;
         
@@ -45,8 +46,25 @@ namespace Game.Battle.Attacks
         {
             //_spriteRenderer = GetComponent<SpriteRenderer>();
             _rigidbody = GetComponent<Rigidbody>();
-            _material = GetComponentInChildren<MeshRenderer>().material;
-            _mesh = GetComponentInChildren<MeshFilter>().sharedMesh; // shared mesh to prevent duplicates
+            
+            MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+
+            //Clone and apply material
+            _material = renderers[0].material;
+            renderers[0].material = _material;
+            
+            Debug.Log("Find: ",renderers[0]);
+            
+            _mesh = renderers[0].GetComponent<MeshFilter>().sharedMesh; // shared mesh to prevent duplicates
+
+            //Clone the material
+            _sharedMaterial = renderers[1].material;
+
+            for (int index = 1; index < renderers.Length; index++)
+            {
+                //Apply to all other text objects
+                renderers[index].sharedMaterial = _sharedMaterial;
+            }
         }
 
         private void OnDisable()
@@ -58,12 +76,9 @@ namespace Game.Battle.Attacks
         }
 
         //We need to use UniTask to retrieve an int with low memory allocation, the alternatives will create lag or not work on webgl.
-        public async UniTask<int> Roll(Color color, Vector2 direction)
+        public async UniTask<int> Roll(Vector2 direction)
         {
-            color.a = 1;
             gameObject.SetActive(true);
-            _myColor = color / Mathf.Max(color.r, color.g, color.b) * 5;
-            _material.SetColor(Color1, color);
             _rigidbody.AddForce(direction * Random.Range(minSpeed, maxSpeed), ForceMode.Impulse);
             _rigidbody.AddTorque(Random.insideUnitSphere * Random.Range(minSpeed, maxSpeed), ForceMode.Impulse);
 
@@ -123,6 +138,13 @@ namespace Game.Battle.Attacks
                 EffectManager.instance.PlaySparks(transform.position, Quaternion.LookRotation(normal), _myColor);
             }
         }
-        
+
+        public void SetColor(Color glowColor, Color numberColor)
+        {
+            _myColor = glowColor;
+            Debug.Log("Setting color: " + glowColor + ", number: " + numberColor);
+            _material.SetColor(ColorID, glowColor);
+            _sharedMaterial.SetColor(ColorID, numberColor);
+        }
     }
 }

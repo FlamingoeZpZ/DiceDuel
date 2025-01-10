@@ -12,14 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42064a7952864cb58f0f61f1e37308b8, type: 3}
   m_Name: Basic Block
   m_EditorClassIdentifier: 
-  staminaCost: 5
-  baseValue: 4
-  dice: 0300000001000000
-  icon: {fileID: 3426575931898778663, guid: d1e85c0549bc64745ab86c77e8943e95, type: 3}
-  canBeNegative: 0
-  canBeBlocked: 0
-  minRollValue: 2
-  maxRollValue: 16
-  summativeMinRollValue: 6
-  summativeMaxRollValue: 20
+  icon: {fileID: 21300000, guid: af8fb0ccdfb5f0340882bab4f77aafa9, type: 3}
   particle: {fileID: 6374185648792829834, guid: 6d0360bdb1bacfe4f908165d0ffd5047, type: 3}

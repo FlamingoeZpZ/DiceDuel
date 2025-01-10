@@ -1,6 +1,8 @@
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using Utility;
 
 namespace UI
 {
@@ -10,6 +12,7 @@ namespace UI
         private int _val;
 
         [Header("Prefabs")] 
+        [SerializeField] private Image displayIcon;
         [SerializeField] private TextMeshProUGUI diceScorePopup;
         [SerializeField] private AnimationCurve curve;
         [SerializeField] private AnimationCurve bubbleTextScale;
@@ -18,29 +21,25 @@ namespace UI
     
         [Header("UI Elements")] 
         [SerializeField] private TextMeshProUGUI score;
-        [SerializeField] private AudioClip escalationClip;
 
         private float _textSize;
         private readonly Quaternion _cachedRotation = Quaternion.LookRotation(Vector3.down);
-        private AudioSource _source;
+        private SoundEscalator _soundEscalator;
         
-        int _counter;
         private int _numCreated;
 
-        private const int SemiTones = 1;
-        private static readonly double PitchMultiplier = 1/Mathf.Pow(2f, SemiTones / 12f); // 2^(semitoneIncrease / 12)
-        
         
         void Awake()
         {
             _textSize = score.fontSize;
-            _source = GetComponent<AudioSource>();
-
+            _soundEscalator = GetComponent<SoundEscalator>();
         }
 
 
         public async void GeneratePopup(int value, Vector3 location)
         {
+            Debug.Log("My Location: " + transform.position +", " + location);
+            //location = _camera.WorldToScreenPoint(location);
             TextMeshProUGUI popup = Instantiate(diceScorePopup, location, Quaternion.identity, transform);
             popup.text = value.ToString();
             popup.color = score.color;
@@ -53,7 +52,7 @@ namespace UI
 
         private async UniTask CreateAndHandlePopup(int value, Vector3 location, TextMeshProUGUI popup)
         {
-            await UniTask.Delay((int)(_counter++ * _source.clip.length*1000 * PitchMultiplier)); //Half of the clip length
+             _soundEscalator.Play();
             float life = 0;
             Vector3 target = score.rectTransform.rect.center + (Vector2)score.transform.position;
             Transform tr = popup.transform; // yes this does optimize
@@ -72,35 +71,33 @@ namespace UI
             Vector3 loc = Camera.main!.ScreenToWorldPoint(target);
             EffectManager.instance.PlaySparks(loc, _cachedRotation, Color.white);
             
-            _source.pitch = (float)(1 + (_counter * PitchMultiplier));
-            _source.Play();
+            Debug.Log("Bubbling, " , score.gameObject);
             
              await BubbleText(score, _textSize, bubbleTextScale, bubbleDuration);
         }
 
-        public void SetColor(Color color)
-        {
-            score.color = color;
-        }
-
         public async UniTask Display(int initialValue)
         {
+            _soundEscalator.ResetProgression();
             score.text = initialValue.ToString();
-            score.gameObject.SetActive(true);
+            //score.gameObject.SetActive(true);
             _val = initialValue;
             await BubbleText(score, _textSize,  bubbleTextScale, bubbleDuration);
         }
         
+        /*
         public async void Hide(float length = 0.3f)
         {
             _counter = 0;
             await FadeAwayAndDisable(score, length);
         }
+        */
 
        
 
         #region Should be in a UtilityFile
         //GPT generated cus lazy
+        /*
         private async UniTask FadeAwayAndDisable(TextMeshProUGUI target, float length)
         {
             if (target == null) return;
@@ -126,6 +123,7 @@ namespace UI
             // Optionally disable the GameObject or component
             target.gameObject.SetActive(false);
         }
+        */
         
         private async UniTask BubbleText(TextMeshProUGUI target, float originalScale, AnimationCurve scaleCurve, float length)
         {
@@ -141,9 +139,19 @@ namespace UI
         }
         #endregion
 
+        private bool AreAllDisabled()
+        {
+            return _numCreated == 0;
+        }
+
         public UniTask AllDisabled()
         {
-            return UniTask.WaitUntil(() => _numCreated == 0);
+            return UniTask.WaitUntil(AreAllDisabled);
+        }
+
+        public void SetIcon(Sprite icon)
+        {
+            displayIcon.sprite = icon;
         }
     }
 }

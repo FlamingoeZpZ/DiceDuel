@@ -1,5 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using Game.Battle.Attacks;
 using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Managers;
@@ -13,38 +12,41 @@ namespace Game.Battle.Character
 
     public abstract class BaseCharacter : MonoBehaviour, IWarrior
     {
+        [SerializeField] private Transform diceHudHolder;
+        [SerializeField] private GameHud diceHudPrefab;
+        
         private static readonly int Block = Animator.StringToHash("Block");
         private static readonly int OnHurt = Animator.StringToHash("OnHurt");
-        [SerializeField] private GameHud diceHUD;
         [SerializeField] private SliderText healthBar;
         [SerializeField] private SliderText staminaBar;
-        [SerializeField] private CharacterStats baseStats;
-        [SerializeField] protected AbilityBaseStats[] defaultAbilities;
+        [SerializeField] protected CharacterStats baseStats;
+        [SerializeField] protected AbilityBaseStats[] abilities;
+        private GameHud[] _diceHuds;
         
         //Accessible to our child classes
-        protected AbilityBaseStats[] abilities;
-        protected Weapon weapon;
         private int _currentHealth;
         private int _currentStamina;
-        protected int _currentShield;
+        private int _currentShield;
         private Vector3 _startLocation;
+
+        protected EDiceType[][] DiceSets;
         
         
         //Auto integration:
-        protected int CurrentHealth
+        public int CurrentHealth
         {
             get => _currentHealth;
-            set
+            private set
             {
                 healthBar.UpdateCurrent(value);
                 _currentHealth = value;
             }
         }
         
-        protected int CurrentStamina
+        public int CurrentStamina
         {
             get => _currentStamina;
-            set
+            private set
             {
                 staminaBar.UpdateCurrent(value);
                 _currentStamina = value;
@@ -54,21 +56,13 @@ namespace Game.Battle.Character
 
         //Needed for visual purposes.
         private Animator _characterAnimator;
-        bool _isLeftSide;
+        private bool _isLeftSide;
         
-        public abstract UniTask<AbilityBaseStats> ChooseAttack();
-
         public void Init(bool isLeftSide)
         {
             _isLeftSide = isLeftSide;
         }
-
-        //We make this a separate function in case we need to bind a weapon from somewhere else at some point...
-        public void BindWeapon(Weapon newWeapon)
-        {
-            weapon = newWeapon;
-        }
-
+        
         public void PayStamina(int cost)
         {
             CurrentStamina = Mathf.Clamp(CurrentStamina -cost, 0, baseStats.MaxStamina);
@@ -113,22 +107,91 @@ namespace Game.Battle.Character
 
         public void BeginRound()
         {
-            diceHUD.Hide();
+            
         }
-
-        public void EndRound()
+        public virtual void EndRound()
         {
             transform.position = _startLocation;
         }
 
+        public abstract UniTask ChooseAttacks();
+
+        public async UniTask<AbilityData[]> RollDice()
+        {
+            AbilityData[] abilityDatas  = new AbilityData[abilities.Length];
+
+            //Display all huds
+            UniTask[] awakens = new UniTask[_diceHuds.Length];
+            for (int i = 0; i < _diceHuds.Length; i++)
+            {
+                awakens[i] = _diceHuds[i].Display(0);
+            }
+            await  UniTask.WhenAll(awakens);
+
+            //Roll the dice for each ability
+            for (int i = 0; i < abilities.Length; i++)
+            {
+                //Cache variables to reduce CPU load, and make code more readable.
+                //the dice array that we want is bound to the ability
+                EDiceType[] dice = DiceSets[i];
+                Color cacheColor = GetTeamColor();
+                EffectManager.instance.PlayDiceDeploySound();
+
+                //Create an array to store each dice roll process required
+                UniTask<int>[] tasks = new UniTask<int>[dice.Length];
+
+                
+                for (int j = 0; j < dice.Length; j++)
+                {
+                    //Create and roll the dice
+                    Dice createdDice = DiceManager.Instance.CreateDice(dice[j], _isLeftSide, abilities[i].GetColor, cacheColor);
+
+                    tasks[j] = createdDice.Roll(createdDice.transform.forward);
+
+                    //TODO: !!! Bind to proper ability number
+                    
+                    //We need to make a copy of this because I is changing.
+                    int iCopy = i;
+                    createdDice.OnDiceRolled = d => OnMyDiceRolled(d, iCopy);
+
+                    //wait 0.25 seconds before throwing the next dice
+                    await UniTask.Delay(250 - j * 10); // Every subsequent roll goes a little bit faster
+                }
+                //Wait for each dice roll to end
+                int [] results = await UniTask.WhenAll(tasks);
+
+                int sum = 0;
+                
+                //Students should be confident enough to do this solo
+                foreach (var result in results)
+                {
+                    //Sum the values from the roles
+                    sum += result;
+                }
+                
+                abilityDatas[i] = new AbilityData(this, abilities[i], sum);
+            }
+            
+            for (int i = 0; i < _diceHuds.Length; i++)
+            {
+                awakens[i] = _diceHuds[i].AllDisabled();
+            }
+            await  UniTask.WhenAll(awakens);
+            
+            
+
+            return abilityDatas;
+        }
+        
         public string GetName()
         {
             return name;
         }
 
-        private void Awake()
+    
+
+        protected virtual void Awake()
         {
-            BindWeapon(GetComponentInChildren<Weapon>(false));
             _startLocation = transform.position;
 
             healthBar.UpdateMax(baseStats.MaxHealth);
@@ -141,22 +204,14 @@ namespace Game.Battle.Character
             _isLeftSide = (Vector2.zero - (Vector2)transform.position).x > 0;
             _characterAnimator = GetComponentInChildren<Animator>();
 
-            int endOne = defaultAbilities.Length;
-            int endTwo = endOne + weapon.Stats.Attacks.Length;
-
-            abilities = new AbilityBaseStats[endTwo];
-
-            for (int i = 0; i < endOne; i++)
+            _diceHuds = new GameHud[abilities.Length];
+            for (int i = 0; i < abilities.Length; i++)
             {
-                abilities[i] = defaultAbilities[i];
+                _diceHuds[i] = Instantiate(diceHudPrefab,diceHudHolder);
+               _diceHuds[i].SetIcon(abilities[i].Icon);
             }
-
-            for (int i = endOne; i < endTwo; i++)
-            {
-                abilities[i] = weapon.Stats.Attacks[i - endOne];
-            }
-
-            diceHUD.SetColor(GetTeamColor());
+            
+            DiceSets = new EDiceType[abilities.Length][];
         }
 
         public virtual bool IsDefeated()
@@ -164,54 +219,10 @@ namespace Game.Battle.Character
             return CurrentHealth <= 0;
         }
 
-        public async UniTask<int> RollDice(AbilityBaseStats ability)
+
+        private void OnMyDiceRolled(Dice dice, int hudIndex)
         {
-            int sum = ability.BaseValue;
-            await diceHUD.Display(sum);
-            
-            //Cache variables to reduce CPU load, and make code more readable.
-            EDiceType[] dice = ability.Dice;
-            Color cacheColor = GetTeamColor();
-            EffectManager.instance.PlayDiceDeploySound();
-            
-            //Create an array to store each dice roll process required
-            UniTask<int>[] tasks = new UniTask<int>[dice.Length];
-            
-            for (int index = 0; index < dice.Length; index++)
-            {
-                //Create and roll the dice
-                Dice createdDice = DiceManager.Instance.CreateDice(dice[index], _isLeftSide);
-                
-                tasks[index] = createdDice.Roll(cacheColor, createdDice.transform.forward);
-
-                createdDice.OnDiceRolled += OnMyDiceRolled;
-                
-                //wait 0.2 seconds before throwing the next dice
-                await UniTask.Delay(200);
-            }
-            
-            //Wait for each dice roll to end
-            int [] results = await UniTask.WhenAll(tasks);
-            
-
-            
-            //Students should be confident enough to do this solo
-            foreach (var result in results)
-            {
-                //Sum the values from the roles
-                sum += result;
-            }
-
-            await diceHUD.AllDisabled();
-            
-            //Return the result
-            return sum;
-        }
-
-        private void OnMyDiceRolled(Dice dice)
-        {
-            diceHUD.GeneratePopup(dice.CurrentValue, dice.transform.position);
-            dice.OnDiceRolled -= OnMyDiceRolled; // Auto unsubscribe
+            _diceHuds[hudIndex].GeneratePopup(dice.CurrentValue, dice.transform.position);
         }
         
         //We can get the color for the player from the save info,

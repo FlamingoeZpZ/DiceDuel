@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.Battle.Character;
+using UnityEngine;
 
 namespace Game.Battle.ScriptableObjects
 {
@@ -7,6 +8,8 @@ namespace Game.Battle.ScriptableObjects
     {
         [SerializeField] private int maxStamina;
         [SerializeField] private int maxHealth;
+
+        public EDiceType[] dice;
         
         //Simple getter variables, you should never modify a scriptable object
         public int MaxStamina => maxStamina;
