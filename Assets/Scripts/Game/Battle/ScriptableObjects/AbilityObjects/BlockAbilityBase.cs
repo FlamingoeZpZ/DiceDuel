@@ -14,7 +14,7 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
     
         protected override UniTask StartAbilityImplementation(IWarrior user,  int diceValue, IWarrior opponent)
         {
-            user.GainShield(diceValue);
+            user.CurrentDefense += diceValue;
             //let's only create a particle if we need to.
             if (user is MonoBehaviour characterObject)
             {

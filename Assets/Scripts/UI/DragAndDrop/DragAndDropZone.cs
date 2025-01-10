@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace UI.DragAndDrop
@@ -8,6 +9,7 @@ namespace UI.DragAndDrop
         private RectTransform _dragTransform;
         private DragAndDropObject _dragAndDropObject;
         private static DragAndDropZone _current;
+        public event Func<DragAndDropObject,bool> AcceptRules; 
         
         private void Awake()
         {
@@ -43,6 +45,12 @@ namespace UI.DragAndDrop
                     _dragAndDropObject.MarkTarget(this);
                 }
             }
+        }
+
+        public bool CanAcceptItem(DragAndDropObject obj)
+        {
+            if (AcceptRules == null) return true;
+            return AcceptRules.Invoke(obj);
         }
 
     }

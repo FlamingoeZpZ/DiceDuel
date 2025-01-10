@@ -11,7 +11,7 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
         public override EAbilityType AbilityType() => EAbilityType.Support;
         protected override UniTask StartAbilityImplementation(IWarrior user,  int diceValue, IWarrior opponent)
         {
-            user.PayStamina(-diceValue);
+            user.CurrentStaminaCap += diceValue;
             //let's only create a particle if we need to.
             if (user is MonoBehaviour characterObject)
             {

@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using Game.Battle.ScriptableObjects;
-using UnityEngine;
 
 namespace Game.Battle.Interfaces
 {
@@ -10,15 +9,18 @@ namespace Game.Battle.Interfaces
 
         public void Init(bool isLeftSide);
         
-        
-        public void PayStamina(int cost);
         public void TakeDamage(int amount, bool canBeBlocked);
-        public void GainShield(int amount);
-        void BeginRound();
+        public void BeginRound();
         public UniTask ChooseAttacks();
         public UniTask<AbilityData[]> RollDice();
-        void EndRound();
-        string GetName();
+        public void EndRound();
+        public string GetName();
+        
+        public int CurrentHealth { get; set; }
+        public int CurrentStamina { get; set; }
+        public int CurrentStaminaCap { get; set; }
+        public int CurrentDefense { get; set; }
+        
     }
 
     public struct AbilityData

@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Game.Battle.UI;
 using UI.DragAndDrop;
@@ -23,6 +24,7 @@ namespace Game.Battle.Character
         private AbilityUI[] _abilityObjects;
 
         private bool _isReady;
+        private IWarrior _myWarrior;
 
         private void Awake()
         {
@@ -33,8 +35,18 @@ namespace Game.Battle.Character
             });
         }
 
-        public void BuildDiceSet(EDiceType[] dice)
+        public void ConstructAbilityController(IWarrior controller,AbilityBaseStats[] abilities, EDiceType[] dice)
         {
+            _myWarrior = controller;
+            
+            _abilityObjects = new AbilityUI[abilities.Length];
+            for (int i = 0; i < abilities.Length; i++)
+            {
+                AbilityUI abilityUI = Instantiate(abilityUIPrefab, abilityHolder);
+                abilityUI.Bind(abilities[i]);
+                _abilityObjects[i] = abilityUI;
+            }
+            
             _diceObjects = new Transform[dice.Length];
             for (int i = 0; i < dice.Length; i++)
             {
@@ -43,16 +55,43 @@ namespace Game.Battle.Character
                 _diceObjects[i] = spawnedDice.transform;
 
                 //Mildly unfortunate... This is a fairly expensive function 
-                int iCopy = i;
+                EDiceType type = dice[i];
                 spawnedDice.onApplyNewTarget.AddListener((previous, current) =>
-                    ApplyNewTarget(previous, current, dice[iCopy]));
-
+                    ApplyNewTarget(previous, current, type));
             }
         }
+        
+        //This function is the key, it's the only function that knows the dice value, and the abilityUI...
+        //If both of them are Ability UI, then we don't care.
+        //If 
+        /*
+            TODO:
+            * Create the AI to use dice, 3 different AI strategies? Depends on how complicated we want the AI to be.
+            * Dice costs
 
+
+
+            * When we place dice onto a section, the value of the dice should be deducted from the stamina bar.
+            * If we don't have enough stamina, then we shouldn't accept the dice
+            * If we don't have enough stamina, we should blink the stamina bar red to indicate
+
+
+
+            We need a way to prevent new dice from being added when the player has spent to much stamina
+            We also want to indicate to the player that they've spent too much stamina
+            We also want the attack ability to take away from the stamina cap.
+
+
+            1) So therefore, we know we must be making a new object specifically for the AttackAbility types 
+
+            Problem: What if we're just moving it between abilities? The cost should be the same.
+            Should we modify a Drag and Drop Zone to ask if we can be accepted? Then how can we check... Do we use a func?
+            2) All the AbilityUI's must know who the player is so they can tell the dice to go back?
+
+         */
+        
         private void ApplyNewTarget(DragAndDropZone previous, DragAndDropZone current, EDiceType value)
         {
-            //A bit hard-coded but oh well..
             if (previous.transform.parent.TryGetComponent(out AbilityUI oldUI)) oldUI.RemoveDice(value);
             if (current.transform.parent.TryGetComponent(out AbilityUI newUI)) newUI.AddDice(value);
         }
@@ -68,17 +107,6 @@ namespace Game.Battle.Character
             return diceValues;
         }
 
-
-    public void SetAbilities(AbilityBaseStats[] abilities)
-        {
-            _abilityObjects = new AbilityUI[abilities.Length];
-            for (int i = 0; i < abilities.Length; i++)
-            {
-                AbilityUI abilityUI = Instantiate(abilityUIPrefab, abilityHolder);
-                abilityUI.Bind(abilities[i]);
-                _abilityObjects[i] = abilityUI;
-            }
-        }
 
         public async void DisableDice()
         {

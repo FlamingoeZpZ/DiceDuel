@@ -1,6 +1,8 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
+using Game.Battle.UI;
 using Managers;
 using UI;
 using UnityEngine;
@@ -19,6 +21,7 @@ namespace Game.Battle.Character
         private static readonly int OnHurt = Animator.StringToHash("OnHurt");
         [SerializeField] private SliderText healthBar;
         [SerializeField] private SliderText staminaBar;
+        [SerializeField] private SliderText staminaCap;
         [SerializeField] protected CharacterStats baseStats;
         [SerializeField] protected AbilityBaseStats[] abilities;
         private GameHud[] _diceHuds;
@@ -26,6 +29,7 @@ namespace Game.Battle.Character
         //Accessible to our child classes
         private int _currentHealth;
         private int _currentStamina;
+        private int _currentStaminaCap;
         private int _currentShield;
         private Vector3 _startLocation;
 
@@ -36,7 +40,7 @@ namespace Game.Battle.Character
         public int CurrentHealth
         {
             get => _currentHealth;
-            private set
+            set
             {
                 healthBar.UpdateCurrent(value);
                 _currentHealth = value;
@@ -46,11 +50,27 @@ namespace Game.Battle.Character
         public int CurrentStamina
         {
             get => _currentStamina;
-            private set
+            set
             {
-                staminaBar.UpdateCurrent(value);
-                _currentStamina = value;
+                _currentStamina = Mathf.Clamp(value, 0, CurrentStaminaCap);
+                staminaBar.UpdateCurrent(_currentStamina);
             }
+        }
+        
+        public int CurrentStaminaCap
+        {
+            get => _currentStaminaCap;
+            set
+            {
+                _currentStaminaCap = Mathf.Clamp(value, 0, baseStats.MaxStamina);
+                staminaCap.UpdateCurrent(_currentStaminaCap);
+            }
+        }
+
+        public int CurrentDefense
+        {
+            get => _currentShield;
+            set => _currentShield = Mathf.Max(value, 0);
         }
 
 
@@ -61,13 +81,9 @@ namespace Game.Battle.Character
         public void Init(bool isLeftSide)
         {
             _isLeftSide = isLeftSide;
+
         }
         
-        public void PayStamina(int cost)
-        {
-            CurrentStamina = Mathf.Clamp(CurrentStamina -cost, 0, baseStats.MaxStamina);
-        }
-
         public void TakeDamage(int amount, bool canBeBlocked)
         {
             Debug.Log("I've been hit for" + amount +". I have shields: " + _currentShield +". Is the attack blockable? " + canBeBlocked, gameObject);
@@ -102,12 +118,12 @@ namespace Game.Battle.Character
         public void GainShield(int amount)
         {
             //Never go below 0
-            _currentShield = Mathf.Max(_currentShield + amount, 0);
+            
         }
 
         public void BeginRound()
         {
-            
+            CurrentStamina = CurrentStaminaCap;
         }
         public virtual void EndRound()
         {
@@ -118,7 +134,7 @@ namespace Game.Battle.Character
 
         public async UniTask<AbilityData[]> RollDice()
         {
-            AbilityData[] abilityDatas  = new AbilityData[abilities.Length];
+            List<AbilityData> abilityDatas  = new  List<AbilityData>();
 
             //Display all huds
             UniTask[] awakens = new UniTask[_diceHuds.Length];
@@ -175,7 +191,7 @@ namespace Game.Battle.Character
                 
                 GraphManager.Instance.RegisterRoll(dice, sum);
                 
-                abilityDatas[i] = new AbilityData(this, abilities[i], sum);
+                abilityDatas.Add(new AbilityData(this, abilities[i], sum));
             }
             
             for (int i = 0; i < _diceHuds.Length; i++)
@@ -186,7 +202,7 @@ namespace Game.Battle.Character
             
             
 
-            return abilityDatas;
+            return abilityDatas.ToArray();
         }
         
         public string GetName()
@@ -201,10 +217,12 @@ namespace Game.Battle.Character
             _startLocation = transform.position;
 
             healthBar.UpdateMax(baseStats.MaxHealth);
+            staminaCap.UpdateMax(baseStats.MaxStamina);
             staminaBar.UpdateMax(baseStats.MaxStamina);
-
+            
             CurrentHealth = baseStats.MaxHealth;
-            CurrentStamina = baseStats.MaxStamina;
+            CurrentStaminaCap = 3;
+            CurrentStamina = CurrentStaminaCap;
 
             //If we're throwing right, we must be on the left side
             _isLeftSide = (Vector2.zero - (Vector2)transform.position).x > 0;
