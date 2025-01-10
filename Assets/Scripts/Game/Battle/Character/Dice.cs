@@ -53,8 +53,6 @@ namespace Game.Battle.Character
             _material = renderers[0].material;
             renderers[0].material = _material;
             
-            Debug.Log("Find: ",renderers[0]);
-            
             _mesh = renderers[0].GetComponent<MeshFilter>().sharedMesh; // shared mesh to prevent duplicates
 
             //Clone the material
@@ -142,7 +140,6 @@ namespace Game.Battle.Character
         public void SetColor(Color glowColor, Color numberColor)
         {
             _myColor = glowColor;
-            Debug.Log("Setting color: " + glowColor + ", number: " + numberColor);
             _material.SetColor(ColorID, glowColor);
             _sharedMaterial.SetColor(ColorID, numberColor);
         }

@@ -134,6 +134,10 @@ namespace Game.Battle.Character
                 //Cache variables to reduce CPU load, and make code more readable.
                 //the dice array that we want is bound to the ability
                 EDiceType[] dice = DiceSets[i];
+                
+                if( dice.Length == 0) continue;
+                
+                
                 Color cacheColor = GetTeamColor();
                 EffectManager.instance.PlayDiceDeploySound();
 
@@ -168,6 +172,8 @@ namespace Game.Battle.Character
                     //Sum the values from the roles
                     sum += result;
                 }
+                
+                GraphManager.Instance.RegisterRoll(dice, sum);
                 
                 abilityDatas[i] = new AbilityData(this, abilities[i], sum);
             }

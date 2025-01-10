@@ -29,7 +29,7 @@ namespace Game.Battle.Character
             readyUp.onClick.AddListener(() =>
             {
                 _isReady = true;
-                readyUp.interactable = false;
+                readyUp.gameObject.SetActive(false);
             });
         }
 
@@ -94,8 +94,7 @@ namespace Game.Battle.Character
         {
 
             _isReady = false;
-            readyUp.interactable = true;
-
+            readyUp.gameObject.SetActive(true);
             foreach (Transform dice in _diceObjects)
             {
                 dice.gameObject.SetActive(true); //Assume all dice are turned off

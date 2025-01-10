@@ -27,18 +27,20 @@ namespace UI
         private SoundEscalator _soundEscalator;
         
         private int _numCreated;
+        private Camera _camera;
 
         
         void Awake()
         {
             _textSize = score.fontSize;
             _soundEscalator = GetComponent<SoundEscalator>();
+            _camera = Camera.main;
         }
 
 
         public async void GeneratePopup(int value, Vector3 location)
         {
-            Debug.Log("My Location: " + transform.position +", " + location);
+            location = _camera.WorldToScreenPoint(location);
             //location = _camera.WorldToScreenPoint(location);
             TextMeshProUGUI popup = Instantiate(diceScorePopup, location, Quaternion.identity, transform);
             popup.text = value.ToString();
@@ -70,9 +72,6 @@ namespace UI
             target.y -=  score.rectTransform.rect.center.y;
             Vector3 loc = Camera.main!.ScreenToWorldPoint(target);
             EffectManager.instance.PlaySparks(loc, _cachedRotation, Color.white);
-            
-            Debug.Log("Bubbling, " , score.gameObject);
-            
              await BubbleText(score, _textSize, bubbleTextScale, bubbleDuration);
         }
 
