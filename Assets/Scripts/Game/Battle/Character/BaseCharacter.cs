@@ -52,7 +52,7 @@ namespace Game.Battle.Character
             get => _currentStamina;
             set
             {
-                _currentStamina = Mathf.Clamp(value, 0, CurrentStaminaCap);
+                _currentStamina = Mathf.Min(value, CurrentStaminaCap);//Mathf.Clamp(value, 0, CurrentStaminaCap);
                 staminaBar.UpdateCurrent(_currentStamina);
             }
         }
@@ -62,7 +62,7 @@ namespace Game.Battle.Character
             get => _currentStaminaCap;
             set
             {
-                _currentStaminaCap = Mathf.Clamp(value, 0, baseStats.MaxStamina);
+                _currentStaminaCap = Mathf.Clamp(value, 1, baseStats.MaxStamina);
                 staminaCap.UpdateCurrent(_currentStaminaCap);
             }
         }

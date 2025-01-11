@@ -7,9 +7,10 @@ namespace Game.Battle.ScriptableObjects
     public abstract class AbilityBaseStats : ScriptableObject
     {
         [SerializeField] private Sprite icon;
+        [SerializeField] private bool costsMaxStamina;
         public Sprite Icon => icon;
         public Color GetColor => AttackColors[(int)AbilityType()];
-   
+        public bool CostsMaxStamina => costsMaxStamina;
 
         //static readonly is effectively run-time constant. Not as good as constant,
         //but still good overall

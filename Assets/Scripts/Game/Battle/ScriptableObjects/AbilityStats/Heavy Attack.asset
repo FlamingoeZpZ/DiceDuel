@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Heavy Attack
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 5e196cd77208214408d5f4092c6ac9e1, type: 3}
+  costsMaxStamina: 1
   animationID: Attack3
   eventIndex: 1
   comboThreshold: 0

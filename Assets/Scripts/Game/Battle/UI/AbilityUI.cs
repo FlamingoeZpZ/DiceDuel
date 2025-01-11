@@ -18,35 +18,13 @@ namespace Game.Battle.UI
         private int _low;
         private int _high;
         private readonly List<EDiceType> _dice = new();
-        private IWarrior myOwner;
+        public AbilityBaseStats AbilityBaseStats { get; private set; }
 
-        private void Awake()
-        {
-
-        }
-
-        private bool CheckValid(DragAndDropObject newObject)
-        {
-            //If the object was moving from an ability to another ability, just allow it.. 
-            if (newObject.OldTarget.TryGetComponent(out AbilityUI abilityUI))
-            {
-                return true;
-            }
-            
-            //Apply the cost of moving it... But how do we know what the cost of the object even is?
-            //We could get the Dice UI, but then the dice UI also needs to know itself.
-
-            if (myOwner.CurrentStamina == 0) return false;
-            
-            return true;
-        }
 
         public void Bind(AbilityBaseStats ability)
         {
             icon.sprite = ability.Icon;
-            //myOwner  = warrior;        
-            DragAndDropZone myZone = GetComponent<DragAndDropZone>();
-            //myZone.AcceptRules += CheckValid;
+            AbilityBaseStats = ability;
             ResetDice();
         }
 

@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Game.Battle.UI;
+using TMPro;
 using UI.DragAndDrop;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,11 +20,27 @@ namespace Game.Battle.Character
         [SerializeField] private AbilityUI abilityUIPrefab;
 
         [SerializeField] private Sprite[] diceSprites;
-
+        [SerializeField] private TextMeshProUGUI staminaCostText;
+        
         private Transform[] _diceObjects;
         private AbilityUI[] _abilityObjects;
 
         private bool _isReady;
+        private int _staminaCapCost;
+
+        private int StaminaCapCost
+        {
+            get => _staminaCapCost;
+            set
+            {
+                _staminaCapCost = value;
+                if (value <= 0) staminaCostText.text = "";
+                else staminaCostText.text = "Max Stamina: " + _myWarrior.CurrentStaminaCap + " => " + Mathf.Max(1,_myWarrior.CurrentStaminaCap - _staminaCapCost);
+                
+            }
+        }
+        
+        
         private IWarrior _myWarrior;
 
         private void Awake()
@@ -33,6 +50,7 @@ namespace Game.Battle.Character
                 _isReady = true;
                 readyUp.gameObject.SetActive(false);
             });
+            StaminaCapCost = 0;
         }
 
         public void ConstructAbilityController(IWarrior controller,AbilityBaseStats[] abilities, EDiceType[] dice)
@@ -62,6 +80,7 @@ namespace Game.Battle.Character
         }
         
         //This function is the key, it's the only function that knows the dice value, and the abilityUI...
+        //What if instead of denying the input, we just disable the button to begin the fight.
         //If both of them are Ability UI, then we don't care.
         //If 
         /*
@@ -87,18 +106,49 @@ namespace Game.Battle.Character
             Problem: What if we're just moving it between abilities? The cost should be the same.
             Should we modify a Drag and Drop Zone to ask if we can be accepted? Then how can we check... Do we use a func?
             2) All the AbilityUI's must know who the player is so they can tell the dice to go back?
-
          */
         
         private void ApplyNewTarget(DragAndDropZone previous, DragAndDropZone current, EDiceType value)
         {
-            if (previous.transform.parent.TryGetComponent(out AbilityUI oldUI)) oldUI.RemoveDice(value);
-            if (current.transform.parent.TryGetComponent(out AbilityUI newUI)) newUI.AddDice(value);
+            int diceValue = (int)value + 1;
+
+            Debug.Log("Dice Value: " + diceValue);
+            
+            if (previous.transform.parent.TryGetComponent(out AbilityUI oldUI))
+            {
+                oldUI.RemoveDice(value);
+                //Give the stamina back
+                _myWarrior.CurrentStamina += diceValue;
+                
+                if (oldUI.AbilityBaseStats.CostsMaxStamina)
+                {
+                    //We don't want to commit this just yet, we want to hold onto the value.
+                    StaminaCapCost -= 1;
+                }
+            }
+
+            if (current.transform.parent.TryGetComponent(out AbilityUI newUI))
+            {
+                newUI.AddDice(value);
+                //Take the stamina away
+                _myWarrior.CurrentStamina -= diceValue;
+
+                if (newUI.AbilityBaseStats.CostsMaxStamina)
+                {
+                    StaminaCapCost += 1;
+                }
+                
+            }
+
+            readyUp.interactable = _myWarrior.CurrentStamina >= 0;
         }
 
         //Compiles the dice values
         public EDiceType[][] DiceValues()
         {
+            _myWarrior.CurrentStaminaCap -= StaminaCapCost;
+            
+            
             EDiceType[][] diceValues = new EDiceType[_abilityObjects.Length][];
             for (int i = 0; i < _abilityObjects.Length; i++)
             {
@@ -120,7 +170,6 @@ namespace Game.Battle.Character
 
         public async UniTask ReturnDice()
         {
-
             _isReady = false;
             readyUp.gameObject.SetActive(true);
             foreach (Transform dice in _diceObjects)
@@ -135,7 +184,7 @@ namespace Game.Battle.Character
             {
                 abilityUI.ResetDice();
             }
-            
+            StaminaCapCost = 0;
         }
 
         public bool IsReady()
