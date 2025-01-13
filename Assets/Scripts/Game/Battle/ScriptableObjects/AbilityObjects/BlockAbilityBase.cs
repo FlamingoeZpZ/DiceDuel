@@ -20,8 +20,8 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
             {
                 //Create and clean up a particle at the users position
                 ParticleSystem ps = Instantiate(particle, characterObject.transform.position, Quaternion.identity);
-                Destroy(ps.gameObject, ps.main.duration);
-                return UniTask.Delay((int)(ps.main.startLifetime.constantMax * 1000)); // Expects milliseconds.
+                Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
+                return UniTask.Delay((int)(ps.main.duration * 1000)); // Expects milliseconds.
             
             }
             //If we didn't create a particle we may be running a test, and therefore we should just move on.

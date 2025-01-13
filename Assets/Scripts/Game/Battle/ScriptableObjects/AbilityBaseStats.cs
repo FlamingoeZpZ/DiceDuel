@@ -26,6 +26,9 @@ namespace Game.Battle.ScriptableObjects
 
         public UniTask StartAbility(IWarrior user, int diceValue, IWarrior opponent)
         {
+            Debug.Log("Dice value" + diceValue);
+            if(diceValue == 0) return UniTask.CompletedTask;
+            
             //Drive logic that MUST ALWAYS happen... So we can do some data tracking here, or play some sounds.
             //GraphManager.Instance.RegisterRoll(this, diceValue);
             return StartAbilityImplementation(user, diceValue , opponent);

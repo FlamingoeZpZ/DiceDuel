@@ -17,20 +17,17 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
         public override EAbilityType AbilityType() => EAbilityType.Offensive;
     
         //There is no nice way of doing this. The proper way would take signifigantly longer, and could require making stuff like a decorator, and pre-loading data
+        
+        //Okay so we need some kind of wrapper or driver, a way to catch us on the entrance and exit so we can move back and forth correctly.
+        
         protected override async UniTask StartAbilityImplementation(IWarrior user,  int diceValue, IWarrior opponent)
         {
 
-            //If we have a combo
-            if (attackCombo && diceValue > comboThreshold)
-            {
-                //We should then execute that ability 
-                await attackCombo.StartAbility(user, diceValue - comboThreshold, opponent);
-                diceValue = comboThreshold;
-            }
+            int damage = Mathf.Min(diceValue,comboThreshold);
 
             //Specifically if we're running unit tests
             if (user is not BaseCharacter characterObject || opponent is not BaseCharacter opponentCharacter){
-                opponent.TakeDamage(diceValue, true);   
+                opponent.TakeDamage(damage, true);   
                 return; // Pattern match
             }
         
@@ -56,13 +53,21 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
 
             await UniTask.Delay(myTime);
         
-            opponent.TakeDamage(diceValue, true);
+            opponent.TakeDamage(damage, true);
             
             await UniTask.Delay(totalTime - myTime - 100);
         
+            
+            //If we have a combo
+            if (attackCombo && diceValue >= comboThreshold)
+            {
+                //We should then execute that ability 
+                await attackCombo.StartAbility(user, diceValue - comboThreshold, opponent);
+            }
+            
         }
     
-    
+
     
         private async UniTask MoveTo(Transform transform, Vector3 endLocation, float duration = 1)
         {

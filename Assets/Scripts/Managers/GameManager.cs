@@ -1,10 +1,10 @@
-using Cysharp.Threading.Tasks;
 using Game.Battle.Character;
 using Game.Battle.Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Utility;
 
 namespace Managers
 {
@@ -71,31 +71,10 @@ namespace Managers
                 endText.text = winner.GetName() + " has defeated " + loser.GetName();
             }
 
-            InterpolateAlpha(endText, 0.5f);
-            InterpolateAlpha(endButton.targetGraphic, 1.2f);
+            endText.InterpolateAlpha(0.5f);
+            endButton.targetGraphic.InterpolateAlpha(1.2f);
         }
 
-        private async void InterpolateAlpha(Graphic text, float time)
-        {
-            Color initialColor = text.color;
-            float elapsedTime = 0f;
 
-            while (elapsedTime < time)
-            {
-                float t = elapsedTime / time;
-
-                Color newColor = initialColor;
-                newColor.a = Mathf.Lerp(0, 1, t);
-                text.color = newColor;
-
-                elapsedTime += Time.deltaTime;
-
-                await UniTask.Yield();
-            }
-            // Ensure the final alpha value is set to 0
-            Color finalColor = text.color;
-            finalColor.a = 1;
-            text.color = finalColor;
-        }
     }
 }

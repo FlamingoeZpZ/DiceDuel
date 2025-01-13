@@ -17,5 +17,5 @@ MonoBehaviour:
   animationID: Attack3
   eventIndex: 1
   comboThreshold: 0
-  attackCombo: {fileID: 11400000, guid: b9e264d5cfb4ebc49aea35a0efd0a10b, type: 2}
+  attackCombo: {fileID: 0}
   referencedClip: {fileID: 7400000, guid: ca177ae54531f6f48a5fc3c7ab370ea5, type: 2}

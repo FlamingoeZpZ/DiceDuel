@@ -45,7 +45,7 @@ public class LoadingManager : MonoBehaviour
         {
             t += Time.deltaTime;
             float p = t/ transitionDuration;
-            _targetMaterial.SetFloat(StaticUtility.T, p);
+            _targetMaterial.SetFloat(StaticUtility.TimeID, p);
             yield return null;
         }
 
@@ -68,7 +68,7 @@ public class LoadingManager : MonoBehaviour
         {
             t += Time.deltaTime;
             float p = t/ transitionDuration;
-            _targetMaterial.SetFloat(StaticUtility.T, 1-p); // inverse
+            _targetMaterial.SetFloat(StaticUtility.TimeID, 1-p); // inverse
             yield return null;
         }
 

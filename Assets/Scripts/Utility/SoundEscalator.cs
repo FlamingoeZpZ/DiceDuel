@@ -23,7 +23,7 @@ namespace Utility
         [Header("Settings")] 
         [SerializeField] private EEscalationType escalationType;
         [SerializeField] private int maxNoteIncrease = 8;
-        [SerializeField] private int startingNoteShift = 0;
+        [SerializeField] private int startingNoteShift;
         [SerializeField] private int semiTones = 1;
         
         private int _counter;

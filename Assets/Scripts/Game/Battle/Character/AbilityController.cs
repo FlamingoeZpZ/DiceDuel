@@ -111,8 +111,6 @@ namespace Game.Battle.Character
         private void ApplyNewTarget(DragAndDropZone previous, DragAndDropZone current, EDiceType value)
         {
             int diceValue = (int)value + 1;
-
-            Debug.Log("Dice Value: " + diceValue);
             
             if (previous.transform.parent.TryGetComponent(out AbilityUI oldUI))
             {
