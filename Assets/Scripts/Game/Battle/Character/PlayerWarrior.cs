@@ -18,7 +18,7 @@ namespace Game.Battle.Character
        {
            base.Awake();
            _abilityController = GetComponentInChildren<AbilityController>();
-           _abilityController.ConstructAbilityController(this, abilities, baseStats.dice);
+           _abilityController.ConstructAbilityController(this, abilities, characterStats.dice);
 
        }
 

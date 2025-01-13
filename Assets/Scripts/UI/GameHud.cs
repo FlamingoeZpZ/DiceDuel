@@ -28,11 +28,12 @@ namespace UI
         
         private int _numCreated;
         private Camera _camera;
-
+        private Transform _canvas;
         
         void Awake()
         {
             _textSize = score.fontSize;
+            _canvas = GetComponentInParent<Canvas>().transform;
             _soundEscalator = GetComponent<SoundEscalator>();
             _camera = Camera.main;
         }
@@ -42,7 +43,7 @@ namespace UI
         {
             location = _camera.WorldToScreenPoint(location);
             //location = _camera.WorldToScreenPoint(location);
-            TextMeshProUGUI popup = Instantiate(diceScorePopup, location, Quaternion.identity, transform);
+            TextMeshProUGUI popup = Instantiate(diceScorePopup, location, Quaternion.identity, _canvas);
             popup.text = value.ToString();
             popup.color = score.color;
 
@@ -79,21 +80,11 @@ namespace UI
         {
             _soundEscalator.ResetProgression();
             score.text = initialValue.ToString();
-            //score.gameObject.SetActive(true);
             _val = initialValue;
             await BubbleText(score, _textSize,  bubbleTextScale, bubbleDuration);
         }
         
-        /*
-        public async void Hide(float length = 0.3f)
-        {
-            _counter = 0;
-            await FadeAwayAndDisable(score, length);
-        }
-        */
-
-       
-
+        
         #region Should be in a UtilityFile
         //GPT generated cus lazy
         /*

@@ -6,6 +6,8 @@ using Game.Battle.UI;
 using Managers;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 using UniTask = Cysharp.Threading.Tasks.UniTask;
 
 namespace Game.Battle.Character
@@ -15,6 +17,7 @@ namespace Game.Battle.Character
     public abstract class BaseCharacter : MonoBehaviour, IWarrior
     {
         [SerializeField] private Transform diceHudHolder;
+        [SerializeField] private GameObject ragDoll;
         [SerializeField] private GameHud diceHudPrefab;
         
         private static readonly int Block = Animator.StringToHash("Block");
@@ -22,9 +25,11 @@ namespace Game.Battle.Character
         [SerializeField] private SliderText healthBar;
         [SerializeField] private SliderText staminaBar;
         [SerializeField] private SliderText staminaCap;
-        [SerializeField] protected CharacterStats baseStats;
+        [SerializeField] protected CharacterStats characterStats;
         [SerializeField] protected AbilityBaseStats[] abilities;
+        
         private GameHud[] _diceHuds;
+        protected IWarrior myEnemy;
         
         //Accessible to our child classes
         private int _currentHealth;
@@ -44,9 +49,23 @@ namespace Game.Battle.Character
             {
                 healthBar.UpdateCurrent(value);
                 _currentHealth = value;
+                if (_currentHealth <= 0) OnDefeated();
             }
         }
-        
+
+        private void OnDefeated()
+        {
+            ragDoll.SetActive(true);
+            ragDoll.transform.SetParent(null, true);
+            gameObject.SetActive(false);
+
+            foreach (var rb in ragDoll.GetComponentsInChildren<Rigidbody2D>())
+            {
+                rb.AddForce(((Vector2)transform.position - rb.position) * 10, ForceMode2D.Impulse );
+            }
+            
+        }
+
         public int CurrentStamina
         {
             get => _currentStamina;
@@ -62,7 +81,7 @@ namespace Game.Battle.Character
             get => _currentStaminaCap;
             set
             {
-                _currentStaminaCap = Mathf.Clamp(value, 1, baseStats.MaxStamina);
+                _currentStaminaCap = Mathf.Clamp(value, 1, characterStats.MaxStamina);
                 staminaCap.UpdateCurrent(_currentStaminaCap);
             }
         }
@@ -78,10 +97,17 @@ namespace Game.Battle.Character
         private Animator _characterAnimator;
         private bool _isLeftSide;
         
-        public void Init(bool isLeftSide)
+        public virtual void Init(bool isLeftSide, IWarrior enemy)
         {
             _isLeftSide = isLeftSide;
 
+            foreach (GameHud hud in _diceHuds)
+            {
+                HorizontalLayoutGroup layoutGroup = hud.GetComponent<HorizontalLayoutGroup>();
+                layoutGroup.reverseArrangement = isLeftSide;
+                //layoutGroup.enabled = false; // disable because of how dice hud works.
+            }
+            
         }
         
         public void TakeDamage(int amount, bool canBeBlocked)
@@ -113,12 +139,6 @@ namespace Game.Battle.Character
                 CurrentHealth -= remainder;
                 _characterAnimator.SetTrigger(OnHurt);
             }
-        }
-
-        public void GainShield(int amount)
-        {
-            //Never go below 0
-            
         }
 
         public void BeginRound()
@@ -216,11 +236,11 @@ namespace Game.Battle.Character
         {
             _startLocation = transform.position;
 
-            healthBar.UpdateMax(baseStats.MaxHealth);
-            staminaCap.UpdateMax(baseStats.MaxStamina);
-            staminaBar.UpdateMax(baseStats.MaxStamina);
+            healthBar.UpdateMax(characterStats.MaxHealth);
+            staminaCap.UpdateMax(characterStats.MaxStamina);
+            staminaBar.UpdateMax(characterStats.MaxStamina);
             
-            CurrentHealth = baseStats.MaxHealth;
+            CurrentHealth = characterStats.MaxHealth;
             CurrentStaminaCap = 3;
             CurrentStamina = CurrentStaminaCap;
 

@@ -1,43 +1,46 @@
+using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Game.Battle.Strategies;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game.Battle.Character
 {
     [SelectionBase]
     public class AIWarrior : BaseCharacter
     {
-        [SerializeField] private EAIType aiType;
-        [SerializeField] private EDiceType[] myDice;
+        [SerializeField] private EaiType aiType;
 
-        /*
-         * 1) Based on some arbitrary difficulty level, we should generate some amount of dice.
-         * 2) We then want to allocate the dice to different abilities depending on what our AI type is.
-         * But how do we do this? How do we determine that we are:
-         * 1. Spending an appropriate amount of dice
-         * 2. Not putting too much into attacking
-         * 3. Managing our resources correctly.
-         *
-         * Aggressive:
-         * Rush generating stamina
-         * If stamina > totalDiceCost OR (stamina > 10 and opponent health < 20)
-         * Place the highest value dice into attack
-         * if stamina is > 20, put the remainder into defense
-         * else remainder into stamina
-         *
-         */
+        private int staminaWanted;
+        private EDiceType[] _myDice;
 
+        
         protected override void Awake()
         {
             base.Awake();
             int difficulty = Random.Range(1, 100);
             Debug.Log("Difficulty: "+ difficulty);
-            myDice = GenerateDiceSet(difficulty, aiType);
+            _myDice = GenerateDiceSet(difficulty, aiType);
+            
+            Array.Sort(_myDice);
+            
+            int required = _myDice.Length; //Faster for the computer than doing +1 12x times.
+            
+            foreach (EDiceType d in _myDice)
+            {
+                required += (int)d;
+            }
+
+            if (aiType is EaiType.Aggressive) staminaWanted = (int)Mathf.Min(required * 0.2f, characterStats.MaxStamina);
+            else if (aiType is EaiType.Defensive) staminaWanted = (int)Mathf.Min(required * 0.4f, characterStats.MaxStamina);
+            else staminaWanted =  (int)Mathf.Min(required * 0.3f, characterStats.MaxStamina);
+
         }
 
-        private EDiceType[] _myDice;
 
         //Based on difficulty
-        private EDiceType[] GenerateDiceSet(int difficulty, EAIType ai)
+        private EDiceType[] GenerateDiceSet(int difficulty, EaiType ai)
         {
             //Let's say there's a max difficulty of 100. What does that look like?
             //The AI should have 16D20, 4D4, 2D6, 1D8, 1D10 
@@ -54,38 +57,83 @@ namespace Game.Battle.Character
             int numDice = (int)Mathf.Lerp(3,12,Mathf.Clamp01(difficulty/Random.Range(60f,80f)));
             
             //We also want to reduce our operations given that all items are arbitrary.
-            if(ai is EAIType.Aggressive) return AIUtility.GenerateDice(numDice, difficulty, 20, 10, 40, 10);
-            if(ai is EAIType.Defensive) return AIUtility.GenerateDice(numDice, difficulty, 30, 15, 50, 15);
+            if(ai is EaiType.Aggressive) return AIUtility.GenerateDice(numDice, difficulty, 20, 10, 40, 10);
+            if(ai is EaiType.Defensive) return AIUtility.GenerateDice(numDice, difficulty, 30, 15, 50, 15);
             return AIUtility.GenerateDice(numDice, difficulty, 20, 15, 70, 20);
         }
         
         
         public override async UniTask ChooseAttacks()
         {
-            await UniTask.Delay(100);
+            List<EDiceType> firstAbility = new();
+            List<EDiceType> secondAbility = new();
+            List<EDiceType> thirdAbility = new();
+            int backIndex = _myDice.Length - 1;
 
-            switch (aiType)
-            {
-                case EAIType.Aggressive:
-                    AggressiveAI();
-                    break;
-                case EAIType.Defensive:
-                    DefensiveAI();
-                    break;
-                case EAIType.Balanced:
-                    BalancedAI();
-                    break;
-            }
+
+            float firstStep = 0.5f;
+            if (aiType == EaiType.Balanced) firstStep -= 0.1f;
+            float secondStep = firstStep + 0.3f;
             
-            for (int i = 0; i < DiceSets.Length; i++)
+            while (CurrentStamina >= staminaWanted && backIndex >= 0)
             {
-                DiceSets[i] = new EDiceType[]
+                //Allocate dice to either Attacking or Defending. 30% chance to put a dice in the opposite
+                float chanceToDoOpposite = Random.Range(0, 1f);
+                EDiceType lastDice;
+
+                await UniTask.Delay(100);
+
+                int cost;
+                do
                 {
-                    EDiceType.Six,
-                    EDiceType.Six
+                    lastDice = _myDice[backIndex--];
+                    cost = (int)lastDice + 1;
+                    if (CurrentStamina > cost) break; //Choose this item
+                }
+                while (backIndex >= 0) ;
+
+
+                CurrentStamina -= cost;
+
+                if (chanceToDoOpposite < firstStep) firstAbility.Add(lastDice);
+                else if(chanceToDoOpposite < secondStep) secondAbility.Add(lastDice);
+                else thirdAbility.Add(lastDice);
+            }
+            //Allocate the rest of the dice to gaining stamina
+
+            for (int i = 0; i <= backIndex && CurrentStamina > 0; i++)
+            {
+                int cost = (int)_myDice[i] + 1;
+                
+                await UniTask.Delay(100);
+                
+                if (CurrentStamina - cost >= 0)
+                {
+                    CurrentStamina -= cost;
+                    thirdAbility.Add(_myDice[i]);
+                }
+            }
+
+            if (aiType is EaiType.Defensive)
+            {
+                DiceSets = new EDiceType[][]
+                {
+                    secondAbility.ToArray(),
+                    firstAbility.ToArray(),
+                    thirdAbility.ToArray()
                 };
             }
-            Debug.LogWarning("AIWarrior ChooseAttacks needs to be completed");
+            else
+            {
+                DiceSets = new EDiceType[][]
+                {
+                    firstAbility.ToArray(),
+                    secondAbility.ToArray(),
+                    thirdAbility.ToArray()
+                };
+            }
+            
+            Debug.Log("I have selected my dice.");
         }
 
         public override Color GetTeamColor()
@@ -93,24 +141,9 @@ namespace Game.Battle.Character
             return Color.white;
         }
 
-        private void AggressiveAI()
-        {
-            
-        }
-
-        private void DefensiveAI()
-        {
-            
-        }
-
-        private void BalancedAI()
-        {
-            
-        }
-
     }
     
-    public enum EAIType
+    public enum EaiType
     {
         Aggressive,
         Defensive,

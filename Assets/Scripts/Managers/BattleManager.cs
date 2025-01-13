@@ -41,8 +41,8 @@ namespace Managers
         public async UniTask StartBattle()
         {
             
-            _leftWarrior.Init(true);
-            _rightWarrior.Init(false);
+            _leftWarrior.Init(true, _rightWarrior);
+            _rightWarrior.Init(false, _leftWarrior);
             
             Debug.Log("Starting Battle");
             while (!HasFightConcluded())

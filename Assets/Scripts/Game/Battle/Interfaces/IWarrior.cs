@@ -7,7 +7,7 @@ namespace Game.Battle.Interfaces
     {
         public bool IsDefeated();
 
-        public void Init(bool isLeftSide);
+        public void Init(bool isLeftSide, IWarrior enemy);
         
         public void TakeDamage(int amount, bool canBeBlocked);
         public void BeginRound();

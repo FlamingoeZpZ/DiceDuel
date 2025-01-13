@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using Game.Battle.Character;
-using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Managers;
 using TMPro;
-using UI.DragAndDrop;
 using UnityEngine;
 using UnityEngine.UI;
 

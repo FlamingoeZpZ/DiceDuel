@@ -11,7 +11,7 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
         [SerializeField] private string animationID = "Attack1";
         [SerializeField] private int eventIndex =  1;
         [SerializeField] private int comboThreshold;
-        [SerializeField] private AbilityBaseStats attackCombo;
+        [SerializeField] private AttackAbility attackCombo;
         [SerializeField] private AnimationClip referencedClip;
 
         public override EAbilityType AbilityType() => EAbilityType.Offensive;
@@ -22,30 +22,39 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
         
         protected override async UniTask StartAbilityImplementation(IWarrior user,  int diceValue, IWarrior opponent)
         {
-
-            int damage = Mathf.Min(diceValue,comboThreshold);
-
+            
             //Specifically if we're running unit tests
             if (user is not BaseCharacter characterObject || opponent is not BaseCharacter opponentCharacter){
-                opponent.TakeDamage(damage, true);   
+                opponent.TakeDamage(diceValue, true);   
                 return; // Pattern match
             }
-        
-            Vector3 userLocation = characterObject.transform.position;
-            Vector3 targetLocation = opponentCharacter.transform.position;
-        
-            //Could be more optimized, but let's just do it.
-            Vector3 direction = (targetLocation - userLocation).normalized;
-        
-            //We should only play this on the last combo
-            if (!attackCombo)
-            {
-                await MoveTo(characterObject.transform, targetLocation - direction * 0.5f, 0.2f);
-            }
-        
+            
             Animator animator = characterObject.GetComponentInChildren<Animator>();
-        
-        
+
+            if (animator == null)
+            {
+                opponent.TakeDamage(diceValue, true);
+                return;
+            }
+            
+            Vector2 userLocation = characterObject.transform.position;
+            Vector2 targetLocation = opponentCharacter.transform.position;
+            Vector2 direction = (targetLocation - userLocation).normalized;
+            
+            await MoveTo(characterObject.transform, targetLocation - direction * 0.5f, 0.2f);
+            
+            await ComboAttack(animator, diceValue, opponent);
+            
+            await UniTask.Delay(500);
+            
+            await MoveTo(characterObject.transform, userLocation, 0.2f);
+
+        }
+
+        protected async UniTask ComboAttack(Animator animator,  int diceValue, IWarrior opponent)
+        {
+            //If we have a combo
+            //Then we should do an animation
             animator.SetTrigger(animationID);
 
             int myTime = (int)(referencedClip.events[eventIndex].time * 1000);
@@ -53,18 +62,16 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
 
             await UniTask.Delay(myTime);
         
-            opponent.TakeDamage(damage, true);
+            int damage = Mathf.Min(diceValue,comboThreshold); // 35 or 25 (25)
+            opponent.TakeDamage(damage, true); // 25 damage
             
             await UniTask.Delay(totalTime - myTime - 100);
-        
             
-            //If we have a combo
-            if (attackCombo && diceValue >= comboThreshold)
+            if (attackCombo && diceValue >= comboThreshold) // 35 >= 25 (Y)
             {
                 //We should then execute that ability 
-                await attackCombo.StartAbility(user, diceValue - comboThreshold, opponent);
+                await attackCombo.ComboAttack(animator, diceValue - comboThreshold, opponent); // 35 - 25 ==> 10
             }
-            
         }
     
 
