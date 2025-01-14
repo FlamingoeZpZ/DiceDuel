@@ -10,6 +10,7 @@ namespace Game.Battle.UI
         [SerializeField] private AudioClip hoverSound;
         
         private SoundEscalator _soundEscalator;
+
         private void Awake()
         {
             DragAndDropObject dragAndDrop = GetComponent<DragAndDropObject>();

@@ -41,7 +41,7 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
             Vector2 targetLocation = opponentCharacter.transform.position;
             Vector2 direction = (targetLocation - userLocation).normalized;
             
-            await MoveTo(characterObject.transform, targetLocation - direction * 0.5f, 0.2f);
+            await MoveTo(characterObject.transform, targetLocation - direction, 0.2f);
             
             await ComboAttack(animator, diceValue, opponent);
             
@@ -61,16 +61,19 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
             int totalTime = (int)(referencedClip.length * 1000);
 
             await UniTask.Delay(myTime);
-        
-            int damage = Mathf.Min(diceValue,comboThreshold); // 35 or 25 (25)
-            opponent.TakeDamage(damage, true); // 25 damage
+
+            int damage = diceValue;
+            if(attackCombo) damage = Mathf.Min(diceValue,comboThreshold); // Only do this if we have a combo
             
-            await UniTask.Delay(totalTime - myTime - 100);
+            opponent.TakeDamage(damage, true); 
             
-            if (attackCombo && diceValue >= comboThreshold) // 35 >= 25 (Y)
+            await UniTask.Delay(totalTime - myTime + 300);
+            
+            
+            if (attackCombo && diceValue >= comboThreshold) 
             {
                 //We should then execute that ability 
-                await attackCombo.ComboAttack(animator, diceValue - comboThreshold, opponent); // 35 - 25 ==> 10
+                await attackCombo.ComboAttack(animator, diceValue - comboThreshold, opponent);
             }
         }
     
@@ -91,6 +94,8 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
                 await UniTask.Yield(); // Yield to the next frame
             }
 
+
+            
             transform.position = endLocation; // Ensure the final position is exactly the target
         }
     }

@@ -2,7 +2,6 @@ using Game.Battle.Character;
 using Game.Battle.Interfaces;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utility;
 
@@ -17,7 +16,6 @@ namespace Managers
 
         [SerializeField] private GameObject endGameHUD;
         [SerializeField] private TextMeshProUGUI endText;
-        [SerializeField] private Button endButton;
 
         [ContextMenu("Test Battle")]
         public void TestBattle()
@@ -29,7 +27,6 @@ namespace Managers
         private void Start()
         {
             TestBattle();
-            endButton.onClick.AddListener(() => SceneManager.LoadScene(0));
         }
 
         private async void BeginBattle(IWarrior a, IWarrior b)
@@ -71,8 +68,12 @@ namespace Managers
                 endText.text = winner.GetName() + " has defeated " + loser.GetName();
             }
 
-            endText.InterpolateAlpha(0.5f);
-            endButton.targetGraphic.InterpolateAlpha(1.2f);
+            Graphic[] graphics = GetComponentsInChildren<Graphic>();
+
+            foreach (Graphic g in graphics)
+            {
+                g.InterpolateAlpha(0.5f);
+            }
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -67,7 +68,7 @@ namespace Game.Battle.Character
 
         private void OnDisable()
         {
-            EffectManager.instance.PlayDissolve(transform.position, transform.rotation, _mesh, _myColor);
+            EffectManager.Instance.PlayDissolve(transform.position, transform.rotation, _mesh, _myColor);
             
             //Reenable the rigidbody for future usage
             _rigidbody.isKinematic = false;
@@ -131,9 +132,9 @@ namespace Game.Battle.Character
             //Bounce off other dice
             if (otherRigidbody && otherRigidbody.TryGetComponent(out Dice _))
             {
-                EffectManager.instance.PlayDiceHitSound(0.1f);
+                EffectManager.Instance.PlayDiceHitSound(0.1f);
                 _rigidbody.AddForce(normal * Random.Range(minSpeed,maxSpeed), ForceMode.Impulse);
-                EffectManager.instance.PlaySparks(transform.position, Quaternion.LookRotation(normal), _myColor);
+                EffectManager.Instance.PlaySparks(transform.position, Quaternion.LookRotation(normal), _myColor);
             }
         }
 

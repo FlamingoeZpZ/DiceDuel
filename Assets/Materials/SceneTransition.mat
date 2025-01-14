@@ -52,7 +52,7 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _T: -0.0015305281
+    - _T: 0.076069
     - _Thickness: 2
     - _UIMaskSoftnessX: 1
     - _UIMaskSoftnessY: 1

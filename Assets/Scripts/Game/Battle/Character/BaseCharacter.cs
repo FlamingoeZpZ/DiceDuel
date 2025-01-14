@@ -6,7 +6,6 @@ using Game.Battle.UI;
 using Managers;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UniTask = Cysharp.Threading.Tasks.UniTask;
 
@@ -29,14 +28,12 @@ namespace Game.Battle.Character
         [SerializeField] protected AbilityBaseStats[] abilities;
         
         private GameHud[] _diceHuds;
-        protected IWarrior myEnemy;
         
         //Accessible to our child classes
         private int _currentHealth;
         private int _currentStamina;
         private int _currentStaminaCap;
         private int _currentShield;
-        private Vector3 _startLocation;
 
         protected EDiceType[][] DiceSets;
         
@@ -61,7 +58,7 @@ namespace Game.Battle.Character
 
             foreach (var rb in ragDoll.GetComponentsInChildren<Rigidbody2D>())
             {
-                rb.AddForce(((Vector2)transform.position - rb.position) * 10, ForceMode2D.Impulse );
+                rb.AddForce((rb.position - (Vector2)transform.position) * 50, ForceMode2D.Impulse );
             }
             
         }
@@ -97,7 +94,7 @@ namespace Game.Battle.Character
         private Animator _characterAnimator;
         private bool _isLeftSide;
         
-        public virtual void Init(bool isLeftSide, IWarrior enemy)
+        public virtual void Init(bool isLeftSide)
         {
             _isLeftSide = isLeftSide;
 
@@ -120,8 +117,8 @@ namespace Game.Battle.Character
                 {
                     remainder = amount - _currentShield;
                     _currentShield = Mathf.Max(0, _currentShield - amount); //Can't drop below 0
-                    EffectManager.instance.PlayBlockNoise(0.1f);
-                    EffectManager.instance.PlaySparks(transform.position,
+                    EffectManager.Instance.PlayBlockNoise(0.1f);
+                    EffectManager.Instance.PlaySparks(transform.position,
                         Quaternion.LookRotation(transform.right, Vector3.up), GetTeamColor());
                 }
                 if (remainder < 0)
@@ -141,15 +138,11 @@ namespace Game.Battle.Character
             }
         }
 
-        public void BeginRound()
+        public virtual void BeginRound()
         {
             CurrentStamina = CurrentStaminaCap;
+            CurrentDefense = 0;
         }
-        public virtual void EndRound()
-        {
-            transform.position = _startLocation;
-        }
-
         public abstract UniTask ChooseAttacks();
 
         public async UniTask<AbilityData[]> RollDice()
@@ -175,7 +168,7 @@ namespace Game.Battle.Character
                 
                 
                 Color cacheColor = GetTeamColor();
-                EffectManager.instance.PlayDiceDeploySound();
+                EffectManager.Instance.PlayDiceDeploySound();
 
                 //Create an array to store each dice roll process required
                 UniTask<int>[] tasks = new UniTask<int>[dice.Length];
@@ -234,8 +227,6 @@ namespace Game.Battle.Character
 
         protected virtual void Awake()
         {
-            _startLocation = transform.position;
-
             healthBar.UpdateMax(characterStats.MaxHealth);
             staminaCap.UpdateMax(characterStats.MaxStamina);
             staminaBar.UpdateMax(characterStats.MaxStamina);

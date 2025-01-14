@@ -5,18 +5,28 @@ namespace UI.DragAndDrop
 {
     public class DragAndDropZone : MonoBehaviour
     {
-        private RectTransform _rectTransform;
+       [SerializeField] private RectTransform rectTransform;
+       
         private RectTransform _dragTransform;
+        
         private DragAndDropObject _dragAndDropObject;
         private static DragAndDropZone _current;
-        public event Func<DragAndDropObject,bool> AcceptRules; 
+        public event Func<DragAndDropObject,bool> AcceptRules;
+        public event Action<DragAndDropObject> OnGain;
+        public event Action<DragAndDropObject> OnLost;
         
         private void Awake()
         {
-            DragAndDropObject.OnDragItemChanged += OnItemChanged;
-            _rectTransform = ((RectTransform)transform);
             gameObject.isStatic = true;
             OnItemChanged(null);
+            DragAndDropObject.OnDragItemChanged += OnItemChanged;
+
+        }
+
+
+        private void OnDestroy()
+        {
+            DragAndDropObject.OnDragItemChanged -= OnItemChanged;
         }
 
         private void OnItemChanged(DragAndDropObject obj)
@@ -31,7 +41,7 @@ namespace UI.DragAndDrop
             if (_current == this)
             {
                 //Inverse
-                if (!RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, _dragTransform.position))
+                if (!RectTransformUtility.RectangleContainsScreenPoint(rectTransform, _dragTransform.position))
                 {
                     _current = null;
                     _dragAndDropObject.UnmarkTarget();
@@ -39,7 +49,7 @@ namespace UI.DragAndDrop
             }
             else
             {
-                if (RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, _dragTransform.position))
+                if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, _dragTransform.position))
                 {
                     _current = this;
                     _dragAndDropObject.MarkTarget(this);
@@ -53,5 +63,28 @@ namespace UI.DragAndDrop
             return AcceptRules.Invoke(obj);
         }
 
+        public Vector2 PlaceNearestLocation(Vector2 startLocation)
+        {
+            // Get the RectTransform's size and pivot
+            Vector2 location = rectTransform.position;
+            Vector2 min = rectTransform.rect.min + location;
+            Vector2 max = rectTransform.rect.max + location;
+
+            // Clamp the input position to the bounds
+            float x = Mathf.Clamp(startLocation.x, min.x, max.x);
+            float y = Mathf.Clamp(startLocation.y, min.y, max.y);
+
+            // Return the clamped position in local space
+            return new Vector2(x, y);
+        }
+
+        public void OnItemGained(DragAndDropObject obj)
+        {
+            OnGain?.Invoke(obj);
+        }
+        public void OnItemLost(DragAndDropObject obj)
+        {
+            OnLost?.Invoke(obj);
+        }
     }
 }

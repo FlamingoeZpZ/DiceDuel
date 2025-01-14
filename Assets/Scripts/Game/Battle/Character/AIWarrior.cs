@@ -7,21 +7,22 @@ using Random = UnityEngine.Random;
 
 namespace Game.Battle.Character
 {
-    [SelectionBase]
     public class AIWarrior : BaseCharacter
     {
-        [SerializeField] private EaiType aiType;
-
-        private int staminaWanted;
+        private EaiType _aiType;
+        private int _staminaWanted;
         private EDiceType[] _myDice;
 
         
         protected override void Awake()
         {
             base.Awake();
+            _aiType = (EaiType)Random.Range(0, 3);
+            
+            
             int difficulty = Random.Range(1, 100);
             Debug.Log("Difficulty: "+ difficulty);
-            _myDice = GenerateDiceSet(difficulty, aiType);
+            _myDice = GenerateDiceSet(difficulty, _aiType);
             
             Array.Sort(_myDice);
             
@@ -32,9 +33,9 @@ namespace Game.Battle.Character
                 required += (int)d;
             }
 
-            if (aiType is EaiType.Aggressive) staminaWanted = (int)Mathf.Min(required * 0.2f, characterStats.MaxStamina);
-            else if (aiType is EaiType.Defensive) staminaWanted = (int)Mathf.Min(required * 0.4f, characterStats.MaxStamina);
-            else staminaWanted =  (int)Mathf.Min(required * 0.3f, characterStats.MaxStamina);
+            if (_aiType is EaiType.Aggressive) _staminaWanted = (int)Mathf.Min(required * 0.2f, characterStats.MaxStamina);
+            else if (_aiType is EaiType.Defensive) _staminaWanted = (int)Mathf.Min(required * 0.4f, characterStats.MaxStamina);
+            else _staminaWanted =  (int)Mathf.Min(required * 0.3f, characterStats.MaxStamina);
 
         }
 
@@ -72,10 +73,10 @@ namespace Game.Battle.Character
 
 
             float firstStep = 0.5f;
-            if (aiType == EaiType.Balanced) firstStep -= 0.1f;
+            if (_aiType == EaiType.Balanced) firstStep -= 0.1f;
             float secondStep = firstStep + 0.3f;
             
-            while (CurrentStamina >= staminaWanted && backIndex >= 0)
+            while (CurrentStamina >= _staminaWanted && backIndex >= 0)
             {
                 //Allocate dice to either Attacking or Defending. 30% chance to put a dice in the opposite
                 float chanceToDoOpposite = Random.Range(0, 1f);
@@ -114,7 +115,7 @@ namespace Game.Battle.Character
                 }
             }
 
-            if (aiType is EaiType.Defensive)
+            if (_aiType is EaiType.Defensive)
             {
                 DiceSets = new EDiceType[][]
                 {

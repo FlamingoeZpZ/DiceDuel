@@ -27,6 +27,7 @@ namespace Managers
             }
             Instance = this;
             _prefabSizeDelta = ((RectTransform)(graphingToolPrefab.transform)).sizeDelta;
+            DontDestroyOnLoad(gameObject);
         }
 
         private static readonly string[] Names = new string[]

@@ -41,8 +41,8 @@ namespace Managers
         public async UniTask StartBattle()
         {
             
-            _leftWarrior.Init(true, _rightWarrior);
-            _rightWarrior.Init(false, _leftWarrior);
+            _leftWarrior.Init(true);
+            _rightWarrior.Init(false);
             
             Debug.Log("Starting Battle");
             while (!HasFightConcluded())
@@ -92,9 +92,6 @@ namespace Managers
                     if(ability.Value <= 0) continue;
                     await ability.Ability.StartAbility(ability.MyWarrior, ability.Value, ability.MyWarrior == _leftWarrior?_rightWarrior:_leftWarrior);
                 }
-                
-                _leftWarrior.EndRound();
-                _rightWarrior.EndRound();
             }
             Debug.Log("Concluding Battle, left lost " +_leftWarrior.IsDefeated() + " , right lost " + _rightWarrior.IsDefeated() + " !");
         }

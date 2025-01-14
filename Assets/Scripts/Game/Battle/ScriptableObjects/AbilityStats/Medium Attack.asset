@@ -16,6 +16,6 @@ MonoBehaviour:
   costsMaxStamina: 1
   animationID: Attack2
   eventIndex: 1
-  comboThreshold: 5
+  comboThreshold: 15
   attackCombo: {fileID: 11400000, guid: 3e48ae189c31c6e4392c0ee5fe092f55, type: 2}
   referencedClip: {fileID: 7400000, guid: 9cb03408da0b3b4499dffb34a50a33e4, type: 2}

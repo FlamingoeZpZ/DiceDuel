@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using Game.Battle.Character;
 using Game.Battle.Interfaces;
+using Managers;
 using UnityEngine;
 
 namespace Game.Battle.ScriptableObjects.AbilityObjects
@@ -26,7 +27,7 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
         
             await MoveToAndExplode(myFireball, opponentCharacter.transform.position, Mathf.Max(diceValue / 3f, 1));
 
-            EffectManager.instance.PlaySparks(myFireball.position,
+            EffectManager.Instance.PlaySparks(myFireball.position,
                 Quaternion.LookRotation(userCharacter.transform.position - opponentCharacter.transform.position, 
                     Vector3.forward), myFireball.GetComponentInChildren<ParticleSystem>().main.startColor.color);
         

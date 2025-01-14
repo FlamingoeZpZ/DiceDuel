@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 20f2b6272f49ac34894136a866e4773d
+guid: cf8c615a42803d64a925811576dc8e28
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5597604162469967688
-    second: DiceIcons (2)_0
-  - first:
-      213: 3243597988762151282
-    second: DiceIcons (2)_1
-  - first:
-      213: -5421253216328597486
-    second: DiceIcons (2)_2
-  - first:
-      213: -2084827368631015185
-    second: DiceIcons (2)_3
-  - first:
-      213: -1271947126433996053
-    second: DiceIcons (2)_4
+      213: -5616843613126156214
+    second: SimpleUITextures_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -89,7 +77,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -138,111 +126,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DiceIcons (2)_0
+      name: Question
       rect:
         serializedVersion: 2
-        x: 4
-        y: 28
-        width: 91
-        height: 82
+        x: 0
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8473541145faead40800000000000000
-      internalID: 5597604162469967688
+      spriteID: 6dea35f08185e424d8bd9f2610f3b20d
+      internalID: 655707430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiceIcons (2)_1
+      name: Exclaim!
       rect:
         serializedVersion: 2
-        x: 97
-        y: 19
-        width: 97
-        height: 90
+        x: 128
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 279e65a7f23930d20800000000000000
-      internalID: 3243597988762151282
+      spriteID: 2622ce18e7d3ddc4b9b9910d79620681
+      internalID: -486516364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiceIcons (2)_2
+      name: HomeHouse
       rect:
         serializedVersion: 2
-        x: 204
-        y: 12
-        width: 87
-        height: 104
+        x: 256
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2104a4b3ce6d3c4b0800000000000000
-      internalID: -5421253216328597486
+      spriteID: 1a0e58cee965e814799f986e299fa6de
+      internalID: -571782126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiceIcons (2)_3
+      name: EmptyBubble
       rect:
         serializedVersion: 2
-        x: 303
-        y: 12
-        width: 99
-        height: 104
+        x: 384
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fe86cbadd843113e0800000000000000
-      internalID: -2084827368631015185
+      spriteID: b17bdda81fdd0bd45a54573fb9a7833c
+      internalID: 1961150284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiceIcons (2)_4
+      name: Left
       rect:
         serializedVersion: 2
-        x: 407
-        y: 10
-        width: 99
-        height: 108
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: be2a2dbd3d2295ee0800000000000000
-      internalID: -1271947126433996053
+      spriteID: 582bc0fa43d324d47bfa67cd769aa7d6
+      internalID: 1847685481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Right
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad02756b36c14e4c8409a7da2cae2d0
+      internalID: -1958116926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapLocation
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6759f922877c46c4b9fe93295193b93e
+      internalID: 1526602436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightningThunderBolt
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5d7faab45b2c445ba2787edf012d7c
+      internalID: -2076309324
       vertices: []
       indices: 
       edges: []
@@ -251,7 +305,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4ea9a83690bcc4045ae85b96d8e4f403
     internalID: 0
     vertices: []
     indices: 
@@ -261,11 +315,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DiceIcons (2)_0: 5597604162469967688
-      DiceIcons (2)_1: 3243597988762151282
-      DiceIcons (2)_2: -5421253216328597486
-      DiceIcons (2)_3: -2084827368631015185
-      DiceIcons (2)_4: -1271947126433996053
+      EmptyBubble: 1961150284
+      Exclaim!: -486516364
+      HomeHouse: -571782126
+      Left: 1847685481
+      LightningThunderBolt: -2076309324
+      MapLocation: 1526602436
+      Question: 655707430
+      Right: -1958116926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

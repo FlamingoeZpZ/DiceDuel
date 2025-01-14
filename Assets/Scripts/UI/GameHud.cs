@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -72,7 +73,7 @@ namespace UI
 
             target.y -=  score.rectTransform.rect.center.y;
             Vector3 loc = Camera.main!.ScreenToWorldPoint(target);
-            EffectManager.instance.PlaySparks(loc, _cachedRotation, Color.white);
+            EffectManager.Instance.PlaySparks(loc, _cachedRotation, Color.white);
              await BubbleText(score, _textSize, bubbleTextScale, bubbleDuration);
         }
 

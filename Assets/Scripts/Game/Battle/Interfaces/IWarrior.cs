@@ -7,13 +7,12 @@ namespace Game.Battle.Interfaces
     {
         public bool IsDefeated();
 
-        public void Init(bool isLeftSide, IWarrior enemy);
+        public void Init(bool isLeftSide);
         
         public void TakeDamage(int amount, bool canBeBlocked);
         public void BeginRound();
         public UniTask ChooseAttacks();
         public UniTask<AbilityData[]> RollDice();
-        public void EndRound();
         public string GetName();
         
         public int CurrentHealth { get; set; }

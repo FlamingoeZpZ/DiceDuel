@@ -73,14 +73,19 @@ namespace UI.DragAndDrop
             else
             {
                 transform.SetParent(OldTarget.transform);
+                transform.position = OldTarget.PlaceNearestLocation(transform.position);
             }
         }
 
         public void SetParent(DragAndDropZone target)
         {
+            OldTarget.OnItemLost(this);
+            target.OnItemGained(this);
+
             transform.SetParent(target.transform);
             onApplyNewTarget?.Invoke(OldTarget, target);
             OldTarget = target;
+
         }
 
         public int GetLayers()
@@ -103,7 +108,7 @@ namespace UI.DragAndDrop
 
         private void OnTransformParentChanged()
         {
-            if (transform.parent.TryGetComponent(out DragAndDropZone target))
+            if (transform.parent.TryGetComponent(out DragAndDropZone target) && target != CurrentTarget)
             {
                 CurrentTarget = null;
                 SetParent(target);

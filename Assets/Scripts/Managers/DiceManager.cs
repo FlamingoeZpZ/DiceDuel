@@ -11,7 +11,7 @@ namespace Managers
         [SerializeField] private Dice eightSidedDice;
         [SerializeField] private Dice tenSidedDice;
         [SerializeField] private Dice twentySidedDice;
-
+        
         [SerializeField] private Transform diceSpawnPointLeft;
         [SerializeField] private Transform diceSpawnPointRight;
 

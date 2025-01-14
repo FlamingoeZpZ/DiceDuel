@@ -31,15 +31,16 @@ namespace Game.Battle.Character
            _abilityController.DisableDice();
        }
 
+       public override async void BeginRound()
+       {
+           base.BeginRound();
+           await _abilityController.ReturnDice();
+       }
+
        public override Color GetTeamColor()
        {
            return SaveManager.SaveData.DiceColor;
        }
 
-       public override async void EndRound()
-       {
-           base.EndRound();
-           await _abilityController.ReturnDice();
-       }
     }
 }
