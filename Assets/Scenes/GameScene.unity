@@ -964,7 +964,6 @@ MonoBehaviour:
   _rightWarrior: {fileID: 8518476875541248238}
   endGameHUD: {fileID: 1143017198}
   endText: {fileID: 1903001990}
-  endButton: {fileID: 462868001}
 --- !u!4 &1272584744
 Transform:
   m_ObjectHideFlags: 0
@@ -1829,6 +1828,10 @@ PrefabInstance:
     - target: {fileID: 398204098320823557, guid: 57ceb812ac8c98c4ab521fe30e0fd945, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 931546633405814481, guid: 57ceb812ac8c98c4ab521fe30e0fd945, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3433142248681173174, guid: 57ceb812ac8c98c4ab521fe30e0fd945, type: 3}
       propertyPath: m_Name
