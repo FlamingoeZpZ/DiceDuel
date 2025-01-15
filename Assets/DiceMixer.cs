@@ -3,8 +3,6 @@ using Game.Battle.Character;
 using Game.Shop;
 using UI.DragAndDrop;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 using Utility;
 
 [RequireComponent(typeof(DragAndDropZone))]
@@ -13,7 +11,6 @@ public class DiceMixer : MonoBehaviour
     [SerializeField] private SoundEscalator escalator;
     [SerializeField] private AudioClip acceptSound;
     
-    [SerializeField] private Sprite[] sprites;
     private DragAndDropZone _dragAndDropZone;
     
     private readonly List<RectTransform> _fours = new List<RectTransform>();
@@ -74,8 +71,7 @@ public class DiceMixer : MonoBehaviour
                 Debug.Log("Merged a dice");
                 
                 int type = (int)value.DiceType + 1;
-                value.SetType((EDiceType)type);
-                rt.GetComponent<Image>().sprite = sprites[type];
+                value.SetType(type);
                 escalator.PlayManual(acceptSound, type);
 
                 if (value.DiceType == EDiceType.Twenty) return;

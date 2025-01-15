@@ -2,8 +2,6 @@ using Game.Battle.Character;
 using TMPro;
 using UI.DragAndDrop;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 using Utility;
 
 namespace Game.Shop
@@ -13,7 +11,6 @@ namespace Game.Shop
         [SerializeField] private RectTransform prefabParent;
         [SerializeField] private DragAndDropObject dragAndDropObjectPrefab;
         [SerializeField] private TextMeshProUGUI amountText;
-        [SerializeField] private Sprite diceSprite;
         [SerializeField] private EDiceType diceType;
 
         private DragAndDropObject _currentObject;
@@ -71,7 +68,6 @@ namespace Game.Shop
         {
             _currentObject = Instantiate(dragAndDropObjectPrefab, prefabParent);
             _currentObject.gameObject.AddComponent<DiceValue>().SetType(diceType);
-            _currentObject.GetComponent<Image>().sprite = diceSprite;
             amountText.text = _currentAmount.ToString();
         }
     }

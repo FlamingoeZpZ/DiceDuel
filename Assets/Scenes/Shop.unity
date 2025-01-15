@@ -1878,6 +1878,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101886570}
   m_CullTransparentMesh: 1
+--- !u!1 &1120798855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120798857}
+  - component: {fileID: 1120798856}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1120798856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120798855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736a7c9cd825177449d18a520a124273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceSprites:
+  - {fileID: 5597604162469967688, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
+  - {fileID: 3243597988762151282, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
+  - {fileID: -5421253216328597486, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
+  - {fileID: -2084827368631015185, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
+  - {fileID: -1271947126433996053, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
+--- !u!4 &1120798857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120798855}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1207551962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2611,12 +2661,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalator: {fileID: 1495748775}
   acceptSound: {fileID: 8300000, guid: 1e7f2496740a8eb4f80568604d07660a, type: 3}
-  sprites:
-  - {fileID: 5597604162469967688, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
-  - {fileID: 3243597988762151282, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
-  - {fileID: -5421253216328597486, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
-  - {fileID: -2084827368631015185, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
-  - {fileID: -1271947126433996053, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
 --- !u!1 &1560474092
 GameObject:
   m_ObjectHideFlags: 0
@@ -6087,3 +6131,4 @@ SceneRoots:
   - {fileID: 148949658}
   - {fileID: 1757988151}
   - {fileID: 160303973}
+  - {fileID: 1120798857}
