@@ -1,4 +1,5 @@
-using Game.Battle.Character;
+using System;
+using Managers.Core;
 using TMPro;
 using UI.DragAndDrop;
 using UnityEngine;
@@ -11,26 +12,43 @@ namespace Game.Shop
         [SerializeField] private RectTransform prefabParent;
         [SerializeField] private DragAndDropObject dragAndDropObjectPrefab;
         [SerializeField] private TextMeshProUGUI amountText;
-        [SerializeField] private EDiceType diceType;
+        [SerializeField] private bool takeAnyType;
+        private bool _hasAType;
+        
+        private EDiceType _diceType;
 
         private DragAndDropObject _currentObject;
         private DragAndDropZone _dropZone;
-        private int _currentAmount = 3;
+        private int _currentAmount = 0;
+
+        public EDiceType DiceType => _diceType;
+        public int CurrentAmount => _currentAmount;
+        
+        public event Action OnDiceRemoved;
+        public event Action OnDiceAdded;
 
         [SerializeField] private SoundEscalator escalator;
 
-        private void Awake()
+        private void OnEnable()
         {
-            CreateNewObject();
-
-            _dropZone = GetComponentInChildren<DragAndDropZone>();
             
+            CreateNewObject();
+            
+            //??= only do if null.
+            _dropZone ??= GetComponentInChildren<DragAndDropZone>();
+
             _dropZone.AcceptRules += AcceptRules;
             _dropZone.OnGain += DestroyItem;
             _dropZone.OnLost += SpawnItem;
+            
+            HandleEmpty();
+        }
 
-             HandleEmpty();
-             
+        private void OnDisable()
+        {
+            _dropZone.AcceptRules -= AcceptRules;
+            _dropZone.OnGain -= DestroyItem;
+            _dropZone.OnLost -= SpawnItem;
         }
 
         private void SpawnItem(DragAndDropObject obj)
@@ -39,6 +57,7 @@ namespace Game.Shop
             escalator.Decrement();
             CreateNewObject();
             HandleEmpty();
+            OnDiceRemoved?.Invoke();
         }
 
         private void HandleEmpty()
@@ -56,19 +75,52 @@ namespace Game.Shop
             if (_currentAmount > 0)  _currentObject.enabled = true;
             amountText.text = _currentAmount.ToString();
             Destroy(obj.gameObject);
+            OnDiceAdded?.Invoke();
         }
 
 
         private bool AcceptRules(DragAndDropObject diceObject)
         {
-            return diceObject.TryGetComponent(out DiceValue dice) && dice.DiceType == diceType;
+            if (diceObject.TryGetComponent(out DiceValue dice))
+            {
+                Debug.Log(takeAnyType  +" , " + _hasAType);
+                if (takeAnyType && !_hasAType)
+                {
+                    _hasAType = true;
+                    _diceType = dice.DiceType;
+                    Destroy(_currentObject.gameObject);
+                    CreateNewObject();
+                    return true;
+                }
+                return dice.DiceType == _diceType;
+            }
+
+            return false;
         }
         
         private void CreateNewObject()
         {
             _currentObject = Instantiate(dragAndDropObjectPrefab, prefabParent);
-            _currentObject.gameObject.AddComponent<DiceValue>().SetType(diceType);
+            DiceValue dv = _currentObject.gameObject.AddComponent<DiceValue>();
+            if(_hasAType) dv.SetType(_diceType);
+            else dv.SetInvalid();
             amountText.text = _currentAmount.ToString();
+        }
+
+        public void SetDiceType(EDiceType diceType, int amount)
+        {
+            _hasAType = true;
+            _diceType = diceType;
+            _currentAmount = amount;
+            amountText.text = _currentAmount.ToString();
+
+            Destroy(_currentObject.gameObject);
+            CreateNewObject();
+        }
+
+        public void ClearDiceType()
+        {
+            _hasAType = false;
         }
     }
 }

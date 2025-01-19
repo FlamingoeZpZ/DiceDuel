@@ -1,6 +1,7 @@
 using System;
 using Game.Battle.Character;
 using Managers;
+using Managers.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,11 @@ namespace Game.Shop
         {
             DiceType = (EDiceType)diceType;
             _img.sprite = DataManager.Instance.DiceSprites[diceType];
+        }
+
+        public void SetInvalid()
+        {
+            _img.sprite = DataManager.Instance.MissingIcon;
         }
     }
 }

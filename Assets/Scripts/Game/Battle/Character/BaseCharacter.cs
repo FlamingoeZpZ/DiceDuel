@@ -4,6 +4,7 @@ using Game.Battle.Interfaces;
 using Game.Battle.ScriptableObjects;
 using Game.Battle.UI;
 using Managers;
+using Managers.Core;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;

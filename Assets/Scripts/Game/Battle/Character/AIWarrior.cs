@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Game.Battle.Strategies;
+using Managers.Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

@@ -1,4 +1,4 @@
-﻿using Game.Battle.Character;
+﻿using Managers.Core;
 using UnityEngine;
 
 namespace Game.Battle.ScriptableObjects

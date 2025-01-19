@@ -1,19 +1,13 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using Managers;
+using Managers.Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Game.Battle.Character
 {
-    public enum EDiceType
-    {
-        Four,
-        Six,
-        Eight,
-        Ten,
-        Twenty
-    }
+
     
     [SelectionBase]
     public class Dice : MonoBehaviour

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Game.Battle.Character;
 using Game.Battle.ScriptableObjects;
+using Managers.Core;
 using UI;
 using UnityEngine;
 
@@ -58,7 +59,7 @@ namespace Managers
                 {
                     graphName += values[index] + Names[index];
                     min += values[index];
-                    max += values[index] * DiceManager.DiceValues[(EDiceType)index].High;
+                    max += values[index] * DataManager.DiceValues[(EDiceType)index].High;
                 }
             }
 

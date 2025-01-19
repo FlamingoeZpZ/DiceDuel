@@ -1,4 +1,3 @@
-using Managers;
 using UnityEngine;
 using UniTask = Cysharp.Threading.Tasks.UniTask;
 
@@ -7,8 +6,8 @@ namespace Game.Battle.Character
     public class PlayerWarrior : BaseCharacter // A player is a warrior
     {
        //What does a player have?
-       
        //A player has a set of attacks
+       [SerializeField, ColorUsage(false, true)] private Color textColor;
 
        private AbilityController _abilityController;
 
@@ -39,7 +38,7 @@ namespace Game.Battle.Character
 
        public override Color GetTeamColor()
        {
-           return SaveManager.SaveData.DiceColor;
+           return textColor;
        }
 
     }

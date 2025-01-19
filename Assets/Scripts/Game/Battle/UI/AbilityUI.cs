@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using Game.Battle.Character;
 using Game.Battle.ScriptableObjects;
-using Managers;
+using Managers.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +28,7 @@ namespace Game.Battle.UI
         {
             _dice.Add(value);
             _low += 1;
-            _high += DiceManager.DiceValues[value].High;
+            _high += DataManager.DiceValues[value].High;
             effectiveRange.text = GenerateFancyText(_low,_high);
         }
 
@@ -37,7 +36,7 @@ namespace Game.Battle.UI
         {
             _dice.Remove(value);
             _low -= 1;
-            _high -= DiceManager.DiceValues[value].High;
+            _high -= DataManager.DiceValues[value].High;
             effectiveRange.text = GenerateFancyText(_low,_high);
 
         }

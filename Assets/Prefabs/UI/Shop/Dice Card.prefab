@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 1344093765407202114}
   - component: {fileID: 3782990059667685738}
   - component: {fileID: 4143007209850020042}
+  - component: {fileID: 4585995454341434594}
   m_Layer: 3
   m_Name: Dice Card
   m_TagString: Untagged
@@ -307,8 +308,7 @@ MonoBehaviour:
   prefabParent: {fileID: 2825031718808742670}
   dragAndDropObjectPrefab: {fileID: 1480842734466901811, guid: ebb44bdb7d8a7fd40a5710536604c616, type: 3}
   amountText: {fileID: 3887345526049791709}
-  diceSprite: {fileID: 5597604162469967688, guid: 20f2b6272f49ac34894136a866e4773d, type: 3}
-  diceType: 0
+  takeAnyType: 0
   escalator: {fileID: 3782990059667685738}
 --- !u!114 &3782990059667685738
 MonoBehaviour:
@@ -426,3 +426,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4585995454341434594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811303393573863008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffead9a7e075144dae0ad04ad8d98e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dice: 0

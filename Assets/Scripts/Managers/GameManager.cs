@@ -20,7 +20,7 @@ namespace Managers
         [ContextMenu("Test Battle")]
         public void TestBattle()
         {
-            Debug.LogError("Make sure to assign left and right characters, AIpool, and player");
+            Debug.LogError("Choose random AI");
             BeginBattle(_leftWarrior, _rightWarrior);
         }
 
