@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
+  m_Name: Enemy
   m_Shader: {fileID: -6465566751694194690, guid: 270f26dc6b2c0754587e8eccd6819135, type: 3}
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 2100000, guid: 614964577cdc5f446abdba150aa1edb4, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,41 +22,20 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - _Frame: 0
-    - _HasSword: 1
-    - _LineHardness: 3.09
-    - _Num: 7
-    - _SwordInFront: 0
+    m_Floats: []
     m_Colors:
-    - _ArmorColor: {r: 0.745283, g: 0.43160313, b: 0, a: 1}
-    - _Cloth: {r: 0.2735849, g: 0.21293165, b: 0.21293165, a: 1}
+    - _ArmorColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Cloth: {r: 0.4716981, g: 0.40815973, b: 0.29147384, a: 1}
     - _Lines: {r: 0, g: 0, b: 0, a: 1}
-    - _MinorArmorColor: {r: 0.24528313, g: 0.7518386, b: 4, a: 1}
-    - _Pants: {r: 0.74509805, g: 0.43137255, b: 0, a: 1}
-    - _Shirt: {r: 0, g: 1, b: 0.9284022, a: 1}
-    - _Trail: {r: 0.74509805, g: 0.43137255, b: 0, a: 1}
+    - _MinorArmorColor: {r: 766.99615, g: 42.289467, b: 0, a: 1}
+    - _Pants: {r: 1, g: 1, b: 1, a: 1}
+    - _Shirt: {r: 1, g: 0.25666943, b: 0, a: 1}
+    - _Trail: {r: 1, g: 0.2501845, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &3002970443287566438
+--- !u!114 &5893266622557298632
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

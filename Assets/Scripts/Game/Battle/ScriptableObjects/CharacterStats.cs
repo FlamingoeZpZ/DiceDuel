@@ -8,8 +8,6 @@ namespace Game.Battle.ScriptableObjects
     {
         [SerializeField] private int maxStamina;
         [SerializeField] private int maxHealth;
-
-        public EDiceType[] dice;
         
         //Simple getter variables, you should never modify a scriptable object
         public int MaxStamina => maxStamina;

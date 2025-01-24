@@ -1,3 +1,4 @@
+using Managers.Core;
 using UnityEngine;
 using UniTask = Cysharp.Threading.Tasks.UniTask;
 
@@ -17,7 +18,7 @@ namespace Game.Battle.Character
        {
            base.Awake();
            _abilityController = GetComponentInChildren<AbilityController>();
-           _abilityController.ConstructAbilityController(this, abilities, characterStats.dice);
+           _abilityController.ConstructAbilityController(this, abilities, SaveManager.CurrentSave.BattleDice.ToArray());
 
        }
 

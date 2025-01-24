@@ -1,5 +1,6 @@
 using Game.Battle.Character;
 using Game.Battle.Interfaces;
+using Managers.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,6 @@ namespace Managers
         [ContextMenu("Test Battle")]
         public void TestBattle()
         {
-            Debug.LogError("Choose random AI");
             BeginBattle(_leftWarrior, _rightWarrior);
         }
 
@@ -38,7 +38,7 @@ namespace Managers
             OnBattleEnd();
         }
 
-        private void OnBattleEnd()
+        private async void OnBattleEnd()
         {
             endGameHUD.SetActive(true);
             IWarrior winner; 
@@ -58,14 +58,17 @@ namespace Managers
             if (winner is PlayerWarrior)
             {
                 endText.text = "VICTORY\n" + loser.GetName() + " has been defeated";
+                SaveManager.CurrentSave.IncreaseDay();
             }
             else if (loser is PlayerWarrior) //If we lost then we should delete the save
             {
                 endText.text = "DEFEAT\nDefeated By " + winner.GetName();
+                SaveManager.DeleteCurrentSave();
             }
             else
             {
                 endText.text = winner.GetName() + " has defeated " + loser.GetName();
+
             }
 
             Graphic[] graphics = GetComponentsInChildren<Graphic>();
@@ -74,6 +77,7 @@ namespace Managers
             {
                 g.InterpolateAlpha(0.5f);
             }
+
         }
 
 

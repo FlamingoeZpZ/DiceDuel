@@ -63,7 +63,7 @@ namespace Managers.Core
             
         }
 
-        public static void DeleteSaveCurrent()
+        public static void DeleteCurrentSave()
         {
             string path = GetPath(_currentSlot);
             try

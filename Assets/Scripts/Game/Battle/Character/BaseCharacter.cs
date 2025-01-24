@@ -51,7 +51,7 @@ namespace Game.Battle.Character
             }
         }
 
-        private void OnDefeated()
+        protected virtual void OnDefeated()
         {
             ragDoll.SetActive(true);
             ragDoll.transform.SetParent(null, true);

@@ -21,7 +21,8 @@ namespace Game.Battle.Character
             _aiType = (EaiType)Random.Range(0, 3);
             
             
-            int difficulty = Random.Range(1, 100);
+            int difficulty = Mathf.Min(100,(SaveManager.CurrentSave.Day) * Random.Range(1, 11));
+            name = "AI difficulty: " + difficulty +", Day: " + (SaveManager.CurrentSave.Day);
             Debug.Log("Difficulty: "+ difficulty);
             _myDice = GenerateDiceSet(difficulty, _aiType);
             
@@ -143,6 +144,13 @@ namespace Game.Battle.Character
             return Color.white;
         }
 
+        
+        protected override void OnDefeated()
+        {
+            base.OnDefeated();
+            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Four, Random.Range(1,4)); // 1-3 dice
+            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Six, Random.Range(0,3)); // 0-2 dice
+        }
     }
     
     public enum EaiType
