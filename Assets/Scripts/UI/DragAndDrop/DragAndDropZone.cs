@@ -14,6 +14,8 @@ namespace UI.DragAndDrop
         public event Func<DragAndDropObject,bool> AcceptRules;
         public event Action<DragAndDropObject> OnGain;
         public event Action<DragAndDropObject> OnLost;
+
+        private bool _isValidTarget;
         
         private void Awake()
         {
@@ -31,13 +33,15 @@ namespace UI.DragAndDrop
 
         private void OnItemChanged(DragAndDropObject obj)
         {
-            enabled = obj && (obj.GetLayers() & 1<<gameObject.layer) != 0;
+            _isValidTarget = obj && (obj.GetLayers() & 1<<gameObject.layer) != 0;
             _dragAndDropObject = obj;
-            if(enabled) _dragTransform = ((RectTransform)obj.transform);
+            if(_isValidTarget) _dragTransform = ((RectTransform)obj.transform);
         }
 
         private void Update()
         {
+            if (!_isValidTarget) return;
+            
             if (_current == this)
             {
                 //Inverse

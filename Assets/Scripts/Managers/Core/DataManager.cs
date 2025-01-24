@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Managers.Core
 {
+    [Serializable]
     public enum EDiceType
     {
         Four,

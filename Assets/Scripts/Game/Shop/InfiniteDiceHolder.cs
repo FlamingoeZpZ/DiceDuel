@@ -7,12 +7,21 @@ using Utility;
 
 namespace Game.Shop
 {
+    
     public class InfiniteDiceHolder : MonoBehaviour
     {
+
+        private enum EEmptyResponse
+        {
+            Keep,
+            Destroy
+        }
+        
         [SerializeField] private RectTransform prefabParent;
         [SerializeField] private DragAndDropObject dragAndDropObjectPrefab;
         [SerializeField] private TextMeshProUGUI amountText;
         [SerializeField] private bool takeAnyType;
+        [SerializeField] private EEmptyResponse emptyResponse;
         private bool _hasAType;
         
         private EDiceType _diceType;
@@ -32,23 +41,30 @@ namespace Game.Shop
         private void OnEnable()
         {
             
-            CreateNewObject();
-            
             //??= only do if null.
             _dropZone ??= GetComponentInChildren<DragAndDropZone>();
+            _dropZone.enabled = true;
 
+            CreateNewObject();
+            
             _dropZone.AcceptRules += AcceptRules;
             _dropZone.OnGain += DestroyItem;
             _dropZone.OnLost += SpawnItem;
             
             HandleEmpty();
+            
+        
+
         }
 
         private void OnDisable()
         {
+            _dropZone.enabled = false;
             _dropZone.AcceptRules -= AcceptRules;
             _dropZone.OnGain -= DestroyItem;
             _dropZone.OnLost -= SpawnItem;
+
+           
         }
 
         private void SpawnItem(DragAndDropObject obj)
@@ -64,6 +80,15 @@ namespace Game.Shop
         {
             if (_currentAmount > 0) return;
             _currentObject.enabled = false;
+            switch (emptyResponse)
+            {
+                case EEmptyResponse.Keep:
+                    break;
+                case EEmptyResponse.Destroy:
+                    _hasAType = false;
+                    if(_currentObject) Destroy(_currentObject.gameObject);
+                    break;
+            }
         }
         
 
@@ -83,12 +108,11 @@ namespace Game.Shop
         {
             if (diceObject.TryGetComponent(out DiceValue dice))
             {
-                Debug.Log(takeAnyType  +" , " + _hasAType);
                 if (takeAnyType && !_hasAType)
                 {
                     _hasAType = true;
                     _diceType = dice.DiceType;
-                    Destroy(_currentObject.gameObject);
+                    if(_currentObject) Destroy(_currentObject.gameObject);
                     CreateNewObject();
                     return true;
                 }
@@ -114,8 +138,9 @@ namespace Game.Shop
             _currentAmount = amount;
             amountText.text = _currentAmount.ToString();
 
-            Destroy(_currentObject.gameObject);
+            if(_currentObject) Destroy(_currentObject.gameObject);
             CreateNewObject();
+            HandleEmpty();
         }
 
         public void ClearDiceType()

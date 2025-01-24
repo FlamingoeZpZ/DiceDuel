@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Managers.Core
 {
@@ -44,32 +44,13 @@ namespace Managers.Core
             }; //There are 5 dice types
         }
 
-        public async void AddInvestment(Investment investment)
+        public void AddInvestment(Investment investment)
         {
-
-            //StoredDice[(int)investment.DiceType] -= investment.NumDice;
-
-            //Debug.Log($"Remaining of type: {investment.DiceType}" + StoredDice[(int)investment.DiceType]);
-            
             Investments.Add(investment);
-            
-            await SaveManager.CurrentSave.SaveGame();
-
-        }
-
-        public async void Merge(EDiceType oldType, EDiceType newType)
-        {
-            StoredDice[(int)oldType] -= 2;
-            StoredDice[(int)newType] += 1;
-            
-            Debug.Log($"Remaining of type: {oldType}" + StoredDice[(int)oldType]);
-            Debug.Log($"Remaining of type: {newType}" + StoredDice[(int)newType]);
-            
-            await SaveManager.CurrentSave.SaveGame();
         }
 
         //Setters
-        public void IncreaseDay()
+        public async UniTask IncreaseDay()
         {
             Day += 1;
 
@@ -81,6 +62,22 @@ namespace Managers.Core
                     StoredDice[(int)Investments[i].DiceType] += Investments[i].OutputDice;
                 }
             }
+            await SaveManager.CurrentSave.SaveGame();
+        }
+
+        public void SetBattleDice(List<EDiceType> newDice)
+        {
+            BattleDice = newDice;   
+        }
+
+        public void AddDiceToStorage(EDiceType type, int amount)
+        {
+            StoredDice[(int)type] += amount;
+        }
+
+        public void RemoveStoredDice(EDiceType type, int amount)
+        {
+            StoredDice[(int)type] -= amount;
         }
     }
 

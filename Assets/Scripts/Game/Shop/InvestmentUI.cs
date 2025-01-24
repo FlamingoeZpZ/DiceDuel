@@ -1,4 +1,3 @@
-using System;
 using Managers.Core;
 using TMPro;
 using UnityEngine;
@@ -14,62 +13,65 @@ namespace Game.Shop
         
         [SerializeField] private InfiniteDiceHolder infiniteDiceHolder;
         [SerializeField] private Button lockButton;
-
+        [SerializeField] private Image missingImage;
+        
         private float _rate;
         private int _days;
 
 
         private void OnEnable()
         {
-            infiniteDiceHolder.OnDiceAdded += OnAdded;
-            infiniteDiceHolder.OnDiceRemoved += OnRemoved;
+            infiniteDiceHolder.OnDiceAdded += UpdateText;
+            infiniteDiceHolder.OnDiceRemoved += UpdateText;
         }
-
-        private void OnRemoved()
+        
+        private void OnDisable()
         {
-            if (infiniteDiceHolder.CurrentAmount == 0)
-            {
-                //diceImage.sprite = DataManager.Instance.MissingIcon;
-            }
-        }
-
-        private void OnAdded()
-        {
-           // diceImage.sprite = DataManager.Instance.DiceSprites[(int)infiniteDiceHolder.DiceType];
-            UpdateText();
+            infiniteDiceHolder.OnDiceAdded += UpdateText;
+            infiniteDiceHolder.OnDiceRemoved += UpdateText;
         }
 
         private void UpdateText()
         {
 
-            if (infiniteDiceHolder.CurrentAmount == 0) resultText.text = "0";
-            else resultText.text = infiniteDiceHolder.CurrentAmount + " => " + Investment.CalculateInvestmentValue(infiniteDiceHolder.CurrentAmount, _days, _rate);
+            if (infiniteDiceHolder.CurrentAmount == 0)
+            {
+                resultText.text = "0";
+                lockButton.interactable = false;
+                missingImage.gameObject.SetActive(true);
+            }
+            else
+            {
+                resultText.text = infiniteDiceHolder.CurrentAmount + " => " + Investment.CalculateInvestmentValue(infiniteDiceHolder.CurrentAmount, _days, _rate);
+                lockButton.interactable = true;
+                missingImage.gameObject.SetActive(false);
+            }
             Debug.Log(infiniteDiceHolder.CurrentAmount);
             daysText.text = _days + " battles"; 
             efficiencyText.text = _rate.ToString("P");
         }
 
-        private void OnDisable()
-        {
-            infiniteDiceHolder.OnDiceAdded += OnAdded;
-            infiniteDiceHolder.OnDiceRemoved += OnRemoved;
-        }
+    
         
         
 
         public void SetCurrentInvestment(Investment investment)
         {
-            //diceImage.sprite = DataManager.Instance.DiceSprites[(int)investment.DiceType];
+            missingImage.sprite = DataManager.Instance.DiceSprites[(int)investment.DiceType];
             resultText.text = investment.NumDice + " => " + investment.OutputDice;
             efficiencyText.text = investment.InterestRate.ToString("P");
             daysText.text = investment.RemainingDays + " battles";
+            
+            
         }
 
         public void Lock()
         {
-            infiniteDiceHolder.enabled = false;
             enabled = false;
             lockButton.interactable = false;
+            missingImage.sprite = DataManager.Instance.DiceSprites[(int)infiniteDiceHolder.DiceType];
+            missingImage.gameObject.SetActive(true);
+            Destroy(infiniteDiceHolder.gameObject);
         }
 
         public void SetEmptyInvestment(float efficiency, int days)

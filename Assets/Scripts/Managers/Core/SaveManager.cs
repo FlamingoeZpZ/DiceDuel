@@ -15,6 +15,9 @@ namespace Managers.Core
         private static readonly string FileName = "/Game";
         private static readonly string Extension = ".txt"; //Anything will work
 
+        public static event Action OnPreSave;
+        public static event Action OnPostSave;
+        
         private static string GetPath(int saveSlot) => Path + FileName + saveSlot + Extension;
 
         static SaveManager()
@@ -57,6 +60,7 @@ namespace Managers.Core
         {
             CurrentSave = new SaveData(name);
             await CurrentSave.SaveGame();
+            
         }
 
         public static void DeleteSaveCurrent()
@@ -75,7 +79,12 @@ namespace Managers.Core
 
         public static async UniTask SaveGame(this SaveData data)
         {
+            OnPreSave?.Invoke();
+            Debug.Log("Saving game...");
             await data.SaveGame(_currentSlot);
+            Debug.Log("Save Complete");
+            OnPostSave?.Invoke();
+
         }
     
         public static async UniTask SaveGame(this SaveData data, int slot)
