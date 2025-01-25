@@ -29,7 +29,7 @@ Material:
     - _ArmorColor: {r: 1, g: 1, b: 1, a: 1}
     - _Cloth: {r: 0.4716981, g: 0.40815973, b: 0.29147384, a: 1}
     - _Lines: {r: 0, g: 0, b: 0, a: 1}
-    - _MinorArmorColor: {r: 766.99615, g: 42.289467, b: 0, a: 1}
+    - _MinorArmorColor: {r: 15.813399, g: 0.87189513, b: 0, a: 1}
     - _Pants: {r: 1, g: 1, b: 1, a: 1}
     - _Shirt: {r: 1, g: 0.25666943, b: 0, a: 1}
     - _Trail: {r: 1, g: 0.2501845, b: 0, a: 1}

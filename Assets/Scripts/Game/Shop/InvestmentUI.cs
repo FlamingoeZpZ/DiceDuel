@@ -61,8 +61,6 @@ namespace Game.Shop
             resultText.text = investment.NumDice + " => " + investment.OutputDice;
             efficiencyText.text = investment.InterestRate.ToString("P");
             daysText.text = investment.RemainingDays + " battles";
-            
-            
         }
 
         public void Lock()

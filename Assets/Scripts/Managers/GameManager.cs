@@ -58,7 +58,7 @@ namespace Managers
             if (winner is PlayerWarrior)
             {
                 endText.text = "VICTORY\n" + loser.GetName() + " has been defeated";
-                SaveManager.CurrentSave.IncreaseDay();
+                await SaveManager.CurrentSave.IncreaseDay();
             }
             else if (loser is PlayerWarrior) //If we lost then we should delete the save
             {

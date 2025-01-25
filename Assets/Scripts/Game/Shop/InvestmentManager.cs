@@ -15,7 +15,7 @@ namespace Game.Shop
         
         private void Start()
         {
-            Debug.Log("Building Investment Manager");
+            Debug.Log("Building Investment Manager: Currently there are NUM investments: " + SaveManager.CurrentSave.Investments.Count );
             InvestmentUI[] diceHolders = GetComponentsInChildren<InvestmentUI>();
             for (int index = 0; index < diceHolders.Length; index++)
             {
@@ -26,8 +26,8 @@ namespace Game.Shop
                 }
 
                 Investment investment = SaveManager.CurrentSave.Investments[index];
-                diceHolders[index].SetCurrentInvestment(investment);
                 diceHolders[index].Lock();
+                diceHolders[index].SetCurrentInvestment(investment);
             }
         }
 

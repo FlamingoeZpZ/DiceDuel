@@ -37,7 +37,7 @@ namespace Game.Battle.Character
 
             if (_aiType is EaiType.Aggressive) _staminaWanted = (int)Mathf.Min(required * 0.2f, characterStats.MaxStamina);
             else if (_aiType is EaiType.Defensive) _staminaWanted = (int)Mathf.Min(required * 0.4f, characterStats.MaxStamina);
-            else _staminaWanted =  (int)Mathf.Min(required * 0.3f, characterStats.MaxStamina);
+            else _staminaWanted =  (int)Mathf.Min(required * 0.2f, characterStats.MaxStamina);
 
         }
 
@@ -100,7 +100,7 @@ namespace Game.Battle.Character
 
                 if (chanceToDoOpposite < firstStep) firstAbility.Add(lastDice);
                 else if(chanceToDoOpposite < secondStep) secondAbility.Add(lastDice);
-                else thirdAbility.Add(lastDice);
+                else if (CurrentStaminaCap <= _staminaWanted * 1.5f) thirdAbility.Add(lastDice);
             }
             //Allocate the rest of the dice to gaining stamina
 
