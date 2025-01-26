@@ -29,6 +29,7 @@ namespace Managers.Core
         public static async UniTask<bool> LoadGame(int slot = 0)
         {
             string path = GetPath(slot);
+            Debug.Log($"Trying to laod from {path}");
 
             // Check if the file exists
             if (!File.Exists(path))
