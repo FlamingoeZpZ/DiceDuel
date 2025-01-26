@@ -16,6 +16,10 @@ namespace Game.Battle.Character
 
     public abstract class BaseCharacter : MonoBehaviour, IWarrior
     {
+        public const int MaxStaminaCap = 40;
+        private int _maxHealth;
+        
+        
         [SerializeField] private Transform diceHudHolder;
         [SerializeField] private GameObject ragDoll;
         [SerializeField] private GameHud diceHudPrefab;
@@ -25,7 +29,6 @@ namespace Game.Battle.Character
         [SerializeField] private SliderText healthBar;
         [SerializeField] private SliderText staminaBar;
         [SerializeField] private SliderText staminaCap;
-        [SerializeField] protected CharacterStats characterStats;
         [SerializeField] protected AbilityBaseStats[] abilities;
         
         private GameHud[] _diceHuds;
@@ -79,7 +82,7 @@ namespace Game.Battle.Character
             get => _currentStaminaCap;
             set
             {
-                _currentStaminaCap = Mathf.Clamp(value, 1, characterStats.MaxStamina);
+                _currentStaminaCap = Mathf.Clamp(value, 1, MaxStaminaCap); // Min stamina is from 1 - 40
                 staminaCap.UpdateCurrent(_currentStaminaCap);
             }
         }
@@ -95,7 +98,7 @@ namespace Game.Battle.Character
         private Animator _characterAnimator;
         private bool _isLeftSide;
         
-        public virtual void Init(bool isLeftSide)
+        public virtual void Init(bool isLeftSide, int startStamina, int startHealth)
         {
             _isLeftSide = isLeftSide;
 
@@ -105,7 +108,20 @@ namespace Game.Battle.Character
                 layoutGroup.reverseArrangement = isLeftSide;
                 //layoutGroup.enabled = false; // disable because of how dice hud works.
             }
+
+            _maxHealth = startHealth;
+            _currentHealth = _maxHealth;
+            _currentStaminaCap = startStamina;
+            _currentStamina = _currentStaminaCap;
             
+            
+            healthBar.UpdateMax(_maxHealth);
+            staminaCap.UpdateMax(MaxStaminaCap);
+            staminaBar.UpdateMax(MaxStaminaCap);
+            
+            healthBar.UpdateCurrent(_currentHealth);
+            staminaCap.UpdateCurrent(_currentStaminaCap);
+            staminaBar.UpdateCurrent(_currentStamina);
         }
         
         public void TakeDamage(int amount, bool canBeBlocked)
@@ -173,7 +189,6 @@ namespace Game.Battle.Character
 
                 //Create an array to store each dice roll process required
                 UniTask<int>[] tasks = new UniTask<int>[dice.Length];
-
                 
                 for (int j = 0; j < dice.Length; j++)
                 {
@@ -205,7 +220,7 @@ namespace Game.Battle.Character
                 
                 GraphManager.Instance.RegisterRoll(dice, sum);
                 
-                abilityDatas.Add(new AbilityData(this, abilities[i], sum));
+                abilityDatas.Add(new AbilityData(this, abilities[i], sum, dice));
             }
             
             for (int i = 0; i < _diceHuds.Length; i++)
@@ -228,13 +243,8 @@ namespace Game.Battle.Character
 
         protected virtual void Awake()
         {
-            healthBar.UpdateMax(characterStats.MaxHealth);
-            staminaCap.UpdateMax(characterStats.MaxStamina);
-            staminaBar.UpdateMax(characterStats.MaxStamina);
             
-            CurrentHealth = characterStats.MaxHealth;
-            CurrentStaminaCap = 3;
-            CurrentStamina = CurrentStaminaCap;
+
 
             //If we're throwing right, we must be on the left side
             _isLeftSide = (Vector2.zero - (Vector2)transform.position).x > 0;

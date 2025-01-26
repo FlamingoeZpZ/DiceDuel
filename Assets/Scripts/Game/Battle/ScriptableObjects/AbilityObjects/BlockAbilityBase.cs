@@ -12,9 +12,9 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
     
         public override EAbilityType AbilityType() => EAbilityType.Defensive;
     
-        protected override UniTask StartAbilityImplementation(IWarrior user,  int diceValue, IWarrior opponent)
+        protected override UniTask StartAbilityImplementation(IWarrior user,   AbilityData data, IWarrior opponent)
         {
-            user.CurrentDefense += diceValue;
+            user.CurrentDefense += data.Value;
             //let's only create a particle if we need to.
             if (user is MonoBehaviour characterObject)
             {

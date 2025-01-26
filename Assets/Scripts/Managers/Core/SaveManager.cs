@@ -9,7 +9,7 @@ namespace Managers.Core
     public static class SaveManager
     {
         private static int _currentSlot;
-        public static SaveData CurrentSave { get; private set; }
+        public static SaveData CurrentSave { get; set; }
 
         private static readonly string Path = Application.persistentDataPath + "/Saves";
         private static readonly string FileName = "/Game";

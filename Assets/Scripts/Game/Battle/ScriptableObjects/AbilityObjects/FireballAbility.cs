@@ -12,20 +12,20 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
         [SerializeField] private Transform fireballPrefab;
         public override EAbilityType AbilityType() => EAbilityType.Offensive;
 
-        protected override async UniTask StartAbilityImplementation(IWarrior user, int diceValue, IWarrior opponent)
+        protected override async UniTask StartAbilityImplementation(IWarrior user,  AbilityData data, IWarrior opponent)
         {
             if (user is not BaseCharacter userCharacter || opponent is not BaseCharacter opponentCharacter)
             {
-                opponent.TakeDamage(diceValue, false);
+                opponent.TakeDamage(data.Value, false);
                 return;
             }
         
             //Want to spawn a fireball that moves towards the other side...
             Transform myFireball = Instantiate(fireballPrefab, userCharacter.transform.position, Quaternion.identity);
 
-            myFireball.localScale *= Mathf.Abs(diceValue / 10f);
+            myFireball.localScale *= Mathf.Abs(data.Value / 10f);
         
-            await MoveToAndExplode(myFireball, opponentCharacter.transform.position, Mathf.Max(diceValue / 3f, 1));
+            await MoveToAndExplode(myFireball, opponentCharacter.transform.position, Mathf.Max(data.Value / 3f, 1));
 
             EffectManager.Instance.PlaySparks(myFireball.position,
                 Quaternion.LookRotation(userCharacter.transform.position - opponentCharacter.transform.position, 
@@ -34,7 +34,7 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
 
             Destroy(myFireball.gameObject);
         
-            opponent.TakeDamage(diceValue, false);
+            opponent.TakeDamage(data.Value, false);
         }
 
         private async UniTask MoveToAndExplode(Transform transform, Vector3 end, float speed)

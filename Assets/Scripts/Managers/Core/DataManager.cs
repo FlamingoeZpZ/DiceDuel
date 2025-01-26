@@ -23,6 +23,8 @@ namespace Managers.Core
         
         public Sprite[] DiceSprites => diceSprites;
         public Sprite MissingIcon => missingIcon;
+        [ColorUsage(true, true)] public Color[] diceColors;
+
         public static DataManager Instance { get; private set; }
         
         private void Awake()

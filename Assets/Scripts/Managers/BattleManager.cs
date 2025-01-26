@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Game.Battle.Interfaces;
+using Managers.Core;
 using UnityEngine;
 
 namespace Managers
@@ -40,9 +41,9 @@ namespace Managers
         
         public async UniTask StartBattle()
         {
-            
-            _leftWarrior.Init(true);
-            _rightWarrior.Init(false);
+            int dayValue = Mathf.Min(SaveManager.CurrentSave.Day, 10);
+            _leftWarrior.Init(true, dayValue, dayValue * 10);
+            _rightWarrior.Init(false, dayValue, dayValue * 10);
             
             Debug.Log("Starting Battle");
             while (!HasFightConcluded())
@@ -89,8 +90,8 @@ namespace Managers
 
                 foreach (AbilityData ability in abilities)
                 {
-                    if(ability.Value <= 0) continue;
-                    await ability.Ability.StartAbility(ability.MyWarrior, ability.Value, ability.MyWarrior == _leftWarrior?_rightWarrior:_leftWarrior);
+                    if(ability.Value <= 0 || ability.MyWarrior.IsDefeated()) continue;
+                    await ability.Ability.StartAbility(ability.MyWarrior, ability, ability.MyWarrior == _leftWarrior?_rightWarrior:_leftWarrior);
                 }
             }
             Debug.Log("Concluding Battle, left lost " +_leftWarrior.IsDefeated() + " , right lost " + _rightWarrior.IsDefeated() + " !");

@@ -57,7 +57,7 @@ namespace Game.Battle.Character
         public void ConstructAbilityController(IWarrior controller,AbilityBaseStats[] abilities, EDiceType[] dice)
         {
             _myWarrior = controller;
-            
+            Debug.Log("Constructing Ability Controller: " + SaveManager.CurrentSave.BattleDice.Count);
             _abilityObjects = new AbilityUI[abilities.Length];
             for (int i = 0; i < abilities.Length; i++)
             {
@@ -69,6 +69,8 @@ namespace Game.Battle.Character
             _diceObjects = new Transform[dice.Length];
             for (int i = 0; i < dice.Length; i++)
             {
+                Debug.Log("Creating dice of: " + dice[i]);
+                
                 DragAndDropObject spawnedDice = Instantiate(dicePrefab, diceHolder);
                 spawnedDice.GetComponent<Image>().sprite = diceSprites[(int)dice[i]];
                 _diceObjects[i] = spawnedDice.transform;
@@ -145,9 +147,6 @@ namespace Game.Battle.Character
         //Compiles the dice values
         public EDiceType[][] DiceValues()
         {
-            _myWarrior.CurrentStaminaCap -= StaminaCapCost;
-            
-            
             EDiceType[][] diceValues = new EDiceType[_abilityObjects.Length][];
             for (int i = 0; i < _abilityObjects.Length; i++)
             {

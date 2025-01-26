@@ -34,11 +34,11 @@ namespace Managers.Core
                 EDiceType.Four,
                 EDiceType.Four,
             }; // There are 12 dice in hand
-            StoredDice = new int[]
+            StoredDice = new int[5] // Can technically delete the part below, but leave it open for future changes
             {
-                3,
-                2,
-                1,
+                0,
+                0,
+                0,
                 0,
                 0,
             }; //There are 5 dice types
@@ -52,16 +52,21 @@ namespace Managers.Core
         //Setters
         public async UniTask IncreaseDay()
         {
-            Day += 1;
-
-            for (int i = Investments.Count - 1; i >= 0; i--)
+            SaveData s =  SaveManager.CurrentSave;
+            s.Day++;
+            Debug.Log("Day has been increased, day is now: " + Day);
+            for (int i = s.Investments.Count - 1; i >= 0; i--)
             {
-                if (Investments[i].Progress())
+                Debug.Log("Expected to end on: " + s.Investments[i].EndDay);
+                if (  s.Investments[i].RemainingDays <= 1)
                 {
-                    Debug.Log("An investment has finished: ");
-                    StoredDice[(int)Investments[i].DiceType] += Investments[i].OutputDice;
+                    Debug.Log("An investment has finished: " + s.Investments[i].DiceType +", " + s.Investments[i].OutputDice);
+                    StoredDice[(int)s.Investments[i].DiceType] += s.Investments[i].OutputDice;
+                    s.Investments.RemoveAt(i);
                 }
             }
+
+            SaveManager.CurrentSave = s;
             await SaveManager.CurrentSave.SaveGame();
         }
 
@@ -85,7 +90,8 @@ namespace Managers.Core
     [StructLayout(LayoutKind.Sequential)]
     public struct Investment
     {
-        public int RemainingDays;
+        public int EndDay;
+        public int RemainingDays =>  EndDay-SaveManager.CurrentSave.Day;
         public int NumDice;
         public int OutputDice;
         public float InterestRate;
@@ -96,16 +102,9 @@ namespace Managers.Core
             NumDice = initialBalance;
             DiceType = type;
             InterestRate  = interestRate;
-            RemainingDays = numDays;
+            EndDay = numDays + SaveManager.CurrentSave.Day;
             OutputDice = CalculateInvestmentValue(initialBalance, numDays, interestRate);
         }
-
-        public bool Progress()
-        {
-            RemainingDays -= 1;
-            return RemainingDays <= 0;
-        }
-
         public static int CalculateInvestmentValue(int numDice, int numDays, float interest)
         {
             return Mathf.CeilToInt(numDice * Mathf.Pow(1 + interest, numDays));

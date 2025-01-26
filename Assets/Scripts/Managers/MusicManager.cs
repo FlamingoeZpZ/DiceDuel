@@ -48,8 +48,8 @@ namespace Managers
             float t = _audioSource.time;
             float ct = 0;
 
-            float startVolume = _audioSource.volume;
-
+            float startVolume = Mathf.Max(0.1f,_audioSource.volume);
+            
             while (ct < transitionTime)
             {
                 ct += Time.deltaTime;

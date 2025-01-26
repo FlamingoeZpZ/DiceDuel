@@ -26,6 +26,7 @@ namespace Managers
 
             Instance = this;
             _source = GetComponent<AudioSource>();
+            DontDestroyOnLoad(gameObject);
         }
 
         public void PlayDiceHitSound(float pitchShift = 0)
@@ -64,13 +65,23 @@ namespace Managers
             diceDissolveParticles.Play();
         }
 
-        public void PlaySparks(Vector3 position, Quaternion rotation, Color color)
+        public void PlaySparks(Vector3 position, Quaternion rotation, Color color, float intensity = 1)
         {
             sparkParticles.transform.SetPositionAndRotation(position, rotation);
             
             // Get the main module to set the start color
             var mainModule = sparkParticles.main;
             mainModule.startColor = color;
+
+            var b = sparkParticles.emission.GetBurst(0);
+            var count = b.count;
+            count.constantMax *= intensity;
+            b.count = count;
+            var curve = b.count;
+            curve.constantMin *= intensity;
+            b.count = curve;
+            sparkParticles.emission.SetBurst(0, b);
+            
             
             sparkParticles.Play();
         }

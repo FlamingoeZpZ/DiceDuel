@@ -12,9 +12,11 @@ namespace Game.Battle.Character
     {
         private EaiType _aiType;
         private int _staminaWanted;
+        private int _totalDiceCost;
         private EDiceType[] _myDice;
+        private int _lowestDiceValue;
 
-        
+
         protected override void Awake()
         {
             base.Awake();
@@ -28,17 +30,18 @@ namespace Game.Battle.Character
             
             Array.Sort(_myDice);
             
-            int required = _myDice.Length; //Faster for the computer than doing +1 12x times.
+            _totalDiceCost = _myDice.Length; //Faster for the computer than doing +1 12x times.
             
             foreach (EDiceType d in _myDice)
             {
-                required += (int)d;
+                _totalDiceCost += (int)d;
+                _lowestDiceValue = Mathf.Min(_lowestDiceValue, (int)d);
             }
 
-            if (_aiType is EaiType.Aggressive) _staminaWanted = (int)Mathf.Min(required * 0.2f, characterStats.MaxStamina);
-            else if (_aiType is EaiType.Defensive) _staminaWanted = (int)Mathf.Min(required * 0.4f, characterStats.MaxStamina);
-            else _staminaWanted =  (int)Mathf.Min(required * 0.2f, characterStats.MaxStamina);
-
+            _lowestDiceValue += 1;
+            if (_aiType is EaiType.Aggressive) _staminaWanted = (int)Mathf.Min(_totalDiceCost * 0.25f, MaxStaminaCap);
+            else if (_aiType is EaiType.Defensive) _staminaWanted = (int)Mathf.Min(_totalDiceCost * 0.35f, MaxStaminaCap);
+            else _staminaWanted =  (int)Mathf.Min(_totalDiceCost * 0.3f, MaxStaminaCap);
         }
 
 
@@ -100,7 +103,7 @@ namespace Game.Battle.Character
 
                 if (chanceToDoOpposite < firstStep) firstAbility.Add(lastDice);
                 else if(chanceToDoOpposite < secondStep) secondAbility.Add(lastDice);
-                else if (CurrentStaminaCap <= _staminaWanted * 1.5f) thirdAbility.Add(lastDice);
+                else if (CurrentStaminaCap < _totalDiceCost) thirdAbility.Add(lastDice);
             }
             //Allocate the rest of the dice to gaining stamina
 
@@ -117,25 +120,36 @@ namespace Game.Battle.Character
                 }
             }
 
+        
+            //Swap via deconstruction (Just a swap function really)
             if (_aiType is EaiType.Defensive)
             {
-                DiceSets = new EDiceType[][]
-                {
-                    secondAbility.ToArray(),
-                    firstAbility.ToArray(),
-                    thirdAbility.ToArray()
-                };
-            }
-            else
-            {
-                DiceSets = new EDiceType[][]
-                {
-                    firstAbility.ToArray(),
-                    secondAbility.ToArray(),
-                    thirdAbility.ToArray()
-                };
+                (firstAbility, secondAbility) = (secondAbility, firstAbility);
             }
             
+            
+            //Before we commit to our ability, we need to make sure the attack is valid.
+            int invalidDiceCount = CurrentStaminaCap - firstAbility.Count; // 12 - 12 // (all 1s)
+
+            if (invalidDiceCount < _lowestDiceValue) // 0 < 1
+            {
+                //Then we must move all the dice (We can assume from left to right)
+                //To a different ability.
+                for (int i = _lowestDiceValue - 1; i >= 0; --i)
+                {
+                    thirdAbility.Add(firstAbility[i]);
+                    firstAbility.RemoveAt(i);
+                }
+            }
+            
+            DiceSets = new EDiceType[][]
+            {
+                firstAbility.ToArray(),
+                secondAbility.ToArray(),
+                thirdAbility.ToArray()
+            };
+            
+
             Debug.Log("I have selected my dice.");
         }
 
@@ -148,8 +162,9 @@ namespace Game.Battle.Character
         protected override void OnDefeated()
         {
             base.OnDefeated();
-            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Four, Random.Range(1,4)); // 1-3 dice
-            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Six, Random.Range(0,3)); // 0-2 dice
+            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Four, Random.Range(1,5)); // 1-4 dice
+            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Six, Random.Range(1,3)); // 1-2 dice
+            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Eight, Random.Range(0,2)); // 0-1 dice
         }
     }
     

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Managers;
 using Managers.Core;
 using UI.DragAndDrop;
 using UnityEngine;
@@ -87,6 +88,10 @@ namespace Game.Shop
 
                     List<RectTransform> newSet = GetList(value.DiceType); 
                     newSet.Add(rt);
+                    Vector3 loc = Camera.main.ScreenToWorldPoint(rt.position);
+                    loc.z = 0;
+                    EffectManager.Instance.PlaySparks(loc, Quaternion.identity, DataManager.Instance.diceColors[(int)value.DiceType] , 1); 
+                    
                     //SaveManager.CurrentSave.Merge(value.DiceType - 1, value.DiceType);
                     return;
                 }

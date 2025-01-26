@@ -17,7 +17,7 @@ namespace Game.Shop
         
         private float _rate;
         private int _days;
-
+        private bool _isLocked;
 
         private void OnEnable()
         {
@@ -27,8 +27,15 @@ namespace Game.Shop
         
         private void OnDisable()
         {
+           
+            
             infiniteDiceHolder.OnDiceAdded += UpdateText;
             infiniteDiceHolder.OnDiceRemoved += UpdateText;
+            
+            if(_isLocked) return;
+            //Return any unspent dice
+            SaveManager.CurrentSave.AddDiceToStorage(infiniteDiceHolder.DiceType, infiniteDiceHolder.CurrentAmount);
+            
         }
 
         private void UpdateText()
@@ -65,6 +72,7 @@ namespace Game.Shop
 
         public void Lock()
         {
+            _isLocked = true;
             enabled = false;
             lockButton.interactable = false;
             missingImage.sprite = DataManager.Instance.DiceSprites[(int)infiniteDiceHolder.DiceType];

@@ -20,12 +20,12 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
         
         //Okay so we need some kind of wrapper or driver, a way to catch us on the entrance and exit so we can move back and forth correctly.
         
-        protected override async UniTask StartAbilityImplementation(IWarrior user,  int diceValue, IWarrior opponent)
+        protected override async UniTask StartAbilityImplementation(IWarrior user,  AbilityData data, IWarrior opponent)
         {
-            
+            user.CurrentStaminaCap -= data.DiceRolled.Length;
             //Specifically if we're running unit tests
             if (user is not BaseCharacter characterObject || opponent is not BaseCharacter opponentCharacter){
-                opponent.TakeDamage(diceValue, true);   
+                opponent.TakeDamage(data.Value, true);   
                 return; // Pattern match
             }
             
@@ -33,7 +33,7 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
 
             if (animator == null)
             {
-                opponent.TakeDamage(diceValue, true);
+                opponent.TakeDamage(data.Value, true);
                 return;
             }
             
@@ -43,7 +43,7 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
             
             await MoveTo(characterObject.transform, targetLocation - direction, 0.2f);
             
-            await ComboAttack(animator, diceValue, opponent);
+            await ComboAttack(animator, data.Value, opponent);
             
             await UniTask.Delay(500);
             

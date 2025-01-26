@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Game.Battle.ScriptableObjects;
+using Managers.Core;
 
 namespace Game.Battle.Interfaces
 {
@@ -7,7 +8,7 @@ namespace Game.Battle.Interfaces
     {
         public bool IsDefeated();
 
-        public void Init(bool isLeftSide);
+        public void Init(bool isLeftSide, int startStamina, int startHealth);
         
         public void TakeDamage(int amount, bool canBeBlocked);
         public void BeginRound();
@@ -27,11 +28,13 @@ namespace Game.Battle.Interfaces
         public readonly AbilityBaseStats Ability;
         public readonly int Value;
         public readonly IWarrior MyWarrior;
+        public readonly EDiceType[] DiceRolled;
 
-        public AbilityData( IWarrior myWarrior,AbilityBaseStats ability, int value)
+        public AbilityData( IWarrior myWarrior,AbilityBaseStats ability, int value, EDiceType[] diceRolled)
         {
             Ability = ability;
             Value = value;
+            DiceRolled = diceRolled;
             MyWarrior = myWarrior;
         }
     }

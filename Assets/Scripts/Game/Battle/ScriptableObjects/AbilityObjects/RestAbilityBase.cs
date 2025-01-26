@@ -9,9 +9,9 @@ namespace Game.Battle.ScriptableObjects.AbilityObjects
     {
         [SerializeField] private ParticleSystem particle;
         public override EAbilityType AbilityType() => EAbilityType.Support;
-        protected override UniTask StartAbilityImplementation(IWarrior user,  int diceValue, IWarrior opponent)
+        protected override UniTask StartAbilityImplementation(IWarrior user,  AbilityData data, IWarrior opponent)
         {
-            user.CurrentStaminaCap += diceValue;
+            user.CurrentStaminaCap += data.Value;
             //let's only create a particle if we need to.
             if (user is MonoBehaviour characterObject)
             {

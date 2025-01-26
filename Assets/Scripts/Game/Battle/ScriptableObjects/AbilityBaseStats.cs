@@ -22,16 +22,17 @@ namespace Game.Battle.ScriptableObjects
         };
         
         public abstract EAbilityType AbilityType();
-        protected abstract UniTask StartAbilityImplementation(IWarrior user, int diceValue, IWarrior opponent);
+        protected abstract UniTask StartAbilityImplementation(IWarrior user,  AbilityData data, IWarrior opponent);
 
-        public UniTask StartAbility(IWarrior user, int diceValue, IWarrior opponent)
+        public UniTask StartAbility(IWarrior user, AbilityData data, IWarrior opponent)
         {
-            Debug.Log("Dice value" + diceValue);
-            if(diceValue == 0) return UniTask.CompletedTask;
+            
+            Debug.Log("Dice value" + data.Value);
+            if(data.Value == 0) return UniTask.CompletedTask;
             
             //Drive logic that MUST ALWAYS happen... So we can do some data tracking here, or play some sounds.
             //GraphManager.Instance.RegisterRoll(this, diceValue);
-            return StartAbilityImplementation(user, diceValue , opponent);
+            return StartAbilityImplementation(user, data , opponent);
         }
 
     }
