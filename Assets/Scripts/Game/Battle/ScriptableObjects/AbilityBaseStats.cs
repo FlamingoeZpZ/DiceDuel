@@ -34,7 +34,6 @@ namespace Game.Battle.ScriptableObjects
             //GraphManager.Instance.RegisterRoll(this, diceValue);
             return StartAbilityImplementation(user, data , opponent);
         }
-
     }
     
  

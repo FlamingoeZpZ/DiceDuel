@@ -37,7 +37,7 @@ namespace UI.DragAndDrop
         {
             if (!_isBeingHeld) return;
             //RectTransformUtility.screenpoint
-            transform.position = Mouse.current.position.ReadValue();
+            transform.position = Pointer.current.position.ReadValue();
         }
         
         

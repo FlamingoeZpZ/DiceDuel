@@ -64,6 +64,7 @@ namespace Managers
             {
                 endText.text = "DEFEAT\nDefeated By " + winner.GetName();
                 SaveManager.DeleteCurrentSave();
+                await SaveManager.CreateNewGame("Player");
             }
             else
             {

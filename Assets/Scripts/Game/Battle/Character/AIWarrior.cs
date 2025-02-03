@@ -23,7 +23,7 @@ namespace Game.Battle.Character
             _aiType = (EaiType)Random.Range(0, 3);
             
             
-            int difficulty = Mathf.Min(100,(SaveManager.CurrentSave.Day) * Random.Range(1, 11));
+            int difficulty = Mathf.Min(100,(SaveManager.CurrentSave.Day) * Random.Range(1, 8) * 2);
             name = "AI difficulty: " + difficulty +", Day: " + (SaveManager.CurrentSave.Day);
             Debug.Log("Difficulty: "+ difficulty);
             _myDice = GenerateDiceSet(difficulty, _aiType);
@@ -162,9 +162,11 @@ namespace Game.Battle.Character
         protected override void OnDefeated()
         {
             base.OnDefeated();
-            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Four, Random.Range(1,5)); // 1-4 dice
-            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Six, Random.Range(1,3)); // 1-2 dice
-            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Eight, Random.Range(0,2)); // 0-1 dice
+            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Four, Random.Range(1,3)); // 1-2 dice
+            SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Six, Random.Range(0,2)); // 0-1 dice
+            if(SaveManager.CurrentSave.Day > 3) SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Eight, Random.Range(0,2)); // 0-1 dice
+            if(SaveManager.CurrentSave.Day > 7) SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Ten, Random.Range(0,2)); // 0-1 dice
+            if(SaveManager.CurrentSave.Day > 10) SaveManager.CurrentSave.AddDiceToStorage(EDiceType.Twenty, Random.Range(0,2)); // 0-1 dice
         }
     }
     

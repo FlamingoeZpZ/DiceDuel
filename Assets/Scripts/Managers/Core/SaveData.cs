@@ -26,11 +26,9 @@ namespace Managers.Core
             Investments = new List<Investment>(); //There are 5 investments
             BattleDice = new List<EDiceType>()
             {
-                EDiceType.Ten,
-                EDiceType.Eight,
                 EDiceType.Six,
                 EDiceType.Six,
-                EDiceType.Six,
+                EDiceType.Four,
                 EDiceType.Four,
                 EDiceType.Four,
             }; // There are 12 dice in hand
