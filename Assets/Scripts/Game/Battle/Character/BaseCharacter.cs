@@ -244,10 +244,8 @@ namespace Game.Battle.Character
         protected virtual void Awake()
         {
             
-
-
             //If we're throwing right, we must be on the left side
-            _isLeftSide = (Vector2.zero - (Vector2)transform.position).x > 0;
+            //_isLeftSide = (Vector2.zero - (Vector2)transform.position).x > 0;
             _characterAnimator = GetComponentInChildren<Animator>();
 
             _diceHuds = new GameHud[abilities.Length];
