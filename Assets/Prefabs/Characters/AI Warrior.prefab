@@ -1410,6 +1410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModelAnchor
       objectReference: {fileID: 0}
+    - target: {fileID: 2828005490959041850, guid: 985c5393ac30ea843aa9e1798b1e09c3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 614964577cdc5f446abdba150aa1edb4, type: 2}
     - target: {fileID: 8180816489780301994, guid: 985c5393ac30ea843aa9e1798b1e09c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

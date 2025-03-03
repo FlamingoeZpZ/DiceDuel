@@ -256,7 +256,7 @@ AnimationClip:
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
-    - time: 0
+    - time: 0.016666668
       value: {fileID: 21300000, guid: 36e1142b564a3ec45a2181ed1c6e4d9a, type: 3}
     attribute: m_Sprite
     path: 
